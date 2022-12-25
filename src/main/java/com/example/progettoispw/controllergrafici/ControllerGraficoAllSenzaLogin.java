@@ -1,4 +1,4 @@
-package com.example.progettoispw.controllerGrafici;
+package com.example.progettoispw.controllergrafici;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;

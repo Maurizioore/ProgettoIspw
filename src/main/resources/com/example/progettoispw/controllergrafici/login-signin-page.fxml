@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="700.0" stylesheets="" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progettoispw.controllerGrafici.ControllerGraficoAllSenzaLogin">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" stylesheets="" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progettoispw.controllergrafici.ControllerGraficoLoginPage">
     <children>
         <BorderPane layoutX="7.0" layoutY="8.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -148,17 +148,23 @@
             <center>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@Style.css" BorderPane.alignment="CENTER">
                     <children>
+                        <JFXButton cacheShape="false" centerShape="false" focusTraversable="false" layoutX="84.0" layoutY="83.0" prefHeight="50.0" prefWidth="292.0" ripplerFill="WHITE" scaleShape="false" style="-fx-background-color: #1D3461;" styleClass="buttonItem" text="registati " textFill="#e0e1dd">
+                            <graphic>
+                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+                            </graphic>
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXButton cacheShape="false" centerShape="false" focusTraversable="false" layoutX="84.0" layoutY="184.0" prefHeight="50.0" prefWidth="292.0" ripplerFill="WHITE" scaleShape="false" style="-fx-background-color: #1D3461;" styleClass="buttonItem" text="accedi" textFill="#e0e1dd">
+                            <graphic>
+                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+                            </graphic>
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </JFXButton>
                         <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="167.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label fx:id="label1" layoutX="221.0" layoutY="42.0" text="contatti:" textFill="#1d3461">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="label2" layoutX="62.0" layoutY="124.0" text="segreteria:             099043840988092 " textFill="#1d3461">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
                   <JFXButton fx:id="ritornaHomeButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="7.0" layoutY="12.0" scaleShape="false" styleClass="menuItem" text=" ">
                      <graphic>
                         <ImageView fitHeight="22.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">

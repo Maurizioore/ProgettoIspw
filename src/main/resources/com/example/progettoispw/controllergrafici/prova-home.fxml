@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="700.0" stylesheets="" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progettoispw.controllerGrafici.ControllerGraficoLoginPage">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" stylesheets="" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progettoispw.controllergrafici.ControllerGraficoSenzaAccesso">
     <children>
         <BorderPane layoutX="7.0" layoutY="8.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -20,40 +20,40 @@
                         <Pane layoutX="204.0" layoutY="20.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #1D3461;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                         <HBox layoutX="234.0" layoutY="-17.0" prefHeight="43.0" prefWidth="525.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
                             <children>
-                                <JFXButton fx:id="chiSiamoButton" cacheShape="false" centerShape="false" focusTraversable="false" prefHeight="38.0" prefWidth="136.0" ripplerFill="BLACK" scaleShape="false" styleClass="menuItem" text="chi siamo " textFill="#1d3461">
+                                <JFXButton fx:id="chiSiamoButton" cacheShape="false" centerShape="false" focusTraversable="false" onAction="#chiSiamoAccess" prefHeight="38.0" prefWidth="136.0" ripplerFill="BLACK" scaleShape="false" styleClass="menuItem" text="chi siamo " textFill="#1d3461">
                                     <graphic>
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../../../../ImmaginiHome/communication.png" />
-                                            </image></ImageView>
+                                 <image>
+                                    <Image url="@../../../../ImmaginiHome/communication.png" />
+                                 </image></ImageView>
                                     </graphic>
                                     <font>
                                         <Font name="System Bold" size="18.0" />
                                     </font>
                                 </JFXButton>
-                                <JFXButton fx:id="aiutoButton" cacheShape="false" centerShape="false" focusTraversable="false" prefHeight="38.0" prefWidth="136.0" scaleShape="false" styleClass="menuItem" text="aiuto " textFill="#1d3461">
+                                <JFXButton fx:id="aiutoButton" cacheShape="false" centerShape="false" focusTraversable="false" onAction="#aiutoAccess" prefHeight="38.0" prefWidth="136.0" scaleShape="false" styleClass="menuItem" text="aiuto " textFill="#1d3461">
                                     <graphic>
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../../../../ImmaginiHome/question.png" />
-                                            </image></ImageView>
+                                 <image>
+                                    <Image url="@../../../../ImmaginiHome/question.png" />
+                                 </image></ImageView>
                                     </graphic>
                                     <font>
                                         <Font size="18.0" />
                                     </font>
                                 </JFXButton>
-                                <JFXButton fx:id="contattiButton" cacheShape="false" centerShape="false" focusTraversable="false" prefHeight="38.0" prefWidth="136.0" scaleShape="false" styleClass="menuItem" text="contatti" textFill="#1d3461">
+                                <JFXButton fx:id="contattiButton" cacheShape="false" centerShape="false" focusTraversable="false" onAction="#contattiAccess" prefHeight="38.0" prefWidth="136.0" scaleShape="false" styleClass="menuItem" text="contatti" textFill="#1d3461">
                                     <graphic>
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../../../../ImmaginiHome/phone-call.png" />
-                                            </image></ImageView>
+                                 <image>
+                                    <Image url="@../../../../ImmaginiHome/phone-call.png" />
+                                 </image></ImageView>
                                     </graphic>
                                     <font>
                                         <Font size="18.0" />
                                     </font>
                                 </JFXButton>
-                                <JFXButton fx:id="loginButton" cacheShape="false" centerShape="false" focusTraversable="false" prefHeight="38.0" prefWidth="136.0" scaleShape="false" styleClass="menuItem" text="login" textFill="#1d3461">
+                                <JFXButton fx:id="loginButton" cacheShape="false" centerShape="false" focusTraversable="false" onAction="#loginAccess" prefHeight="38.0" prefWidth="136.0" scaleShape="false" styleClass="menuItem" text="login" textFill="#1d3461">
                                     <graphic>
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -145,38 +145,34 @@
                     </children>
                 </AnchorPane>
             </left>
-            <center>
-                <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@Style.css" BorderPane.alignment="CENTER">
-                    <children>
-                        <JFXButton cacheShape="false" centerShape="false" focusTraversable="false" layoutX="84.0" layoutY="83.0" prefHeight="50.0" prefWidth="292.0" ripplerFill="WHITE" scaleShape="false" style="-fx-background-color: #1D3461;" styleClass="buttonItem" text="registati " textFill="#e0e1dd">
-                            <graphic>
-                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
-                            </graphic>
-                            <font>
-                                <Font size="18.0" />
-                            </font>
-                        </JFXButton>
-                        <JFXButton cacheShape="false" centerShape="false" focusTraversable="false" layoutX="84.0" layoutY="184.0" prefHeight="50.0" prefWidth="292.0" ripplerFill="WHITE" scaleShape="false" style="-fx-background-color: #1D3461;" styleClass="buttonItem" text="accedi" textFill="#e0e1dd">
-                            <graphic>
-                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
-                            </graphic>
-                            <font>
-                                <Font size="18.0" />
-                            </font>
-                        </JFXButton>
-                        <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="167.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" />
-                  <JFXButton fx:id="ritornaHomeButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="7.0" layoutY="12.0" scaleShape="false" styleClass="menuItem" text=" ">
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@Style.css" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton cacheShape="false" centerShape="false" focusTraversable="false" layoutX="84.0" layoutY="59.0" onAction="#segnalaProblemaAccess" prefHeight="50.0" prefWidth="292.0" ripplerFill="WHITE" scaleShape="false" style="-fx-background-color: #1D3461;" styleClass="buttonItem" text="segnala problema " textFill="#e0e1dd">
                      <graphic>
-                        <ImageView fitHeight="22.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../ImmaginiHome/back.png" />
-                           </image>
-                        </ImageView>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
                   </JFXButton>
-                    </children>
-                </AnchorPane>
-            </center>
+                  <JFXButton cacheShape="false" centerShape="false" focusTraversable="false" layoutX="84.0" layoutY="143.0" prefHeight="50.0" prefWidth="292.0" ripplerFill="WHITE" scaleShape="false" style="-fx-background-color: #1D3461;" styleClass="buttonItem" text="lascia una recensione" textFill="#e0e1dd">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+                     </graphic>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton cacheShape="false" centerShape="false" focusTraversable="false" layoutX="84.0" layoutY="230.0" prefHeight="50.0" prefWidth="292.0" ripplerFill="WHITE" scaleShape="false" style="-fx-background-color: #1D3461;" styleClass="buttonItem" text="suggerisci funzioni" textFill="#e0e1dd">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="167.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </AnchorPane>
+         </center>
         </BorderPane>
     </children>
 </AnchorPane>

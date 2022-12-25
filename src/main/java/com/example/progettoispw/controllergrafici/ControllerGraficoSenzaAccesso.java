@@ -1,5 +1,4 @@
-package com.example.progettoispw.controllerGrafici;
-import com.jfoenix.controls.JFXButton;
+package com.example.progettoispw.controllergrafici;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

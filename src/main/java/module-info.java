@@ -4,6 +4,6 @@ module com.example.progettoispw {
     requires com.jfoenix;
 
 
-    opens com.example.progettoispw.controllerGrafici to javafx.fxml;
-    exports com.example.progettoispw.controllerGrafici;
+    opens com.example.progettoispw.controllergrafici to javafx.fxml;
+    exports com.example.progettoispw.controllergrafici;
 }
