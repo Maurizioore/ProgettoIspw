@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" stylesheets="" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progettoispw.controllerGrafici.ControllerGraficoAllSenzaLogin">
+    <children>
+        <BorderPane layoutX="7.0" layoutY="8.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+                <AnchorPane prefHeight="65.0" prefWidth="200.0" style="-fx-background-color: WHITE;" stylesheets="@Style.css" BorderPane.alignment="CENTER">
+                    <children>
+                        <Pane layoutX="204.0" layoutY="20.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #1D3461;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <HBox layoutX="234.0" layoutY="-17.0" prefHeight="43.0" prefWidth="525.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                            <children>
+                                <JFXButton fx:id="chiSiamoButton" cacheShape="false" centerShape="false" focusTraversable="false" prefHeight="38.0" prefWidth="136.0" ripplerFill="BLACK" scaleShape="false" styleClass="menuItem" text="chi siamo " textFill="#1d3461">
+                                    <graphic>
+                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../../ImmaginiHome/communication.png" />
+                                            </image></ImageView>
+                                    </graphic>
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </JFXButton>
+                                <JFXButton fx:id="aiutoButton" cacheShape="false" centerShape="false" focusTraversable="false" prefHeight="38.0" prefWidth="136.0" scaleShape="false" styleClass="menuItem" text="aiuto " textFill="#1d3461">
+                                    <graphic>
+                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../../ImmaginiHome/question.png" />
+                                            </image></ImageView>
+                                    </graphic>
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </JFXButton>
+                                <JFXButton fx:id="contattiButton" cacheShape="false" centerShape="false" focusTraversable="false" prefHeight="38.0" prefWidth="136.0" scaleShape="false" styleClass="menuItem" text="contatti" textFill="#1d3461">
+                                    <graphic>
+                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../../ImmaginiHome/phone-call.png" />
+                                            </image></ImageView>
+                                    </graphic>
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </JFXButton>
+                                <JFXButton fx:id="loginButton" cacheShape="false" centerShape="false" focusTraversable="false" prefHeight="38.0" prefWidth="136.0" scaleShape="false" styleClass="menuItem" text="login" textFill="#1d3461">
+                                    <graphic>
+                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../../ImmaginiHome/user.png" />
+                                            </image></ImageView>
+                                    </graphic>
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                </JFXButton>
+                            </children>
+                        </HBox>
+                        <Label fx:id="menu" layoutX="39.0" layoutY="37.0" text="MENU" textFill="#1d3461" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="584.5" AnchorPane.topAnchor="37.0">
+                            <graphic>
+                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../ImmaginiHome/align-text.png" />
+                                    </image></ImageView>
+                            </graphic>
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="menuBack" layoutX="39.0" layoutY="37.0" text="MENU" textFill="#1d3461" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="584.5" AnchorPane.topAnchor="37.0">
+                            <graphic>
+                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../ImmaginiHome/align-text.png" />
+                                    </image></ImageView>
+                            </graphic>
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </top>
+            <left>
+                <AnchorPane fx:id="slider" prefHeight="362.0" prefWidth="176.0" style="-fx-background-color: #1D3461;" stylesheets="@Style.css" BorderPane.alignment="CENTER">
+                    <children>
+                        <VBox layoutY="45.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
+                            <children>
+                                <JFXButton alignment="BASELINE_LEFT" cacheShape="false" centerShape="false" focusTraversable="false" prefHeight="38.0" prefWidth="176.0" scaleShape="false" styleClass="sidebarItem" text="attive" textFill="#e0e1dd">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../../ImmaginiHome/investigation.png" />
+                                            </image></ImageView>
+                                    </graphic>
+                                </JFXButton>
+                                <JFXButton alignment="BASELINE_LEFT" cacheShape="false" centerShape="false" focusTraversable="false" prefHeight="38.0" prefWidth="176.0" scaleShape="false" styleClass="sidebarItem" text="risolte" textFill="#e0e1dd">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../../ImmaginiHome/success.png" />
+                                            </image></ImageView>
+                                    </graphic>
+                                </JFXButton>
+                                <JFXButton alignment="BASELINE_LEFT" cacheShape="false" centerShape="false" focusTraversable="false" prefHeight="38.0" prefWidth="176.0" scaleShape="false" styleClass="sidebarItem" text="chat" textFill="#e0e1dd">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../../ImmaginiHome/message.png" />
+                                            </image></ImageView>
+                                    </graphic>
+                                </JFXButton>
+                                <JFXButton alignment="BASELINE_LEFT" cacheShape="false" centerShape="false" focusTraversable="false" prefHeight="38.0" prefWidth="176.0" scaleShape="false" styleClass="sidebarItem" text="login" textFill="#e0e1dd">
+                                    <font>
+                                        <Font name="System Bold" size="18.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../../ImmaginiHome/user.png" />
+                                            </image></ImageView>
+                                    </graphic>
+                                </JFXButton>
+                            </children>
+                        </VBox>
+                    </children>
+                </AnchorPane>
+            </left>
+            <center>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@Style.css" BorderPane.alignment="CENTER">
+                    <children>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="167.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="label1" layoutX="138.0" layoutY="45.0" text="hai bisogno di una mano " textFill="#1d3461">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="label2" layoutX="20.0" layoutY="124.0" text="consulta il nostro sito ufficiale www.bo.com" textFill="#1d3461">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                  <JFXButton fx:id="ritornaHomeButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="7.0" layoutY="12.0" scaleShape="false" styleClass="menuItem" text=" ">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../ImmaginiHome/back.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                    </children>
+                </AnchorPane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,95 @@
+package com.example.progettoispw.controllerGrafici;
+import com.jfoenix.controls.JFXButton;
+import javafx.animation.TranslateTransition;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+public class ControllerGraficoSenzaAccesso implements Initializable {
+
+    @FXML
+    private Label menu;
+
+    @FXML
+    private Label menuBack;
+
+    @FXML
+    private AnchorPane slider;
+
+    /*questa classe la uso per implementare la logica dei button comuni a tutte le schermate , in particolare questa
+    * classe svolge il ruolo di controller grafico per la prova-home.fxml, la quale e' la prima schermata che viene
+    * quando starto l'app*/
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        slider.setTranslateX(0);
+        menu.setOnMouseClicked(event-> {
+            TranslateTransition slide= new TranslateTransition();
+            slide.setDuration(Duration.seconds(0.4));
+            slide.setNode(slider);
+            slide.setToX(0);
+            slide.play();
+
+            slider.setTranslateX(-176);
+            slide.setOnFinished((ActionEvent e )->{
+                menu.setVisible(false);
+                menuBack.setVisible(true);
+            });
+        });
+        menuBack.setOnMouseClicked(event-> {
+            TranslateTransition slide= new TranslateTransition();
+            slide.setDuration(Duration.seconds(0.4));
+            slide.setNode(slider);
+            slide.setToX(-176);
+            slide.play();
+
+            slider.setTranslateX(0);
+            slide.setOnFinished((ActionEvent e )->{
+                menu.setVisible(true);
+                menuBack.setVisible(false);
+            });
+        });
+
+        //loginButton.setOnMouseClicked(event->{
+        //    try {
+        //        controllerVisulizzatoreScene=new ControllerVisulizzatoreScene("login-signin-page.fxml");
+        //    }catch(Exception e){
+        //        System.out.println("error: "+ e);
+        //    }
+        //});
+        //devi associare un controller grafico a questo chisiamopage.fxml
+        //contattiButton.setOnMouseClicked(event->{
+        //    try {
+        //        controllerVisulizzatoreScene=new ControllerVisulizzatoreScene("ContattaciPage.fxml");
+        //    }catch(Exception e){
+        //        System.out.println("error: "+ e);
+        //    }
+        //});
+    }
+    @FXML
+    void loginAccess() throws Exception{
+        new ControllerVisulizzatoreScene("login-signin-page.fxml");
+    }
+    @FXML
+    void contattiAccess() throws Exception{
+        new ControllerVisulizzatoreScene("ContattaciPage.fxml");
+    }
+    @FXML
+    void aiutoAccess() throws Exception {
+        new ControllerVisulizzatoreScene("aiutoAccess.fxml");
+    }
+
+    @FXML
+    void chiSiamoAccess() throws Exception {
+        new ControllerVisulizzatoreScene("chiSiamoNoi.fxml");
+    }
+    @FXML
+    void segnalaProblemaAccess() throws Exception {
+        new ControllerVisulizzatoreScene("PaginaSegnalaProblema.fxml");
+    }
+
+}
