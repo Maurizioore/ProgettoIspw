@@ -39,6 +39,7 @@ public class ControllerGraficoAllSenzaLogin implements Initializable {
     private JFXButton ritornaHomeButton=new JFXButton();
 
     private  ControllerGraficoSenzaAccesso controllerGraficoSenzaAccesso=  new ControllerGraficoSenzaAccesso();
+
     /*questa classe e' associata alle page aiutoAccess chiSiamoNoi ContattaciPage, cosi come la login page che
     * ha pulsanti non in comune con nessuna schermata, gestisce i pulsanti che ha invece in comune grazie a
     * un istanza di controllerGraficoSenzaAccesso, questa gestisce invece tutti i pulsanti che sono in comune usando
@@ -63,7 +64,7 @@ public class ControllerGraficoAllSenzaLogin implements Initializable {
             try{
                 controllerGraficoSenzaAccesso.loginAccess();
             }catch (Exception e){
-                System.out.println("error : "+e);
+                System.exit(-1);
             }
         });
         chiSiamoButton.setOnMouseClicked(event->{
