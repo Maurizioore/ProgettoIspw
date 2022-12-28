@@ -57,7 +57,7 @@ public class ControllerGraficoAllSenzaLogin implements Initializable {
 
         ritornaHomeButton.setOnMouseClicked(event->{
             try {
-
+                //questa di visulizzare home si ripete tante volte, potrei provarlo a metterlo in una classe a parte
                 controllerVisulizzatoreScene.visualizzaScena("prova-home.fxml");
             }catch(Exception e){
                 System.out.println("error: "+ e);

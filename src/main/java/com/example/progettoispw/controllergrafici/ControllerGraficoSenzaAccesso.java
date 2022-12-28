@@ -55,22 +55,6 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
                 menuBack.setVisible(false);
             });
         });
-
-        //loginButton.setOnMouseClicked(event->{
-        //    try {
-        //        controllerVisulizzatoreScene=new ControllerVisulizzatoreScene("login-signin-page.fxml");
-        //    }catch(Exception e){
-        //        System.out.println("error: "+ e);
-        //    }
-        //});
-        //devi associare un controller grafico a questo chisiamopage.fxml
-        //contattiButton.setOnMouseClicked(event->{
-        //    try {
-        //        controllerVisulizzatoreScene=new ControllerVisulizzatoreScene("ContattaciPage.fxml");
-        //    }catch(Exception e){
-        //        System.out.println("error: "+ e);
-        //    }
-        //});
     }
     @FXML
     void loginAccess() throws Exception{
