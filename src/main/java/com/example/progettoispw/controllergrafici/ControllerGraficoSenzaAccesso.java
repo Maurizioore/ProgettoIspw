@@ -25,7 +25,7 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
 
     /*questa classe la uso per implementare la logica dei button comuni a tutte le schermate , in particolare questa
     * classe svolge il ruolo di controller grafico per la prova-home.fxml, la quale e' la prima schermata che viene
-    * quando starto l'app*/
+    * quando start l'app*/
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         slider.setTranslateX(0);
