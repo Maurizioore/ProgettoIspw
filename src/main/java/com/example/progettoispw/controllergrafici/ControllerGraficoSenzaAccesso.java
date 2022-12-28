@@ -20,6 +20,9 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
     @FXML
     private AnchorPane slider;
 
+    //aggiunta ora con il singleton
+    private ControllerVisulizzatoreScene controllerVisulizzatoreScene=ControllerVisulizzatoreScene.getInstance(null);
+
     /*questa classe la uso per implementare la logica dei button comuni a tutte le schermate , in particolare questa
     * classe svolge il ruolo di controller grafico per la prova-home.fxml, la quale e' la prima schermata che viene
     * quando starto l'app*/
@@ -71,24 +74,25 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
     }
     @FXML
     void loginAccess() throws Exception{
-        new ControllerVisulizzatoreScene("login-signin-page.fxml");
+        controllerVisulizzatoreScene.visualizzaScena("login-signin-page.fxml");
     }
     @FXML
     void contattiAccess() throws Exception{
-        new ControllerVisulizzatoreScene("ContattaciPage.fxml");
+        controllerVisulizzatoreScene.visualizzaScena("ContattaciPage.fxml");
     }
     @FXML
     void aiutoAccess() throws Exception {
-        new ControllerVisulizzatoreScene("aiutoAccess.fxml");
+        controllerVisulizzatoreScene.visualizzaScena("aiutoAccess.fxml");
     }
 
     @FXML
     void chiSiamoAccess() throws Exception {
-        new ControllerVisulizzatoreScene("chiSiamoNoi.fxml");
+
+        controllerVisulizzatoreScene.visualizzaScena("chiSiamoNoi.fxml");
     }
     @FXML
     void segnalaProblemaAccess() throws Exception {
-        new ControllerVisulizzatoreScene("PaginaSegnalaProblema.fxml");
+        controllerVisulizzatoreScene.visualizzaScena("PaginaSegnalaProblema.fxml");
     }
 
 }

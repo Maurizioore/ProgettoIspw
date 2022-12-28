@@ -8,7 +8,8 @@ public class StartApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         final String schermataPrincipale="prova-home.fxml";
-        ControllerVisulizzatoreScene controllerVisulizzatoreScene=new ControllerVisulizzatoreScene(schermataPrincipale,stage);
+        ControllerVisulizzatoreScene controllerVisulizzatoreScene=ControllerVisulizzatoreScene.getInstance(stage);
+        controllerVisulizzatoreScene.visualizzaScenaPrincipale(schermataPrincipale);
     }
     public static void main(String[] args) {
         launch();

@@ -32,6 +32,8 @@ public class ControllerGraficoLoginPage implements Initializable{
     private JFXButton chiSiamoButton;
 
     private ControllerGraficoSenzaAccesso controllerGraficoSenzaAccesso= new ControllerGraficoSenzaAccesso();
+    //aggiunta ora con il singleton
+    private ControllerVisulizzatoreScene controllerVisulizzatoreScene=ControllerVisulizzatoreScene.getInstance(null);
 
     /*questa classe gestisce la login page, avando piu' button e non avendoli in comune con le altre page, ho creato
     * questo controller grafico apposta per essa, questa classe e' il controller grafico della page login-signin-page.fxml,
@@ -47,7 +49,7 @@ public class ControllerGraficoLoginPage implements Initializable{
 
         ritornaHomeButton.setOnMouseClicked(event->{
             try {
-                new ControllerVisulizzatoreScene("prova-home.fxml");
+                controllerVisulizzatoreScene.visualizzaScena("prova-home.fxml");
             }catch(Exception e){
                 System.out.println("error: "+ e);
             }

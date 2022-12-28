@@ -26,12 +26,15 @@ public class ControllerGraficoPaginaSegnalaProblema implements Initializable {
     private JFXButton chiSiamoButton;
 
     private ControllerGraficoSenzaAccesso controllerGraficoSenzaAccesso= new ControllerGraficoSenzaAccesso();
+    //aggiunta ora con il singleton
+    private ControllerVisulizzatoreScene controllerVisulizzatoreScene=ControllerVisulizzatoreScene.getInstance(null);
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         ritornaHomeButton.setOnMouseClicked(event->{
             try {
-                new ControllerVisulizzatoreScene("prova-home.fxml");
+
+                controllerVisulizzatoreScene.visualizzaScena("prova-home.fxml");
             }catch(Exception e){
                 System.out.println("error: "+ e);
             }

@@ -45,6 +45,8 @@ public class ControllerGraficoAllSenzaLogin implements Initializable {
     * un istanza di controllerGraficoSenzaAccesso, questa gestisce invece tutti i pulsanti che sono in comune usando
     * anche essa ovviamente un istanza di controllerGraficoSenzaAcceso  */
 
+    //questa ce lho aggiunta ora con il singleton
+    private ControllerVisulizzatoreScene controllerVisulizzatoreScene=ControllerVisulizzatoreScene.getInstance(null);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -55,7 +57,8 @@ public class ControllerGraficoAllSenzaLogin implements Initializable {
 
         ritornaHomeButton.setOnMouseClicked(event->{
             try {
-                new ControllerVisulizzatoreScene("prova-home.fxml");
+
+                controllerVisulizzatoreScene.visualizzaScena("prova-home.fxml");
             }catch(Exception e){
                 System.out.println("error: "+ e);
             }

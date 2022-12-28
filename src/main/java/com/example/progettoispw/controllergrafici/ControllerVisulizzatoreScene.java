@@ -9,20 +9,21 @@ public class ControllerVisulizzatoreScene{
     private Scene scene;
     private FXMLLoader loader;
     private Parent fxmlLoader;
-
+    private static ControllerVisulizzatoreScene controllerVisulizzatoreScene=null;
     private static Stage stage;
     private String string;
 
-    ControllerVisulizzatoreScene(String newString,Stage stage) throws Exception {
-        string=newString;
-        ControllerVisulizzatoreScene.stage =stage;
-        visualizzaScenaPrincipale(string);
+    private ControllerVisulizzatoreScene(Stage newStage){
+        stage=newStage;
+    }
+    public static ControllerVisulizzatoreScene getInstance(Stage newStage){
+        if(controllerVisulizzatoreScene==null){
+            controllerVisulizzatoreScene=new ControllerVisulizzatoreScene(newStage);
+        }
+        return controllerVisulizzatoreScene;
     }
 
-    ControllerVisulizzatoreScene(String newString) throws Exception {
-        string=newString;
-        visualizzaScena(string);
-    }
+
     public void visualizzaScenaPrincipale(String stringaScena) throws Exception {
         //this method load the main view
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(stringaScena));
