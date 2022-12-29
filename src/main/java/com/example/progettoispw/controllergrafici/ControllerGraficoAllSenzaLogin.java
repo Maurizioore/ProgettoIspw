@@ -2,95 +2,35 @@ package com.example.progettoispw.controllergrafici;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class ControllerGraficoAllSenzaLogin implements Initializable {
-
-    @FXML
-    private JFXButton loginButton;
-
-    @FXML
-    private Label menu;
-
-    @FXML
-    private Label menuBack;
-
-    @FXML
-    private AnchorPane slider;
-    @FXML
-    private Label label1;
-    @FXML
-    private Label label2;
-    @FXML
-    private JFXButton aiutoButton= new JFXButton();
-
-    @FXML
-    private JFXButton chiSiamoButton= new JFXButton();
-    @FXML
-    private JFXButton contattiButton= new JFXButton();
-
+public class ControllerGraficoAllSenzaLogin  extends  ControllerGraficoSenzaAccesso {
     @FXML
     private JFXButton ritornaHomeButton=new JFXButton();
 
-    private  ControllerGraficoSenzaAccesso controllerGraficoSenzaAccesso=  new ControllerGraficoSenzaAccesso();
-
-    /*questa classe e' associata alle page aiutoAccess chiSiamoNoi ContattaciPage, cosi come la login page che
+    /*questa classe è associata alla page aiutoAccess chiSiamoNoi ContattaciPage, cosi come la login page che
     * ha pulsanti non in comune con nessuna schermata, gestisce i pulsanti che ha invece in comune grazie a
     * un istanza di controllerGraficoSenzaAccesso, questa gestisce invece tutti i pulsanti che sono in comune usando
     * anche essa ovviamente un istanza di controllerGraficoSenzaAcceso  */
 
     //questa ce lho aggiunta ora con il singleton
-    private ControllerVisulizzatoreScene controllerVisulizzatoreScene=ControllerVisulizzatoreScene.getInstance(null);
-
+    private final ControllerVisualizzatoreScene controllerVisualizzatoreScene=ControllerVisualizzatoreScene.getInstance(null);
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        /*questo ritornaHomeButton e' una duplicazione di un codice che si torva anche in ControllerGraficoLoginPage
-        * in questo caso ho preferito duplicare codice gia esistente poiche e' un botton in comune alle schermate
-        * secondarie ma non alla principale , ovviamente se si dovesse apportare qualche modifica qui bisognera' fare
+        /*questo ritornaHomeButton è una duplicazione di un codice che si torva anche in ControllerGraficoLoginPage
+        * in questo caso ho preferito duplicare codice gia esistente poiché è un button in comune alle schermate
+        * secondarie ma non alla principale, ovviamente se si dovesse apportare qualche modifica qui bisognerà fare
         * il duale nel ControllerGraficoLoginPage */
-
         ritornaHomeButton.setOnMouseClicked(event->{
             try {
-                //questa di visulizzare home si ripete tante volte, potrei provarlo a metterlo in una classe a parte
-                controllerVisulizzatoreScene.visualizzaScena("prova-home.fxml");
+                //questa di visualizzare home si ripete tante volte, potrei provarlo a metterlo in una classe a parte
+                controllerVisualizzatoreScene.visualizzaScena("prova-home.fxml");
             }catch(Exception e){
                 System.out.println("error: "+ e);
             }
         });
-        loginButton.setOnMouseClicked(event->{
-            try{
-                controllerGraficoSenzaAccesso.loginAccess();
-            }catch (Exception e){
-                System.exit(-1);
-            }
-        });
-        chiSiamoButton.setOnMouseClicked(event->{
-            try{
-                controllerGraficoSenzaAccesso.chiSiamoAccess();
-            }catch (Exception e){
-                System.out.println("error : "+e);
-            }
-        });
-        aiutoButton.setOnMouseClicked(event->{
-            try{
-                controllerGraficoSenzaAccesso.aiutoAccess();
-            }catch (Exception e){
-                System.out.println("error : "+e);
-            }
-        });
-        contattiButton.setOnMouseClicked(event->{
-            try{
-                controllerGraficoSenzaAccesso.contattiAccess();
-            }catch (Exception e){
-                System.out.println("error : "+e);
-            }
-        });
-
+        super.initialize(url,resourceBundle);
     }
 }
