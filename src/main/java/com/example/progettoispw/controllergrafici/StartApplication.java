@@ -8,7 +8,7 @@ public class StartApplication extends Application {
     //adesso devo creare la pagina segnala palo e sotto di esso segnala buca
     //fai extend alle classi cgasl cgpsp cglp su controller controller grafico senza accesso
     //in controller grafico senza accesso togli il commento a quelli in initilizable
-    //e alle classi cgasl cgpsp cglp fai chiamare super initilizable
+    //e  alle classi cgasl cgpsp cglp fai chiamare super initilizable
     //visto che ci stai lascia solo il controller visulizzatore scene del padre e togli ai figli che lo estendono
     
     @Override
