@@ -18,13 +18,6 @@ public class ControllerGraficoPaginaSegnalaProblema extends ControllerGraficoLog
     private final ControllerVisualizzatoreScene controllerVisualizzatoreScene=ControllerVisualizzatoreScene.getInstance(null);
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //ritornaHomeButton.setOnMouseClicked(event->{
-        //    try {
-        //        controllerVisualizzatoreScene.visualizzaScena("prova-home.fxml");
-        //    }catch(Exception e){
-        //        System.out.println("error: "+ e);
-        //    }
-        //});
         super.initialize(url,resourceBundle);
     }
 }
