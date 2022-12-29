@@ -11,12 +11,11 @@ public class ControllerVisualizzatoreScene{
     private static ControllerVisualizzatoreScene controllerVisualizzatoreScene=null;
     private static Stage stage;
 
-    private ControllerVisualizzatoreScene(Stage newStage){
-        stage=newStage;
-    }
+    private ControllerVisualizzatoreScene(){}
     public static ControllerVisualizzatoreScene getInstance(Stage newStage){
         if(controllerVisualizzatoreScene==null){
-            controllerVisualizzatoreScene=new ControllerVisualizzatoreScene(newStage);
+            controllerVisualizzatoreScene=new ControllerVisualizzatoreScene();
+            stage=newStage;
         }
         return controllerVisualizzatoreScene;
     }
