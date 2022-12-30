@@ -36,7 +36,6 @@ public class ControllerApplicativoSegnalazionePaloIlluminazione {
         PaloIlluminazione paloDaSegnalare= new PaloIlluminazione(numeroSerialePaloIlluminazione,"in corso di riparazione",indirizzo);
     }
     public void prendiContenitore(){
-        //private final String indirizzo;
         ContenitorePaliIlluminazione contenitorePaliIlluminazione = ContenitorePaliIlluminazione.getInstance();
         contenitore= contenitorePaliIlluminazione.ottieniContenitore();
         if (contenitore==null){
@@ -59,23 +58,21 @@ public class ControllerApplicativoSegnalazionePaloIlluminazione {
             if(x.equals(numeroSerialePaloIlluminazione)){
                 //vuol dire che quel palo è valido e può essere segnalato, devo quindi creare un oggetto palo
                 //e segnalarlo
-                //System.out.println("la procedura di riparazione è stata aperta");
                 return;
             }
         }
-        //se arrivo qui vuol dire che il numero seriale del palo che ho passato non esiste, lancio quindi un eccezione
+        //se arrivo qui vuol dire che il numero seriale del palo che l'utente ha  passato non esiste, lancio quindi un eccezione
         throw new NonEsisteNumeroSerialeException("\nIl numero seriale passato non esiste");
     }
     private void verificaPresenzaIndirizzoInputNelContenitore() throws NonEsisteIndirizzoException {
         for (String x:indirizzi){
             if(x.equals(indirizzo)){
-                //vuol dire che quel palo è valido e può essere segnalato, devo quindi creare un oggetto palo
+                //vuol dire che quelL'indirizzo è valido e può essere segnalato, devo quindi creare un oggetto palo
                 //e segnalarlo
-                //System.out.println("la procedura di riparazione è stata aperta");
                 return;
             }
         }
-        //se arrivo qui vuol dire che il numero seriale del palo che ho passato non esiste, lancio quindi un eccezione
+        //se arrivo qui vuol dire che l'indirizzo che l'utente ha  passato non esiste, lancio quindi un eccezione
         throw new NonEsisteIndirizzoException("\nL'indirizzo passato non esiste");
     }
 

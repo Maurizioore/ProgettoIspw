@@ -21,7 +21,7 @@ public class BeanSegnalazionePaloIlluminazione {
     private final String  numeroSerialePalo;
 
     //lunghezza fissata per i numeri seriali che possiedono i pali dell'illuminazione
-    private static final int lunghezzaNumeroSeriale=12;
+    private static final int LUNGHEZZANUMEROSERIALE=12;
 
     //variabile che conterrà l'indirizzo passato dall'utente
     private final String indirizzo;
@@ -56,7 +56,7 @@ public class BeanSegnalazionePaloIlluminazione {
     * aspetto di avere, in caso contrario viene lanciata una eccezione di tipo LunghezzaInputException presente nel
     * package eccezioni e viene ritornata un stringa che segnalerà l'errore all'utente */
     private void controllaInputPalo()throws LunghezzaInputException{
-        if (numeroSerialePalo.length() != lunghezzaNumeroSeriale) {
+        if (numeroSerialePalo.length() != LUNGHEZZANUMEROSERIALE) {
             throw new LunghezzaInputException("\nLa lunghezza del numero seriale non e' corretta");
         }
     }
