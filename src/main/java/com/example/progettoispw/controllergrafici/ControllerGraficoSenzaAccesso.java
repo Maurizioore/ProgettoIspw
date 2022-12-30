@@ -61,7 +61,6 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
                 menuBack.setVisible(false);
             });
         });
-
         loginButton.setOnMouseClicked(event -> {
             try {
                 controllerVisualizzatoreScene.visualizzaScena("login-registrazione-page.fxml");
@@ -69,7 +68,6 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
                 System.exit(-1);
             }
         });
-
         contattiButton.setOnMouseClicked(event -> {
             try {
                 controllerVisualizzatoreScene.visualizzaScena("ContattaciPage.fxml");
@@ -77,7 +75,6 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
                 System.exit(-1);
             }
         });
-
         chiSiamoButton.setOnMouseClicked(event -> {
             try {
                 controllerVisualizzatoreScene.visualizzaScena("chiSiamoNoi.fxml");
@@ -85,7 +82,6 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
                 System.exit(-1);
             }
         });
-
         aiutoButton.setOnMouseClicked(event -> {
             try {
                 controllerVisualizzatoreScene.visualizzaScena("aiutoAccess.fxml");
@@ -94,7 +90,6 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
             }
         });
     }
-
     @FXML
     void SegnalaProblemaAccess() throws Exception {
         controllerVisualizzatoreScene.visualizzaScena("PaginaSegnalaProblema.fxml");

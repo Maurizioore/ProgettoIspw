@@ -28,6 +28,8 @@ public class ControllerGraficoLoginPage extends ControllerGraficoSenzaAccesso {
                 System.out.println("error: "+ e);
             }
         });
+        //questo avrà i suoi pulsanti e alla fine chiamerà il super di quelli in comune, per non darli al figlio
+        //quelli che non sono in comune dovrei farli private
         super.initialize(url,resourceBundle);
         /*ora devo settare i nomi agli altri pulsanti, devo dare l'accesso i controllerGraficoSenzaAccesso e collegarlo
         * qui come quelli di sopra, ovviamente accedi e registrati non devo metterli in ControllerGraficoSenzaAccessi

@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="700.0" stylesheets="" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progettoispw.controllergrafici.ControllerGraficoPaginaSegnalaProblema">
+<AnchorPane prefHeight="400.0" prefWidth="700.0" stylesheets="" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progettoispw.controllergrafici.ControllerGraficoSegnalazioneIlluminazione">
     <children>
         <BorderPane layoutX="7.0" layoutY="8.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -148,37 +149,36 @@
             <center>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@Style.css" BorderPane.alignment="CENTER">
                     <children>
-                        <JFXButton cacheShape="false" centerShape="false" focusTraversable="false" layoutX="84.0" layoutY="59.0" onAction="#segnalaPaloAccess" prefHeight="50.0" prefWidth="292.0" ripplerFill="WHITE" scaleShape="false" style="-fx-background-color: #1D3461;" styleClass="buttonItem" text="segnala problema di un  palo " textFill="#e0e1dd">
-                            <graphic>
-                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
-                            </graphic>
-                            <font>
-                                <Font size="18.0" />
-                            </font>
-                        </JFXButton>
-                        <JFXButton fx:id="segnalaBucaButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="84.0" layoutY="143.0" prefHeight="50.0" prefWidth="292.0" ripplerFill="WHITE" scaleShape="false" style="-fx-background-color: #1D3461;" styleClass="buttonItem" text="segnala problema di una buca" textFill="#e0e1dd">
-                            <graphic>
-                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
-                            </graphic>
-                            <font>
-                                <Font size="18.0" />
-                            </font>
-                        </JFXButton>
-                        <JFXButton fx:id="segnalaAltroButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="84.0" layoutY="230.0" prefHeight="50.0" prefWidth="292.0" ripplerFill="WHITE" scaleShape="false" style="-fx-background-color: #1D3461;" styleClass="buttonItem" text="segnala un altro problema " textFill="#e0e1dd">
-                            <font>
-                                <Font size="18.0" />
-                            </font>
-                        </JFXButton>
                         <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="167.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" />
-                  <JFXButton fx:id="ritornaHomeButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="7.0" layoutY="12.0" scaleShape="false" styleClass="menuItem" text=" ">
-                     <graphic>
-                        <ImageView fitHeight="22.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../ImmaginiHome/back.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
+                        <JFXButton fx:id="ritornaHomeButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="7.0" layoutY="12.0" scaleShape="false" styleClass="menuItem" text=" ">
+                            <graphic>
+                                <ImageView fitHeight="22.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../ImmaginiHome/back.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                  <TextField fx:id="textFieldNumeroSeriale" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="81.0" layoutY="90.0" prefHeight="43.0" prefWidth="363.0" promptText="inserisci numero seriale palo illuminazione" scaleShape="false">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="textFieldIndirizzo" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="81.0" layoutY="168.0" prefHeight="43.0" prefWidth="363.0" promptText="inserisci indirizzo" scaleShape="false">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <JFXButton fx:id="inviaSegnalazioneButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="189.0" layoutY="228.0" prefHeight="38.0" prefWidth="136.0" scaleShape="false" styleClass="menuItem" text="invia" textFill="#1d3461">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
                   </JFXButton>
+                  <Label fx:id="labelErrore" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="81.0" layoutY="28.0" prefHeight="50.0" prefWidth="363.0" scaleShape="false" textFill="#1d3461">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
                     </children>
                 </AnchorPane>
             </center>
