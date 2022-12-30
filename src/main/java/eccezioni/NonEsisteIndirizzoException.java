@@ -1,4 +1,4 @@
-package Eccezioni;
+package eccezioni;
 
 public class NonEsisteIndirizzoException extends Exception{
     public NonEsisteIndirizzoException(String message){

@@ -1,8 +1,8 @@
 package bean;
 
-import Eccezioni.LunghezzaInputException;
-import Eccezioni.NonEsisteIndirizzoException;
-import Eccezioni.NonEsisteNumeroSerialeException;
+import eccezioni.LunghezzaInputException;
+import eccezioni.NonEsisteIndirizzoException;
+import eccezioni.NonEsisteNumeroSerialeException;
 import controllerapplicativi.ControllerApplicativoSegnalazionePaloIlluminazione;
 
 public class BeanSegnalazionePaloIlluminazione {
@@ -21,7 +21,7 @@ public class BeanSegnalazionePaloIlluminazione {
     private final String  numeroSerialePalo;
 
     //lunghezza fissata per i numeri seriali che possiedono i pali dell'illuminazione
-    final int lunghezzaNumeroSeriale=12;
+    private final int lunghezzaNumeroSeriale=12;
 
     //variabile che conterrà l'indirizzo passato dall'utente
     private final String indirizzo;
