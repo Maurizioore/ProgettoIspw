@@ -21,7 +21,7 @@ public class BeanSegnalazionePaloIlluminazione {
     private final String  numeroSerialePalo;
 
     //lunghezza fissata per i numeri seriali che possiedono i pali dell'illuminazione
-    private final int lunghezzaNumeroSeriale=12;
+    private static final int lunghezzaNumeroSeriale=12;
 
     //variabile che conterrà l'indirizzo passato dall'utente
     private final String indirizzo;
@@ -38,9 +38,9 @@ public class BeanSegnalazionePaloIlluminazione {
      effettivamente giusto, lui puo' volendo fare controlli sintattici, (ed è quello che gli facciamo fare ora), e
      se non ci sono errori deve comunicare con il controller applicativo */
 
-    public String Controlli(){
+    public String svolgiControlli(){
         try{
-            ControllaInputPalo();
+            controllaInputPalo();
             //se non c'e' stata eccezione vuol dire che la lunghezza del numero seriale è corretta
             /*passo il bean quindi passa i dati in input al controller applicativo, il quale farà le verifiche anche sulla
             * reale correttezza dei dati e in caso ci fossero errori, lancerà delle eccezioni che verranno gestite qui nel bean */
@@ -55,7 +55,7 @@ public class BeanSegnalazionePaloIlluminazione {
     /*questo metodo non fara' altro che controllare che la lunghezza passata dall'utente sia uguale a quella che mi
     * aspetto di avere, in caso contrario viene lanciata una eccezione di tipo LunghezzaInputException presente nel
     * package eccezioni e viene ritornata un stringa che segnalerà l'errore all'utente */
-    private void ControllaInputPalo()throws LunghezzaInputException{
+    private void controllaInputPalo()throws LunghezzaInputException{
         if (numeroSerialePalo.length() != lunghezzaNumeroSeriale) {
             throw new LunghezzaInputException("\nLa lunghezza del numero seriale non e' corretta");
         }

@@ -40,7 +40,7 @@ public class ControllerGraficoSegnalazioneIlluminazione extends ControllerGrafic
                 beanVerificaDati=new BeanSegnalazionePaloIlluminazione(textFieldNumeroSeriale.getText(),textFieldIndirizzo.getText());
                 //faccio i controlli sugli input passati, se viene passato il primo controllo il bean passa gli input al
                 //controller applicativo, altrimenti ritorna un errore
-                String verificaControlli=beanVerificaDati.Controlli();
+                String verificaControlli=beanVerificaDati.svolgiControlli();
                 if(verificaControlli!=null){
                     labelErrore.setText(verificaControlli);
                 }else{

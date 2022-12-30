@@ -1,5 +1,6 @@
 package contenitori;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class ContenitorePaliIlluminazione {
@@ -8,9 +9,8 @@ public class ContenitorePaliIlluminazione {
     //e quindi una sola array list che contenente i numeri seriali
     //devo crearne una simile per gli indirizzi
     private static ContenitorePaliIlluminazione contenitorePaliIlluminazione=null;
-    private static ArrayList<String> contenitore=null;
+    private static ArrayList<String> contenitore=new ArrayList<>();
     private ContenitorePaliIlluminazione(){
-        contenitore = new ArrayList<>();
         riempiContenitore(contenitore);
     }
     private void riempiContenitore(ArrayList<String> contenitore){
@@ -26,10 +26,7 @@ public class ContenitorePaliIlluminazione {
         }
         return contenitorePaliIlluminazione;
     }
-    public ArrayList<String> ottieniContenitore(){
-        if(contenitore==null){
-            return null;
-        }
+    public List<String> ottieniContenitore(){
         return contenitore;
     }
 }

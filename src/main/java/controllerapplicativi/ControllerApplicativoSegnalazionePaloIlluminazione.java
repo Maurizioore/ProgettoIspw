@@ -6,7 +6,7 @@ import contenitori.ContenitoreIndirizzi;
 import contenitori.ContenitorePaliIlluminazione;
 import entita.PaloIlluminazione;
 
-import java.util.ArrayList;
+import java.util.List;
 
 
 public class ControllerApplicativoSegnalazionePaloIlluminazione {
@@ -21,19 +21,21 @@ public class ControllerApplicativoSegnalazionePaloIlluminazione {
     * altrimenti comunica all'utente che non esiste un palo con quel numero seriale.(Discorso duale per l'indirizzo)*/
     private final String numeroSerialePaloIlluminazione;
     private final String indirizzo;
-    private ArrayList<String> contenitore=null;
-    private ArrayList<String> indirizzi=null;
+    private List<String> contenitore=null;
+    private List<String> indirizzi=null;
 
     public ControllerApplicativoSegnalazionePaloIlluminazione(String numeroSerialePaloIlluminazione, String indirizzo) throws NonEsisteIndirizzoException, NonEsisteNumeroSerialeException {
         this.numeroSerialePaloIlluminazione=numeroSerialePaloIlluminazione;
         this.indirizzo=indirizzo;
-        PrendiContenitore();
-        VerificaEsistenzaInput();
+        prendiContenitore();
+        verificaEsistenzaInput();
         //se arrivo qui vuol dire che non c'e' stata alcuna eccezione, devo quindi creare un oggetto palo
         System.out.println("non c'e stata alcuna eccezione: sono una sout presente in ControllerApplicativoSegnalazionePaloIlluminazione");
+        //questa variabile palodaSegnalare sonar cloud dice di toglierla perché non viene mai acceduta, la lascio perche non so se mi
+        //servirà per avere il numero segnalazione del palo corrente
         PaloIlluminazione paloDaSegnalare= new PaloIlluminazione(numeroSerialePaloIlluminazione,"in corso di riparazione",indirizzo);
     }
-    public void PrendiContenitore(){
+    public void prendiContenitore(){
         //private final String indirizzo;
         ContenitorePaliIlluminazione contenitorePaliIlluminazione = ContenitorePaliIlluminazione.getInstance();
         contenitore= contenitorePaliIlluminazione.ottieniContenitore();
@@ -48,11 +50,11 @@ public class ControllerApplicativoSegnalazionePaloIlluminazione {
             System.exit(-1);
         }
     }
-    public void VerificaEsistenzaInput() throws NonEsisteIndirizzoException,NonEsisteNumeroSerialeException{
-        VerificaPresenzaIndirizzoInputNelContenitore();
-        VerificaPresenzaPaloInputNelContenitore();
+    public void verificaEsistenzaInput() throws NonEsisteIndirizzoException,NonEsisteNumeroSerialeException{
+        verificaPresenzaIndirizzoInputNelContenitore();
+        verificaPresenzaPaloInputNelContenitore();
     }
-    private void VerificaPresenzaPaloInputNelContenitore() throws NonEsisteNumeroSerialeException {
+    private void verificaPresenzaPaloInputNelContenitore() throws NonEsisteNumeroSerialeException {
         for (String x:contenitore){
             if(x.equals(numeroSerialePaloIlluminazione)){
                 //vuol dire che quel palo è valido e può essere segnalato, devo quindi creare un oggetto palo
@@ -64,7 +66,7 @@ public class ControllerApplicativoSegnalazionePaloIlluminazione {
         //se arrivo qui vuol dire che il numero seriale del palo che ho passato non esiste, lancio quindi un eccezione
         throw new NonEsisteNumeroSerialeException("\nIl numero seriale passato non esiste");
     }
-    private void VerificaPresenzaIndirizzoInputNelContenitore() throws NonEsisteIndirizzoException {
+    private void verificaPresenzaIndirizzoInputNelContenitore() throws NonEsisteIndirizzoException {
         for (String x:indirizzi){
             if(x.equals(indirizzo)){
                 //vuol dire che quel palo è valido e può essere segnalato, devo quindi creare un oggetto palo
