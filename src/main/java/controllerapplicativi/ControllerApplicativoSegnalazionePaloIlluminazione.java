@@ -1,5 +1,6 @@
 package controllerapplicativi;
 
+import contenitori.Contenitore;
 import eccezioni.NonEsisteIndirizzoException;
 import eccezioni.NonEsisteNumeroSerialeException;
 import contenitori.ContenitoreIndirizzi;
@@ -36,13 +37,15 @@ public class ControllerApplicativoSegnalazionePaloIlluminazione {
         PaloIlluminazione paloDaSegnalare= new PaloIlluminazione(numeroSerialePaloIlluminazione,"in corso di riparazione",indirizzo);
     }
     public void prendiContenitore(){
-        ContenitorePaliIlluminazione contenitorePaliIlluminazione = ContenitorePaliIlluminazione.getInstance();
+        //ContenitorePaliIlluminazione contenitorePaliIlluminazione = ContenitorePaliIlluminazione.getInstance();
+        Contenitore contenitorePaliIlluminazione = ContenitorePaliIlluminazione.getInstance();
         contenitore= contenitorePaliIlluminazione.ottieniContenitore();
         if (contenitore==null){
             System.out.println("il contenitore dei pali dell'illuminazione e' vuoto");
             System.exit(-1);
         }
-        ContenitoreIndirizzi contenitoreIndirizzi= ContenitoreIndirizzi.getInstance();
+        //ContenitoreIndirizzi contenitoreIndirizzi= ContenitoreIndirizzi.getInstance();
+        Contenitore contenitoreIndirizzi= ContenitoreIndirizzi.getInstance();
         indirizzi=contenitoreIndirizzi.ottieniContenitore();
         if (indirizzi==null){
             System.out.println("il contenitore degli indirizzi  e' vuoto");

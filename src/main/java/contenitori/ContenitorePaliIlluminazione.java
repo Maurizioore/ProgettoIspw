@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ContenitorePaliIlluminazione {
+public class ContenitorePaliIlluminazione implements Contenitore{
     //classe che crea un contenitore di tutti i pali dell'illuminazione che ho a disposizione nella località
     //coperta dalla mia applicazione, utilizza un singleton in modo che viene creata sempre e solo un istanza
     //e quindi una sola array list che contenente i numeri seriali
@@ -20,7 +20,7 @@ public class ContenitorePaliIlluminazione {
         contenitore.add("123456789123");
     }
 
-    public static ContenitorePaliIlluminazione getInstance(){
+    public static Contenitore getInstance(){
         if(contenitorePaliIlluminazione==null){
             contenitorePaliIlluminazione=new ContenitorePaliIlluminazione();
         }

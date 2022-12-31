@@ -3,7 +3,7 @@ package contenitori;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ContenitoreIndirizzi {
+public class ContenitoreIndirizzi implements Contenitore{
     //classe che crea un contenitore di tutti i pali dell'illuminazione che ho a disposizione nella località
     //coperta dalla mia applicazione, utilizza un singleton in modo che viene creata sempre e solo un istanza
     //e quindi una sola array list che contenente i numeri seriali
@@ -20,12 +20,19 @@ public class ContenitoreIndirizzi {
         contenitore.add("via torino");
     }
 
-    public static ContenitoreIndirizzi getInstance(){
+    //public static ContenitoreIndirizzi getInstance(){
+    //    if(contenitoreIndirizzi==null){
+    //        contenitoreIndirizzi=new ContenitoreIndirizzi();
+    //    }
+    //    return contenitoreIndirizzi;
+    //}
+    public static Contenitore getInstance(){
         if(contenitoreIndirizzi==null){
             contenitoreIndirizzi=new ContenitoreIndirizzi();
         }
         return contenitoreIndirizzi;
     }
+
     public List<String> ottieniContenitore(){
         return contenitore;
     }
