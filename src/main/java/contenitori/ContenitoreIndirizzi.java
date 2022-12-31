@@ -19,13 +19,6 @@ public class ContenitoreIndirizzi implements Contenitore{
         contenitore.add("contrada giulio cesare");
         contenitore.add("via torino");
     }
-
-    //public static ContenitoreIndirizzi getInstance(){
-    //    if(contenitoreIndirizzi==null){
-    //        contenitoreIndirizzi=new ContenitoreIndirizzi();
-    //    }
-    //    return contenitoreIndirizzi;
-    //}
     public static Contenitore getInstance(){
         if(contenitoreIndirizzi==null){
             contenitoreIndirizzi=new ContenitoreIndirizzi();
