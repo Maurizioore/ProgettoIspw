@@ -1,12 +1,16 @@
 package controllerapplicativi;
 
 import contenitori.Contenitore;
+import dao.PaloIlluminazioneDaoImpl;
+import eccezioni.DuplicazioneInputException;
 import eccezioni.NonEsisteIndirizzoException;
 import eccezioni.NonEsisteNumeroSerialeException;
 import contenitori.ContenitoreIndirizzi;
 import contenitori.ContenitorePaliIlluminazione;
 import entita.PaloIlluminazione;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -25,26 +29,31 @@ public class ControllerApplicativoSegnalazionePaloIlluminazione {
     private List<String> contenitore=null;
     private List<String> indirizzi=null;
 
-    public ControllerApplicativoSegnalazionePaloIlluminazione(String numeroSerialePaloIlluminazione, String indirizzo) throws NonEsisteIndirizzoException, NonEsisteNumeroSerialeException {
+    public ControllerApplicativoSegnalazionePaloIlluminazione(String numeroSerialePaloIlluminazione, String indirizzo) throws NonEsisteIndirizzoException, NonEsisteNumeroSerialeException, SQLException, DuplicazioneInputException {
         this.numeroSerialePaloIlluminazione=numeroSerialePaloIlluminazione;
         this.indirizzo=indirizzo;
         prendiContenitore();
         verificaEsistenzaInput();
         //se arrivo qui vuol dire che non c'e' stata alcuna eccezione, devo quindi creare un oggetto palo
         System.out.println("non c'e stata alcuna eccezione: sono una sout presente in ControllerApplicativoSegnalazionePaloIlluminazione");
-        //questa variabile palodaSegnalare sonar cloud dice di toglierla perché non viene mai acceduta, la lascio perche non so se mi
+        //questa variabile paloDaSegnalare sonar cloud dice di toglierla perché non viene mai acceduta, la lascio perche non so se mi
         //servirà per avere il numero segnalazione del palo corrente
-        PaloIlluminazione paloDaSegnalare= new PaloIlluminazione(numeroSerialePaloIlluminazione,"in corso di riparazione",indirizzo);
+        PaloIlluminazione paloDaSegnalare= new PaloIlluminazione(numeroSerialePaloIlluminazione,indirizzo);
+        //questa la devo mandare al db
+        inviaSegnalazione(paloDaSegnalare);
+
+    }
+    public void inviaSegnalazione(PaloIlluminazione palo) throws SQLException,DuplicazioneInputException {
+        PaloIlluminazioneDaoImpl paloIlluminazioneDao=new PaloIlluminazioneDaoImpl();
+        paloIlluminazioneDao.savePaloIlluminazione(palo);
     }
     public void prendiContenitore(){
-        //ContenitorePaliIlluminazione contenitorePaliIlluminazione = ContenitorePaliIlluminazione.getInstance();
         Contenitore contenitorePaliIlluminazione = ContenitorePaliIlluminazione.getInstance();
         contenitore= contenitorePaliIlluminazione.ottieniContenitore();
         if (contenitore==null){
             System.out.println("il contenitore dei pali dell'illuminazione e' vuoto");
             System.exit(-1);
         }
-        //ContenitoreIndirizzi contenitoreIndirizzi= ContenitoreIndirizzi.getInstance();
         Contenitore contenitoreIndirizzi= ContenitoreIndirizzi.getInstance();
         indirizzi=contenitoreIndirizzi.ottieniContenitore();
         if (indirizzi==null){

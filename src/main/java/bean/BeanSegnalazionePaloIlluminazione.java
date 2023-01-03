@@ -1,9 +1,12 @@
 package bean;
 
+import eccezioni.DuplicazioneInputException;
 import eccezioni.LunghezzaInputException;
 import eccezioni.NonEsisteIndirizzoException;
 import eccezioni.NonEsisteNumeroSerialeException;
 import controllerapplicativi.ControllerApplicativoSegnalazionePaloIlluminazione;
+
+import java.sql.SQLException;
 
 public class BeanSegnalazionePaloIlluminazione {
     //note:
@@ -47,9 +50,10 @@ public class BeanSegnalazionePaloIlluminazione {
             new ControllerApplicativoSegnalazionePaloIlluminazione(numeroSerialePalo,indirizzo);
             //se ritorno null vuol dire che tutto è andato a buon fine e non c'e' stata nessuna eccezione
             return null;
-        }catch(LunghezzaInputException | NonEsisteNumeroSerialeException | NonEsisteIndirizzoException e){
+        }catch(LunghezzaInputException | NonEsisteNumeroSerialeException | NonEsisteIndirizzoException | SQLException |
+               DuplicazioneInputException e){
             //qui gestisco le eccezioni che si possono creare con le chiamate nel blocco try
-            return e.toString();
+            return e.getMessage();
         }
     }
     /*questo metodo non fara' altro che controllare che la lunghezza passata dall'utente sia uguale a quella che mi
