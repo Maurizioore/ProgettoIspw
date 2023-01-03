@@ -12,7 +12,8 @@ public class StartApplication extends Application {
     //visto che ci stai lascia solo il controller visulizzatore scene del padre e togli ai figli che lo estendono
     //devo creare il palo quando la segnalazione va a buon fine, fare i controlli sull'indirizzo con un contenitore
     // creare il palo in modo che posso cambiare dinamicamente il suo stato e comunicare con un db ect ect ect
-    // crea il login la tabella del login e senti audio che ti sei mandato 
+    // crea il login la tabella del login e senti audio che ti sei mandato
+
     @Override
     public void start(Stage stage) throws Exception {
         final String schermataPrincipale="prova-home.fxml";
