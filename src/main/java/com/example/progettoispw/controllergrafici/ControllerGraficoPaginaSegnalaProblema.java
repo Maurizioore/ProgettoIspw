@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ControllerGraficoPaginaSegnalaProblema extends ControllerGraficoLoginPage {
+public class ControllerGraficoPaginaSegnalaProblema extends ControllerGraficoGenerale {
 
     /*questo controller è associato alla pagina dei segnala problemi, anche questa ha i pulsanti in comune
     * nella barra del menu e quindi anche questa riuserà il codice di quei pulsanti che sono stati gia' definiti

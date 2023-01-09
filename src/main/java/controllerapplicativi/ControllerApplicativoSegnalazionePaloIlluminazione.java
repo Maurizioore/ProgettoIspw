@@ -1,5 +1,6 @@
 package controllerapplicativi;
 
+import bean.BeanSegnalazionePaloIlluminazione;
 import contenitori.Contenitore;
 import dao.PaloIlluminazioneDaoImpl;
 import eccezioni.DuplicazioneInputException;
@@ -7,10 +8,10 @@ import eccezioni.NonEsisteIndirizzoException;
 import eccezioni.NonEsisteNumeroSerialeException;
 import contenitori.ContenitoreIndirizzi;
 import contenitori.ContenitorePaliIlluminazione;
+import eccezioni.SegnalazioneGiaAvvenutaException;
 import entita.PaloIlluminazione;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -29,9 +30,9 @@ public class ControllerApplicativoSegnalazionePaloIlluminazione {
     private List<String> contenitore=null;
     private List<String> indirizzi=null;
 
-    public ControllerApplicativoSegnalazionePaloIlluminazione(String numeroSerialePaloIlluminazione, String indirizzo) throws NonEsisteIndirizzoException, NonEsisteNumeroSerialeException, SQLException, DuplicazioneInputException {
-        this.numeroSerialePaloIlluminazione=numeroSerialePaloIlluminazione;
-        this.indirizzo=indirizzo;
+    public ControllerApplicativoSegnalazionePaloIlluminazione(BeanSegnalazionePaloIlluminazione beanSegnalazionePaloIlluminazione)throws NonEsisteIndirizzoException, NonEsisteNumeroSerialeException, SQLException, DuplicazioneInputException,SegnalazioneGiaAvvenutaException{
+        this.numeroSerialePaloIlluminazione=beanSegnalazionePaloIlluminazione.getNumeroSerialePalo();
+        this.indirizzo=beanSegnalazionePaloIlluminazione.getIndirizzo();
         prendiContenitore();
         verificaEsistenzaInput();
         //se arrivo qui vuol dire che non c'e' stata alcuna eccezione, devo quindi creare un oggetto palo
@@ -41,9 +42,8 @@ public class ControllerApplicativoSegnalazionePaloIlluminazione {
         PaloIlluminazione paloDaSegnalare= new PaloIlluminazione(numeroSerialePaloIlluminazione,indirizzo);
         //questa la devo mandare al db
         inviaSegnalazione(paloDaSegnalare);
-
     }
-    public void inviaSegnalazione(PaloIlluminazione palo) throws SQLException,DuplicazioneInputException {
+    public void inviaSegnalazione(PaloIlluminazione palo) throws SQLException, SegnalazioneGiaAvvenutaException {
         PaloIlluminazioneDaoImpl paloIlluminazioneDao=new PaloIlluminazioneDaoImpl();
         paloIlluminazioneDao.savePaloIlluminazione(palo);
     }

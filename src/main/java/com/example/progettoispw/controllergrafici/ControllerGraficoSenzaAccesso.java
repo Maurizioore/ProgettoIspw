@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+import utilityaccesso.UtilityAccesso;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,7 +26,6 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
     private Label menuBack;
     @FXML
     private AnchorPane slider;
-
     //aggiunta ora con il singleton
     private final ControllerVisualizzatoreScene controllerVisualizzatoreScene = ControllerVisualizzatoreScene.getInstance(null);
 
@@ -61,11 +61,27 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
                 menuBack.setVisible(false);
             });
         });
+        if(UtilityAccesso.nomeUtenteNelDatabase!=null ){
+            //setto il nome nella parte account perche significa che l'utente si e' loggato
+            loginButton.setText(UtilityAccesso.nomeUtenteNelDatabase);
+        }
         loginButton.setOnMouseClicked(event -> {
-            try {
-                controllerVisualizzatoreScene.visualizzaScena("login-registrazione-page.fxml");
-            } catch (Exception e) {
-                System.exit(-1);
+            if(UtilityAccesso.nomeUtenteNelDatabase!=null){
+                //l'utente si e' loggato, voglio quindi caricare la schermata che mi permette di fare il logout
+                try {
+                    controllerVisualizzatoreScene.visualizzaScena("logout-page.fxml");
+                } catch (Exception e) {
+                    System.exit(-1);
+                }
+
+            }else {
+                //l'utente non è loggato, carico la schermata normale di login
+                //ricorda se l'utente fa il logout le variabili di utility accesso vengono settate a null
+                try {
+                    controllerVisualizzatoreScene.visualizzaScena("login-registrazione-page.fxml");
+                } catch (Exception e) {
+                    System.exit(-1);
+                }
             }
         });
         contattiButton.setOnMouseClicked(event -> {

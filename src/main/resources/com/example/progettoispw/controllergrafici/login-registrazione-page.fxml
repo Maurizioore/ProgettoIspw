@@ -2,6 +2,8 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -129,17 +131,6 @@
                                             </image></ImageView>
                                     </graphic>
                                 </JFXButton>
-                                <JFXButton alignment="BASELINE_LEFT" cacheShape="false" centerShape="false" focusTraversable="false" prefHeight="38.0" prefWidth="176.0" scaleShape="false" styleClass="sidebarItem" text="login" textFill="#e0e1dd">
-                                    <font>
-                                        <Font name="System Bold" size="18.0" />
-                                    </font>
-                                    <graphic>
-                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                                            <image>
-                                                <Image url="@../../../../ImmaginiHome/user.png" />
-                                            </image></ImageView>
-                                    </graphic>
-                                </JFXButton>
                             </children>
                         </VBox>
                     </children>
@@ -148,22 +139,6 @@
             <center>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@Style.css" BorderPane.alignment="CENTER">
                     <children>
-                        <JFXButton cacheShape="false" centerShape="false" focusTraversable="false" layoutX="84.0" layoutY="83.0" prefHeight="50.0" prefWidth="292.0" ripplerFill="WHITE" scaleShape="false" style="-fx-background-color: #1D3461;" styleClass="buttonItem" text="registati " textFill="#e0e1dd">
-                            <graphic>
-                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
-                            </graphic>
-                            <font>
-                                <Font size="18.0" />
-                            </font>
-                        </JFXButton>
-                        <JFXButton cacheShape="false" centerShape="false" focusTraversable="false" layoutX="84.0" layoutY="184.0" prefHeight="50.0" prefWidth="292.0" ripplerFill="WHITE" scaleShape="false" style="-fx-background-color: #1D3461;" styleClass="buttonItem" text="accedi" textFill="#e0e1dd">
-                            <graphic>
-                                <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
-                            </graphic>
-                            <font>
-                                <Font size="18.0" />
-                            </font>
-                        </JFXButton>
                         <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="167.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" />
                   <JFXButton fx:id="ritornaHomeButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="7.0" layoutY="12.0" scaleShape="false" styleClass="menuItem" text=" ">
                      <graphic>
@@ -173,6 +148,28 @@
                            </image>
                         </ImageView>
                      </graphic>
+                  </JFXButton>
+                  <TextField fx:id="emailTextField" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="81.0" layoutY="90.0" prefHeight="43.0" prefWidth="363.0" promptText="e-mail" scaleShape="false">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="134.0" layoutY="286.0" text="non hai ancora un acoount?" />
+                  <JFXButton fx:id="registratiButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="284.0" layoutY="282.0" scaleShape="false" styleClass="menuItem" text="registrati" />
+                  <PasswordField fx:id="passwordPasswordField" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="81.0" layoutY="168.0" prefHeight="43.0" prefWidth="363.0" promptText="password" scaleShape="false">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </PasswordField>
+                  <Label fx:id="labelComunicazione" layoutX="81.0" layoutY="28.0" prefHeight="46.0" prefWidth="363.0" text="  ">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <JFXButton fx:id="accediButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="225.0" layoutY="238.0" scaleShape="false" styleClass="menuItem" text="accedi" textFill="#1d3461">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
                   </JFXButton>
                     </children>
                 </AnchorPane>

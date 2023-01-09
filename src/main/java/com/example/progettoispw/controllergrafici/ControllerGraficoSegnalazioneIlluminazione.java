@@ -2,15 +2,18 @@ package com.example.progettoispw.controllergrafici;
 
 import bean.BeanSegnalazionePaloIlluminazione;
 import com.jfoenix.controls.JFXButton;
+import controllerapplicativi.ControllerApplicativoSegnalazionePaloIlluminazione;
+import eccezioni.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
-public class ControllerGraficoSegnalazioneIlluminazione extends ControllerGraficoLoginPage {
+public class ControllerGraficoSegnalazioneIlluminazione extends ControllerGraficoGenerale {
 
     /*questo controller è associato alla PaginaSegnalaProblemaIlluminazione la quale possiede:
     * i DUE textField in cui l'utente inserisce i campi
@@ -36,21 +39,30 @@ public class ControllerGraficoSegnalazioneIlluminazione extends ControllerGrafic
             if (textFieldIndirizzo.getText().equals("") ||  textFieldNumeroSeriale.getText().equals("")) {
                 labelErrore.setText("inserire entrambi i campi");
             }else{
-                //sara' proprio qui che avverrà l'invio ai bean dei dati che ha inserito l'utente
-                beanVerificaDati=new BeanSegnalazionePaloIlluminazione(textFieldNumeroSeriale.getText(),textFieldIndirizzo.getText());
-                //faccio i controlli sugli input passati, se viene passato il primo controllo il bean passa gli input al
-                //controller applicativo, altrimenti ritorna un errore
-                String verificaControlli=beanVerificaDati.svolgiControlli();
-                if(verificaControlli!=null){
-                    labelErrore.setText(verificaControlli);
-                }else{
+                //sara' proprio qui che avverrà l'invio al bean dei dati che ha inserito l'utente in input
+                try {
+                    beanVerificaDati = new BeanSegnalazionePaloIlluminazione(textFieldNumeroSeriale.getText(), textFieldIndirizzo.getText());
+                    beanVerificaDati.controllaInputPalo();
+                    //la lunghezza seriale del palo inserita dall'utente è corretta, invio il bean al controller applicativo
+                    ControllerApplicativoSegnalazionePaloIlluminazione controllerApplicativoSegnalazionePaloIlluminazione=new ControllerApplicativoSegnalazionePaloIlluminazione(beanVerificaDati);
+                    //se non c'e' stata nessuna eccezione vuol dire che la segnalazione e' avvenuta con successo
+                    //lo comunico all'utente e blocco i pulsanti per non far inviare la stessa segnalazione
+                    //in caso dovesse premere per sbaglio di nuovo il pulsante invia
                     labelErrore.setText("segnalazione avvenuta con successo\ntorna alla home =)");
-                    //disabilito i campi per inserire l'indirizzo, il numero seriale e il bottone invia in modo tale
-                    //da far inviare solo una segnalazione, se l'utente vuole inviarne un altra deve tornare indietro
-                    //tra le view e accedere alla view corrente
                     textFieldIndirizzo.setDisable(true);
                     textFieldNumeroSeriale.setDisable(true);
                     inviaSegnalazioneButton.setDisable(true);
+                }catch (LunghezzaInputException | NonEsisteIndirizzoException | NonEsisteNumeroSerialeException |
+                        SQLException | DuplicazioneInputException | SegnalazioneGiaAvvenutaException e){
+                    labelErrore.setText(e.getMessage());
+                    if(e.getClass()==SegnalazioneGiaAvvenutaException.class){
+                        /*se l'eccezione è di tipo segnalazione già avvenuta l'utente ha portato a termine quello che
+                        * voleva fare quindi posso disabilitare i pulsanti */
+                        labelErrore.setText(e.getMessage());
+                        textFieldIndirizzo.setDisable(true);
+                        textFieldNumeroSeriale.setDisable(true);
+                        inviaSegnalazioneButton.setDisable(true);
+                    }
                 }
             }
         });
