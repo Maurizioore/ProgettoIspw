@@ -29,6 +29,7 @@ public class ControllerGraficoLogoutPage extends ControllerGraficoGenerale{
             System.exit(-1);
         }
     });
+        super.initialize(url,resourceBundle);
     }
 
 }

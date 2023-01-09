@@ -40,16 +40,7 @@ public class ControllerGraficoLoginPage extends ControllerGraficoGenerale {
          * in questo caso ho preferito duplicare codice gia esistente poiché è un button in comune alle schermate
          * secondarie ma non alla principale, ovviamente se si dovesse apportare qualche modifica qui bisognerà fare
          * il duale nel controller GraficoGraficoAllSenzaLogin */
-        //verifico prima che l'utente ha gia fatto login
-        if(UtilityAccesso.nomeUtenteNelDatabase!=null){
-            //l'utente e' gia nel sistema, devo caricare una pagina che gli consente di fare il logout
-            try {
-                controllerVisualizzatoreScene.visualizzaScena("logout-page.fxml");
-            } catch (Exception e) {
-                System.exit(-1);
-            }
 
-        }
         //se l'utente vuole registrarsi ( e clicca quindi su registrati) verrà caricata questa schermata
         registratiButton.setOnMouseClicked(event->{
             try {
@@ -71,26 +62,6 @@ public class ControllerGraficoLoginPage extends ControllerGraficoGenerale {
                 String controlliSintatticiEmail = beanAccessoUtente.svolgiControlli();
                 //se l'email è sintatticamente corretta vado avanti altrimenti counico l'errore all'utente
                 if (controlliSintatticiEmail == null) {
-
-                    //la sintassi dell'email e' giusta ora ho 2 vie
-                    // prima via:  faccio parlare i bean con il controller applicativo ed e' questo codice di sotto
-                    //da qua--------------------------------------------------------------------------------------------
-                    //String esito = beanAccessoUtente.inviaInputAlControllerApplicativo();
-                    //if (esito.equals("accesso effettuato")) {
-                    //    /*----------------------------------------IMPORTANTE------------------------------------------
-                    //     * ------------------------------PER EVENTUALI MODIFICHE LEGGI--------------------------------
-                    //     * se cambi questa stringa "accesso effettuato", dovrai cambiarla anche nel bean nel metodo
-                    //     * inviaInputALControllerApplicativo, altrimenti ci sarebbero errori sgradevoli**/
-                    //
-                    //    emailTextField.setDisable(true);
-                    //    passwordPasswordField.setDisable(true);
-                    //    accediButton.setDisable(true);
-                    //    registratiButton.setDisable(true);
-                    //}
-                    //labelComunicazione.setText(esito);
-                    //a qua---------------------------------e questo funziona tutto ------------------------------------
-
-                    //seconda via mando i bean al controller applicativo come ha detto leonardo, ed e' questo
                     //mando il bean al controller applicativo
                     try {
                         ControllerApplicativoLoginAlSistema controllerApplicativoLoginAlSistema = new ControllerApplicativoLoginAlSistema(beanAccessoUtente);

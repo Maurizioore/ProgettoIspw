@@ -1,12 +1,7 @@
 package bean;
 
-import eccezioni.DuplicazioneInputException;
-import eccezioni.LunghezzaInputException;
-import eccezioni.NonEsisteIndirizzoException;
-import eccezioni.NonEsisteNumeroSerialeException;
-import controllerapplicativi.ControllerApplicativoSegnalazionePaloIlluminazione;
 
-import java.sql.SQLException;
+import eccezioni.LunghezzaInputException;
 
 public class BeanSegnalazionePaloIlluminazione {
     //note:

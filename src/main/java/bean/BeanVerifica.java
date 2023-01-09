@@ -7,6 +7,7 @@ import eccezioni.TerminatoreEmailException;
 public class BeanVerifica {
     //questo bean è un utility per gli altri bean,sarà qui che metter' i metodi per gestire la
     //sintassi degli input passati
+    private BeanVerifica(){}
     public static void verificaSintassiEmail(String email) throws DoppiaChiocciolaException, DoppiaVirgolaException, TerminatoreEmailException {
         int contatore = 0;
         int contatore2 = 0;

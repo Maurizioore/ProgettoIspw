@@ -1,12 +1,9 @@
 package bean;
 
-import controllerapplicativi.ControllerApplicativoLoginAlSistema;
 import eccezioni.DoppiaChiocciolaException;
 import eccezioni.DoppiaVirgolaException;
-import eccezioni.NonEsisteUtenteNelSistemaException;
 import eccezioni.TerminatoreEmailException;
 
-import java.sql.SQLException;
 
 public class BeanLogin {
 
