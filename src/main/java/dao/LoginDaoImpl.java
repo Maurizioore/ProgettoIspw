@@ -37,16 +37,16 @@ public class LoginDaoImpl implements LoginDao{
         //isBeforeFirst ritorna true se il result set contiene qualcosa, false altrimenti
         if(resultSet.isBeforeFirst()){
             resultSet.next();
-            UtilityAccesso.nomeUtenteNelDatabase =resultSet.getString("username");
+            UtilityAccesso.setNomeUtenteNelDatabase(resultSet.getString("username"));
             //converto il tipo intero di codice del database in un tipo stringa poiche codiceUtente in UtilityAccesso
             //è di tipo stringa
-            UtilityAccesso.codiceUtente=Integer.toString(resultSet.getInt("codiceUtente"));
-            System.out.println("sono una sout presente in loginDaoImpl, codice utente settato a: "+UtilityAccesso.codiceUtente);
-            System.out.println("sono una sout in loginDaoImpl nome utente settato a: "+UtilityAccesso.nomeUtenteNelDatabase);
+            UtilityAccesso.setCodiceUtente(Integer.toString(resultSet.getInt("codiceUtente")));
+            System.out.println("sono una sout presente in loginDaoImpl, codice utente settato a: "+UtilityAccesso.getCodiceUtente());
+            System.out.println("sono una sout in loginDaoImpl nome utente settato a: "+UtilityAccesso.getNomeUtenteNelDatabase());
             //l'utente è stato trovato nel database, torno true
             return true;
         }
         //quelle credenziali non sono presenti nel sistema, quindi ritorno false
         return false;
-    };
+    }
 }

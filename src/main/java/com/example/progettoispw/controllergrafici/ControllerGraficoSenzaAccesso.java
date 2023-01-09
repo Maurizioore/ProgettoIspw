@@ -67,7 +67,7 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
         //}
         loginButton.setOnMouseClicked(event -> {
             try {
-                if (UtilityAccesso.nomeUtenteNelDatabase != null) {
+                if (UtilityAccesso.getNomeUtenteNelDatabase() != null) {
                     //l'utente si e' loggato, voglio quindi caricare la schermata che mi permette di fare il logout
                     controllerVisualizzatoreScene.visualizzaScena("logout-page.fxml");
                 } else {

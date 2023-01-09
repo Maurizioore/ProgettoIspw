@@ -30,7 +30,7 @@ public class ControllerApplicativoSegnalazionePaloIlluminazione {
     private List<String> contenitore=null;
     private List<String> indirizzi=null;
 
-    public ControllerApplicativoSegnalazionePaloIlluminazione(BeanSegnalazionePaloIlluminazione beanSegnalazionePaloIlluminazione)throws NonEsisteIndirizzoException, NonEsisteNumeroSerialeException, SQLException, DuplicazioneInputException,SegnalazioneGiaAvvenutaException{
+    public ControllerApplicativoSegnalazionePaloIlluminazione(BeanSegnalazionePaloIlluminazione beanSegnalazionePaloIlluminazione)throws NonEsisteIndirizzoException, NonEsisteNumeroSerialeException, SQLException, SegnalazioneGiaAvvenutaException{
         this.numeroSerialePaloIlluminazione=beanSegnalazionePaloIlluminazione.getNumeroSerialePalo();
         this.indirizzo=beanSegnalazionePaloIlluminazione.getIndirizzo();
         prendiContenitore();
