@@ -61,28 +61,23 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
                 menuBack.setVisible(false);
             });
         });
-        if(UtilityAccesso.nomeUtenteNelDatabase!=null ){
-            //setto il nome nella parte account perche significa che l'utente si e' loggato
-            loginButton.setText(UtilityAccesso.nomeUtenteNelDatabase);
-        }
+        //if(UtilityAccesso.nomeUtenteNelDatabase!=null ){
+        //    //setto il nome nella parte account perche significa che l'utente si e' loggato
+        //    loginButton.setText(UtilityAccesso.nomeUtenteNelDatabase);
+        //}
         loginButton.setOnMouseClicked(event -> {
-            if(UtilityAccesso.nomeUtenteNelDatabase!=null){
-                //l'utente si e' loggato, voglio quindi caricare la schermata che mi permette di fare il logout
-                try {
+            try {
+                if (UtilityAccesso.nomeUtenteNelDatabase != null) {
+                    //l'utente si e' loggato, voglio quindi caricare la schermata che mi permette di fare il logout
                     controllerVisualizzatoreScene.visualizzaScena("logout-page.fxml");
-                } catch (Exception e) {
-                    System.exit(-1);
-                }
-
-            }else {
-                //l'utente non è loggato, carico la schermata normale di login
-                //ricorda se l'utente fa il logout le variabili di utility accesso vengono settate a null
-                try {
+                } else {
+                    //l'utente non è loggato, carico la schermata normale di login
+                    //ricorda se l'utente fa il logout le variabili di utility accesso vengono settate a null
                     controllerVisualizzatoreScene.visualizzaScena("login-registrazione-page.fxml");
-                } catch (Exception e) {
+                }
+            }catch (Exception e) {
                     System.exit(-1);
                 }
-            }
         });
         contattiButton.setOnMouseClicked(event -> {
             try {
