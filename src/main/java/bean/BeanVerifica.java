@@ -19,7 +19,7 @@ public class BeanVerifica {
         if (email.indexOf(',') != -1) {
             throw new DoppiaVirgolaException("spiacente l'email non può\ncontente un carattere ','");
         }
-        if(!(email.endsWith(".com") || email.endsWith(".it") || email.endsWith(".it"))){
+        if(!(email.endsWith(".com") || email.endsWith(".it") || email.endsWith(".live"))){
             throw new TerminatoreEmailException("l'email deve terminare con\n.com o .it o .live");
         }
     }
