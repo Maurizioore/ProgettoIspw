@@ -8,7 +8,7 @@ public class UtilityAccesso {
     * in alcune schermate  */
     private static String nomeUtenteNelDatabase=null;
     private static String codiceUtente=null;
-    public UtilityAccesso(){
+    private UtilityAccesso(){
         //NON FA NULLA PERCHE E' UNA CLASSE UTILITY E FORNISCE METODI STATICI PER SETTARE IL VALORE DELLE
         //VARIABILI PRIVATE
     }

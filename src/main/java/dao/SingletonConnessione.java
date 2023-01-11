@@ -16,9 +16,6 @@ public class SingletonConnessione {
     }
     private static void collegatiAlDB() throws IOException, SQLException {
         Properties properties=new Properties();
-        //OutputStream os=new FileOutputStream("application.properties");
-        //properties.setProperty("password","ospite");
-        //properties.store(os,null);
         InputStream is= new FileInputStream("application.properties");
         properties.load(is);
         System.out.println("sono una sout in singleton connessione, la password e' :" +(String) properties.get("password"));
@@ -36,7 +33,7 @@ public class SingletonConnessione {
         }catch (SQLException e){
             throw new SQLException("impossibile connettersi al database\nriprova più tardi");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("impossibile estrarre la password\ndi connessione al db");
         }
         return connection;
     }

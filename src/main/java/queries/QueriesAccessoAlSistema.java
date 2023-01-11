@@ -4,7 +4,7 @@ public class QueriesAccessoAlSistema {
     /*questa e' una utility class che contiene solo metodi pubblici e statici i quali ritornano tutti una stringa
      * cioè la query che un metodo chiede di voler usare  */
 
-    public QueriesAccessoAlSistema(){
+    private QueriesAccessoAlSistema(){
         //NON FA NULLA PERCHE LA CLASSE DEVE FORNIRE SOLO METODI STATICI E PUBBLICI.
     };
     static final String QUERIES_VERIFICA_PRESENZA_EMAIL_E_PASSWORD="SELECT * FROM account WHERE (email=? AND password=?);";
