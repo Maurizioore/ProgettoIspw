@@ -6,7 +6,7 @@ public class QueriesAccessoAlSistema {
 
     private QueriesAccessoAlSistema(){
         //NON FA NULLA PERCHE LA CLASSE DEVE FORNIRE SOLO METODI STATICI E PUBBLICI.
-    };
+    }
     static final String QUERIES_VERIFICA_PRESENZA_EMAIL_E_PASSWORD="SELECT * FROM account WHERE (email=? AND password=?);";
     static final String QUERIES_VERIFICA_SE_UTENTE_ESISTE="SELECT * FROM account WHERE username=?;";
     static final String QUERIES_VERIFICA_SE_EMAIL_ESISTE="SELECT * FROM account WHERE email=?;";
