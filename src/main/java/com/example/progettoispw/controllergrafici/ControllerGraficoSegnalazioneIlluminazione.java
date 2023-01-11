@@ -53,7 +53,7 @@ public class ControllerGraficoSegnalazioneIlluminazione extends ControllerGrafic
                     textFieldNumeroSeriale.setDisable(true);
                     inviaSegnalazioneButton.setDisable(true);
                 }catch (LunghezzaInputException | NonEsisteIndirizzoException | NonEsisteNumeroSerialeException |
-                        SQLException | DuplicazioneInputException | SegnalazioneGiaAvvenutaException e){
+                        SQLException | SegnalazioneGiaAvvenutaException e){
                     labelErrore.setText(e.getMessage());
                     if(e.getClass()==SegnalazioneGiaAvvenutaException.class){
                         /*se l'eccezione è di tipo segnalazione già avvenuta l'utente ha portato a termine quello che

@@ -13,6 +13,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 public class ControllerGraficoSenzaAccesso implements Initializable {
     @FXML
+    private JFXButton attiveButtonName;
+    @FXML
     private JFXButton loginButton;
     @FXML
     private JFXButton contattiButton;
@@ -61,10 +63,21 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
                 menuBack.setVisible(false);
             });
         });
-        //if(UtilityAccesso.nomeUtenteNelDatabase!=null ){
+        //if(UtilityAccesso.getNomeUtenteNelDatabase()!=null ){
         //    //setto il nome nella parte account perche significa che l'utente si e' loggato
-        //    loginButton.setText(UtilityAccesso.nomeUtenteNelDatabase);
+        //    loginButton.setText(UtilityAccesso.getNomeUtenteNelDatabase());
         //}
+        attiveButtonName.setOnMouseClicked(event->{
+            try {
+                if(UtilityAccesso.getNomeUtenteNelDatabase()!=null){
+                    //posso accedere
+                    controllerVisualizzatoreScene.visualizzaScena("Segnalazioni-attive-page.fxml");
+                }
+            }catch(Exception e) {
+                System.exit(-1);
+            }
+        });
+
         loginButton.setOnMouseClicked(event -> {
             try {
                 if (UtilityAccesso.getNomeUtenteNelDatabase() != null) {
@@ -105,4 +118,5 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
     void SegnalaProblemaAccess() throws Exception {
         controllerVisualizzatoreScene.visualizzaScena("PaginaSegnalaProblema.fxml");
     }
+
 }

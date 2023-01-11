@@ -17,11 +17,11 @@ public class ControllerGraficoLogoutPage extends ControllerGraficoGenerale{
     private final ControllerVisualizzatoreScene controllerVisualizzatoreScene=ControllerVisualizzatoreScene.getInstance(null);
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-    labelUtente.setText(UtilityAccesso.nomeUtenteNelDatabase);
+    labelUtente.setText(UtilityAccesso.getNomeUtenteNelDatabase());
     logoutButton.setOnMouseClicked(event->{
         //porto a null i valori globali di utilityAccesso
-        UtilityAccesso.codiceUtente=null;
-        UtilityAccesso.nomeUtenteNelDatabase=null;
+        UtilityAccesso.setCodiceUtente(null);
+        UtilityAccesso.setNomeUtenteNelDatabase(null);
         //poi carico la pagina del login
         try {
             controllerVisualizzatoreScene.visualizzaScena("login-registrazione-page.fxml");

@@ -71,6 +71,7 @@ public class ControllerGraficoLoginPage extends ControllerGraficoGenerale {
                         accediButton.setDisable(true);
                         registratiButton.setDisable(true);
                         labelComunicazione.setText("accesso effettuato con successo");
+
                     }catch(SQLException | NonEsisteUtenteNelSistemaException e){
                          labelComunicazione.setText(e.getMessage());
                     }

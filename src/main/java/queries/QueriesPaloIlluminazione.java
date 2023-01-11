@@ -13,7 +13,9 @@ public class QueriesPaloIlluminazione {
     static final String QUERIES_CERCA_PALO="SELECT * FROM palo WHERE (numeroSeriale=? AND indirizzo=?);";
     static final String QUERIES_SALVA_PALO_AD_UN_UTENTE_DEL_SISTEMA="INSERT INTO palo(numeroSeriale,indirizzo,codiceUtente) VALUES(?,?,?);";
     static final String QUERIES_MOSTRA_SEGNALAZIONI_EFFETTUATE="SELECT DISTINCT numeroSeriale,indirizzo,stato FROM palo,account WHERE palo.codiceUtente=?;";
-    public QueriesPaloIlluminazione(){};
+    public QueriesPaloIlluminazione(){
+        //NON FA NULLA PERCHE LA CLASSE DEVE FORNIRE SOLO METODI STATICI E PUBBLICI.
+    };
     public static String queriesPrendiPalo(){
         return QUERIES_PRENDI_PALO;
     }
