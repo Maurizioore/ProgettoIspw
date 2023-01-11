@@ -93,7 +93,7 @@ public class PaloIlluminazioneDaoImpl implements PaloIlluminazioneDao{
         //verifichiamo che la connessione sia aperta
         verificaConnessione();
         //vediamo prima se il palo c'e'
-        if(cercaPalo(paloACuiCambiareStato)==true){
+        if(cercaPalo(paloACuiCambiareStato)){
             //cercaPalo ritorna true se il palo a cui voglio cambiare stato esiste, quindi gli cambio stato
             if (nuovoStato.equals("riparato") || nuovoStato.equals("in corso di riparazione")) {
                 //allora si può cambiare stato

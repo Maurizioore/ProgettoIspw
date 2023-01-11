@@ -10,17 +10,16 @@ public class ControllerGraficoPaginaSegnalaProblema extends ControllerGraficoGen
     * nella barra del menu e quindi anche questa riuserà il codice di quei pulsanti che sono stati gia' definiti
     * inoltre implementerà la logica dei suoi button che non ha in comune con le altre view */
     //inizio implementando la logica dei buttonComuni
-
-    //aggiunta ora con il singleton
     private final ControllerVisualizzatoreScene controllerVisualizzatoreScene=ControllerVisualizzatoreScene.getInstance(null);
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        //questo avrà i seton mouse click dei suoi pulsanti e alla fine chiama super.initialize di quelli in comune
-        super.initialize(url,resourceBundle);
-    }
+
     //inizialmente questo metodo lo avevo messo nell' initialize, purtroppo pero' con questo con i setOnMouseClick nn mi
     //faceva aprire gli altri pulsanti che sono in comune con le schermate uscendo con il codice 255, e quindi ho deciso
     //d'implementarlo come metodo a parte fuori dall' initialize
+
+    //a questa classe non serve il l'override di initialize, perche' effetivamente quello che dovrebbe fare in quel caso
+    //in cui fosse presente e' chiamare super.intialize e basta poiche non ha sui bottoni a parte che condivide con altre
+    //classi e che mi fanno duplicare il codice, tanto vale allora non mettere proprio intialize e far gestire il click c
+    //come ho fatto per quello sotto
     @FXML
     public void segnalaPaloAccess() throws Exception{
         controllerVisualizzatoreScene.visualizzaScena("PaginaSegnalaProblemaIlluminazione.fxml");

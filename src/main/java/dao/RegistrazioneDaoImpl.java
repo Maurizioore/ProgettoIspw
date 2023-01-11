@@ -45,6 +45,8 @@ public class RegistrazioneDaoImpl implements RegistrazioneDao{
         preparedStatement = connection.prepareStatement(QueriesAccessoAlSistema.verificaSeUtenteEsiste());
         preparedStatement.setString(1, username);
         resultSet = preparedStatement.executeQuery();
+        //isBeforeFirst ritorna true se result set contiene la username, quindi significa che quella username e'
+        //stata già usata da qualcuno nel sistema
         if (resultSet.isBeforeFirst()) {
             //esiste un utente che ha usato quell'username
             return false;
@@ -52,11 +54,9 @@ public class RegistrazioneDaoImpl implements RegistrazioneDao{
             preparedStatement=connection.prepareStatement(QueriesAccessoAlSistema.verificaSeEmailEsiste());
             preparedStatement.setString(1,email);
             resultSet=preparedStatement.executeQuery();
-            if(resultSet.isBeforeFirst()){
-                //esiste un utente che usa quell'email
-                return false;
-            }
-            return true;
+            //result set ritorna true se l'email e' gia presente nel sistema, usando il not dico che che questo
+            //metodo ritorna false e quindi tornando sopra viene lanciata l'eccezione
+            return !resultSet.isBeforeFirst();
         }
 
     }

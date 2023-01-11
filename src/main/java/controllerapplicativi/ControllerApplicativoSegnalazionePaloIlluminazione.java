@@ -3,7 +3,6 @@ package controllerapplicativi;
 import bean.BeanSegnalazionePaloIlluminazione;
 import contenitori.Contenitore;
 import dao.PaloIlluminazioneDaoImpl;
-import eccezioni.DuplicazioneInputException;
 import eccezioni.NonEsisteIndirizzoException;
 import eccezioni.NonEsisteNumeroSerialeException;
 import contenitori.ContenitoreIndirizzi;
