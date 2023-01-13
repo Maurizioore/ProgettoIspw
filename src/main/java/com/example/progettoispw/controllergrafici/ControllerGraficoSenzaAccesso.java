@@ -65,60 +65,43 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
                 menuBack.setVisible(false);
             });
         });
-        risolteButtonName.setOnMouseClicked(event->{
+        try {
+
+            risolteButtonName.setOnMouseClicked(event -> {
                 //devo vedere se l'utente e' loggato prima di accedere alla pagina
-                try {
-                    if(UtilityAccesso.getNomeUtenteNelDatabase()!=null){
-                    controllerVisualizzatoreScene.visualizzaScena("Segnalazioni-risolte-page.fxml");
-                } }catch (Exception e) {
-                    System.exit(-1);
-                }
-        });
-        attiveButtonName.setOnMouseClicked(event-> {
-                try {
-                    if(UtilityAccesso.getNomeUtenteNelDatabase()!=null) {
-                        //posso accedere
-                        controllerVisualizzatoreScene.visualizzaScena("Segnalazioni-attive-page.fxml");
+                    if (UtilityAccesso.getNomeUtenteNelDatabase() != null) {
+                        controllerVisualizzatoreScene.visualizzaScena("Segnalazioni-risolte-page.fxml");
                     }
-                } catch(Exception e){
-                System.exit(-1);
-            }
-        });
-        loginButton.setOnMouseClicked(event -> {
-            try {
+            });
+            attiveButtonName.setOnMouseClicked(event -> {
                 if (UtilityAccesso.getNomeUtenteNelDatabase() != null) {
-                    //l'utente si e' loggato, voglio quindi caricare la schermata che mi permette di fare il logout
-                    controllerVisualizzatoreScene.visualizzaScena("logout-page.fxml");
-                } else {
-                    //l'utente non è loggato, carico la schermata normale di login
-                    //ricorda se l'utente fa il logout le variabili di utility accesso vengono settate a null
-                    controllerVisualizzatoreScene.visualizzaScena("login-registrazione-page.fxml");
+                    //posso accedere
+                    controllerVisualizzatoreScene.visualizzaScena("Segnalazioni-attive-page.fxml");
                 }
-            }catch (Exception e) {
-                    System.exit(-1);
-                }
-        });
-        contattiButton.setOnMouseClicked(event -> {
-            try {
+            });
+            loginButton.setOnMouseClicked(event -> {
+                    if (UtilityAccesso.getNomeUtenteNelDatabase() != null) {
+                        //l'utente si e' loggato, voglio quindi caricare la schermata che mi permette di fare il logout
+                        controllerVisualizzatoreScene.visualizzaScena("logout-page.fxml");
+                    } else {
+                        //l'utente non è loggato, carico la schermata normale di login
+                        //ricorda se l'utente fa il logout le variabili di utility accesso vengono settate a null
+                        controllerVisualizzatoreScene.visualizzaScena("login-registrazione-page.fxml");
+                    }
+            });
+            contattiButton.setOnMouseClicked(event -> {
                 controllerVisualizzatoreScene.visualizzaScena("ContattaciPage.fxml");
-            } catch (Exception e) {
-                System.exit(-1);
-            }
-        });
-        chiSiamoButton.setOnMouseClicked(event -> {
-            try {
+
+            });
+            chiSiamoButton.setOnMouseClicked(event -> {
                 controllerVisualizzatoreScene.visualizzaScena("chiSiamoNoi.fxml");
-            } catch (Exception e) {
-                System.exit(-1);
-            }
-        });
-        aiutoButton.setOnMouseClicked(event -> {
-            try {
+            });
+            aiutoButton.setOnMouseClicked(event -> {
                 controllerVisualizzatoreScene.visualizzaScena("aiutoAccess.fxml");
-            } catch (Exception e) {
-                System.exit(-1);
-            }
-        });
+            });
+        }catch (Exception e){
+            System.exit(-1);
+        }
     }
     @FXML
     void SegnalaProblemaAccess() throws Exception {

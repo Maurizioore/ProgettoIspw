@@ -29,10 +29,14 @@ public class ControllerVisualizzatoreScene{
         stage.setScene(scene);
         stage.show();
     }
-    public  void visualizzaScena(String stringScena) throws Exception{
-        Parent fxmlLoader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(stringScena)));
-        Scene scene = new Scene(fxmlLoader);
-        stage.setScene(scene);
-        stage.show();
+    public  void visualizzaScena(String stringScena){
+        try {
+            Parent fxmlLoader = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(stringScena)));
+            Scene scene = new Scene(fxmlLoader);
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            System.exit(-1);
+        }
     }
 }
