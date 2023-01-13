@@ -11,25 +11,28 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class SegnalazioniAttiveDaoImpl implements SegnalazioniAttiveDao{
-    //come tutti i dao deve aprire una connessione
+public class SegnalazioniRisolteDaoImpl implements SegnalazioniRisolteDao{
+    //come tutti i dao lui si preoccupa di interrogare il db
+
     private Connection connection;
     private void verificaConnessione() throws SQLException, ErroreLetturaPasswordException {
         if(connection==null){
             connection=SingletonConnessione.getInstance();
         }
     }
-    public SegnalazioniAttiveDaoImpl() throws SQLException, ErroreLetturaPasswordException {
-        //il costruttore non fa altro che aprire o prendere una connessione
+    public SegnalazioniRisolteDaoImpl() throws SQLException, ErroreLetturaPasswordException {
+        //il costruttore non fa altro che aprire o prendere una connessione verso il db
         connection=SingletonConnessione.getInstance();
+
     }
 
+    //metodo che cerca le segnalazioni che l'utente ha aperto e che sono state risolte
     @Override
-    public void cercaSegnalazioniAttive(List<String> listaPaliSegnalati,List<String> listaIndirizziDiQueiPali, List<String> listaStatoDellaSegnalazione) throws SQLException, NonEsistonoSegnalazioniException, ErroreLetturaPasswordException {
+    public void cercaSegnalazioniRisolte(List<String> listaPaliSegnalati, List<String> listaIndirizziDiQueiPali) throws SQLException, NonEsistonoSegnalazioniException, ErroreLetturaPasswordException {
         //verifico prima che la connessione sia ancora aperta( magari qualcun altro dao l'ha chiusa
         verificaConnessione();
         //ora devo richiedere al sistema le segnalazioni dell'utente
-        PreparedStatement preparedStatement=connection.prepareStatement(QueriesPaloIlluminazione.queriesMostraSegnalazioniEffettuate());
+        PreparedStatement preparedStatement=connection.prepareStatement(QueriesPaloIlluminazione.queriesMostraSegnalazioniCompletate());
         preparedStatement.setString(1, UtilityAccesso.getCodiceUtente());
         ResultSet rs=preparedStatement.executeQuery();
         //ora devo vedere se la l'utente ha segnalato veramente qualcosa
@@ -40,8 +43,9 @@ public class SegnalazioniAttiveDaoImpl implements SegnalazioniAttiveDao{
         //il result set contiene quindi qualcosa, questo qualcosa lo prendo e lo inserisco nella lista
         while(rs.next()){
             listaPaliSegnalati.add(rs.getString("numeroSeriale"));
+
             listaIndirizziDiQueiPali.add(rs.getString("indirizzo"));
-            listaStatoDellaSegnalazione.add(rs.getString("stato"));
         }
     }
 }
+

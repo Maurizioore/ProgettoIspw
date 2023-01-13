@@ -1,5 +1,6 @@
 package dao;
 
+import eccezioni.ErroreLetturaPasswordException;
 import queries.QueriesAccessoAlSistema;
 import utilityaccesso.UtilityAccesso;
 
@@ -17,7 +18,7 @@ public class LoginDaoImpl implements LoginDao{
     private Connection connection=null;
     private PreparedStatement preparedStatement=null;
     private ResultSet resultSet=null;
-    public LoginDaoImpl() throws SQLException {
+    public LoginDaoImpl() throws SQLException, ErroreLetturaPasswordException {
         connection=SingletonConnessione.getInstance();
     }
 

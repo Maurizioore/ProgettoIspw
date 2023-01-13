@@ -3,6 +3,7 @@ package controllerapplicativi;
 
 import dao.SegnalazioniAttiveDao;
 import dao.SegnalazioniAttiveDaoImpl;
+import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.NonEsistonoSegnalazioniException;
 import utilityaccesso.UtilityAccesso;
 
@@ -17,13 +18,13 @@ public class ControllerApplicativoSegnalazioniAttive {
     private List<String> indirizzoSegnalazioneUtente=new ArrayList<>();
     private List<String> statoSegnalazioneUtente=new ArrayList<>();
 
-    public ControllerApplicativoSegnalazioniAttive() throws NonEsistonoSegnalazioniException, SQLException {
+    public ControllerApplicativoSegnalazioniAttive() throws NonEsistonoSegnalazioniException, SQLException, ErroreLetturaPasswordException {
         //prendo il codice utente di colui che ha cliccato su attive
         codiceUtente= Integer.parseInt(UtilityAccesso.getCodiceUtente());
         //devo aggiungere elementi alla lista
         aggiungiElementi();
     }
-    private void aggiungiElementi() throws SQLException, NonEsistonoSegnalazioniException {
+    private void aggiungiElementi() throws SQLException, NonEsistonoSegnalazioniException, ErroreLetturaPasswordException {
         //questa dovra fare una richiesta al db e farsi restituire tutte le segnalazioni associate a quell'utente
         //chiamera' quindi un dao
         SegnalazioniAttiveDao segnalazioniAttiveDao=new SegnalazioniAttiveDaoImpl();

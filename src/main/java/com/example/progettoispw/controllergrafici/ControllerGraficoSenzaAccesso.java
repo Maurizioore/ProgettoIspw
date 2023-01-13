@@ -29,6 +29,8 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
     @FXML
     private AnchorPane slider;
     //aggiunta ora con il singleton
+    @FXML
+    private JFXButton risolteButtonName;
     private final ControllerVisualizzatoreScene controllerVisualizzatoreScene = ControllerVisualizzatoreScene.getInstance(null);
 
     /*questa classe la uso per implementare la logica dei button comuni a tutte le schermate, in particolare questa
@@ -67,6 +69,16 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
         //    //setto il nome nella parte account perche significa che l'utente si e' loggato
         //    loginButton.setText(UtilityAccesso.getNomeUtenteNelDatabase());
         //}
+        risolteButtonName.setOnMouseClicked(event->{
+            //devo vedere se l'utente e' loggato prima di accedere alla pagina
+            try{
+                if(UtilityAccesso.getNomeUtenteNelDatabase()!=null){
+                    controllerVisualizzatoreScene.visualizzaScena("Segnalazioni-risolte-page.fxml");
+                }
+            }catch(Exception e){
+                System.exit(-1);
+            }
+        });
         attiveButtonName.setOnMouseClicked(event->{
             try {
                 if(UtilityAccesso.getNomeUtenteNelDatabase()!=null){

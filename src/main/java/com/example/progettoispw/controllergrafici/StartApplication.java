@@ -28,6 +28,8 @@ public class StartApplication extends Application {
     * tu quella la crei e la metti set visible a false di defaulkt, pii se sonjo piu di 5 la setti a true*/
     //metti il login button che appartiene ad uno state e a seconda se l'utente effettua l'accesso o no lui cambia stato e
     //setta il testo al nome utente che ha effettuato l'accesso
+    //usa la table view invece della listview
+    
     @Override
     public void start(Stage stage) throws Exception {
         final String schermataPrincipale="prova-home.fxml";

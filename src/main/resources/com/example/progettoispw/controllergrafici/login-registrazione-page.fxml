@@ -109,7 +109,7 @@
                                             </image></ImageView>
                                     </graphic>
                                 </JFXButton>
-                                <JFXButton alignment="BASELINE_LEFT" cacheShape="false" centerShape="false" focusTraversable="false" prefHeight="38.0" prefWidth="176.0" scaleShape="false" styleClass="sidebarItem" text="risolte" textFill="#e0e1dd">
+                                <JFXButton fx:id="risolteButtonName" alignment="BASELINE_LEFT" cacheShape="false" centerShape="false" focusTraversable="false" prefHeight="38.0" prefWidth="176.0" scaleShape="false" styleClass="sidebarItem" text="risolte" textFill="#e0e1dd">
                                     <font>
                                         <Font name="System Bold" size="18.0" />
                                     </font>

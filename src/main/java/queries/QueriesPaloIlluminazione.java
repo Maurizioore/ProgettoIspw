@@ -12,7 +12,9 @@ public class QueriesPaloIlluminazione {
     static final String QUERIES_CAMBIA_STATO_PALO="UPDATE palo SET stato = ? WHERE (numeroSeriale=? AND indirizzo=?);";
     static final String QUERIES_CERCA_PALO="SELECT * FROM palo WHERE (numeroSeriale=? AND indirizzo=?);";
     static final String QUERIES_SALVA_PALO_AD_UN_UTENTE_DEL_SISTEMA="INSERT INTO palo(numeroSeriale,indirizzo,codiceUtente) VALUES(?,?,?);";
-    static final String QUERIES_MOSTRA_SEGNALAZIONI_EFFETTUATE="SELECT DISTINCT numeroSeriale,indirizzo,stato FROM palo,account WHERE palo.codiceUtente=?;";
+    static final String QUERIES_MOSTRA_SEGNALAZIONI_EFFETTUATE="SELECT DISTINCT numeroSeriale,indirizzo,stato FROM palo,account WHERE (palo.codiceUtente=? AND problemaRisolto=false);";
+    //provala questa delle completate prima
+    static final String QUERIES_MOSTRA_SEGNALAZIONI_COMPLETATE="SELECT DISTINCT numeroSeriale,indirizzo FROM palo,account WHERE (palo.codiceUtente=? AND problemaRisolto!=false);";
     private QueriesPaloIlluminazione(){
         //NON FA NULLA PERCHE LA CLASSE DEVE FORNIRE SOLO METODI STATICI E PUBBLICI.}
     }
@@ -32,6 +34,7 @@ public class QueriesPaloIlluminazione {
     public static String queriesMostraSegnalazioniEffettuate(){
         return QUERIES_MOSTRA_SEGNALAZIONI_EFFETTUATE;
     }
+    public static String queriesMostraSegnalazioniCompletate(){return QUERIES_MOSTRA_SEGNALAZIONI_COMPLETATE;}
 
 
 }

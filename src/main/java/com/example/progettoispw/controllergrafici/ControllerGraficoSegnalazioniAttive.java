@@ -2,6 +2,7 @@ package com.example.progettoispw.controllergrafici;
 
 import com.jfoenix.controls.JFXButton;
 import controllerapplicativi.ControllerApplicativoSegnalazioniAttive;
+import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.NonEsistonoSegnalazioniException;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -42,10 +43,7 @@ public class ControllerGraficoSegnalazioniAttive implements Initializable {
             List<String> indirizziAssociatiAiPali=segnalazioniEffettuateDallUtente.get(1);
             List<String> statoDellaSegnalazioneDeiPali=segnalazioniEffettuateDallUtente.get(2);
             //questa variabile contatore riporta il numero di segnalazioni ancora attive ell'utente
-            int contatore=0;
-            for(String stringa: paliSegnalati){
-                contatore++;
-            }
+            int contatore=paliSegnalati.size();
             //per ogni segnalazione devo creare una label, settare il testo dentro la label stessa
             listViewName.setFixedCellSize(90);
             for(int i=0;i<contatore;i++){
@@ -54,18 +52,12 @@ public class ControllerGraficoSegnalazioniAttive implements Initializable {
                 label.setText("numero seriale: " +paliSegnalati.get(i)+ " indirizzo:  " +indirizziAssociatiAiPali.get(i)+" stato segnalazione: " +statoDellaSegnalazioneDeiPali.get(i));
                 listViewName.getItems().add(label);
             }
-        }catch(SQLException | NonEsistonoSegnalazioniException e){
+        }catch(SQLException | NonEsistonoSegnalazioniException | ErroreLetturaPasswordException e){
             labelErrore.setText(e.getMessage());
         }
 
         //devo contare le segnalazioni che ci sono nella lista e poi con un for creo dei button
-        //for(int i=1;i<15;i++){
-        //    JFXButton button=new JFXButton();
-        //    button.setText(Integer.toString(i));
-        //    button.setMinHeight(90);
-        //    button.setMinWidth(659);
-        //    listViewName.getItems().add(button);
-        //}
+        //
         ritornaHomeButton.setOnMouseClicked(event->{
             try {
                 controllerVisualizzatoreScene.visualizzaScena("prova-home.fxml");

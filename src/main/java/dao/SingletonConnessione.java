@@ -1,5 +1,7 @@
 package dao;
 
+import eccezioni.ErroreLetturaPasswordException;
+
 import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,7 +27,7 @@ public class SingletonConnessione {
     * è mycredentials e la regione ce gestisce e' "us-east-1", si collega al aws prende il segreto
     *  il segreto altro non è che la password del db e la usa per collegarsi al db */
 
-    public static Connection getInstance() throws SQLException {
+    public static Connection getInstance() throws SQLException, ErroreLetturaPasswordException {
         try {
             if (connection == null) {
                 new SingletonConnessione();
@@ -33,7 +35,7 @@ public class SingletonConnessione {
         }catch (SQLException e){
             throw new SQLException("impossibile connettersi al database\nriprova più tardi");
         } catch (IOException e) {
-            throw new RuntimeException("impossibile estrarre la password\ndi connessione al db");
+            throw new ErroreLetturaPasswordException ("impossibile estrarre la password\ndi connessione al db");
         }
         return connection;
     }

@@ -1,5 +1,6 @@
 package dao;
 
+import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.UtenteEsistenteException;
 import queries.QueriesAccessoAlSistema;
 
@@ -11,7 +12,7 @@ import java.sql.SQLException;
 public class RegistrazioneDaoImpl implements RegistrazioneDao{
     //questa come tutte le altri classi dao comunica con il db ed esegue l'operazione di registrazione
     //prima di fare la registrazione verifica se esiste già un utente con quelle credenziali e se no lo registra
-    private void verificaConnessione() throws SQLException {
+    private void verificaConnessione() throws SQLException, ErroreLetturaPasswordException {
         if(connection==null){
             new RegistrazioneDaoImpl();
         }
@@ -19,13 +20,13 @@ public class RegistrazioneDaoImpl implements RegistrazioneDao{
     private Connection connection=null;
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
-    public RegistrazioneDaoImpl() throws SQLException {
+    public RegistrazioneDaoImpl() throws SQLException, ErroreLetturaPasswordException {
         //prendo o apro una connessione se non esiste
         connection=SingletonConnessione.getInstance();
     }
     //una volta aperta la connessione posso eseguire le operazioni
     @Override
-    public void registraUtente(String username, String email, String password) throws SQLException, UtenteEsistenteException {
+    public void registraUtente(String username, String email, String password) throws SQLException, UtenteEsistenteException, ErroreLetturaPasswordException {
         //prima di eseguire ogni operazione controllo che la connessione sia aperta
         verificaConnessione();
         //ora devo registrare l'utente con i dati passati, devo prima vedere se esiste qualche utente con quelle credenziali

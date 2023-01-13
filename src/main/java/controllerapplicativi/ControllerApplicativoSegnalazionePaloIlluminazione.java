@@ -3,6 +3,7 @@ package controllerapplicativi;
 import bean.BeanSegnalazionePaloIlluminazione;
 import contenitori.Contenitore;
 import dao.PaloIlluminazioneDaoImpl;
+import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.NonEsisteIndirizzoException;
 import eccezioni.NonEsisteNumeroSerialeException;
 import contenitori.ContenitoreIndirizzi;
@@ -29,7 +30,7 @@ public class ControllerApplicativoSegnalazionePaloIlluminazione {
     private List<String> contenitore=null;
     private List<String> indirizzi=null;
 
-    public ControllerApplicativoSegnalazionePaloIlluminazione(BeanSegnalazionePaloIlluminazione beanSegnalazionePaloIlluminazione)throws NonEsisteIndirizzoException, NonEsisteNumeroSerialeException, SQLException, SegnalazioneGiaAvvenutaException{
+    public ControllerApplicativoSegnalazionePaloIlluminazione(BeanSegnalazionePaloIlluminazione beanSegnalazionePaloIlluminazione) throws NonEsisteIndirizzoException, NonEsisteNumeroSerialeException, SQLException, SegnalazioneGiaAvvenutaException, ErroreLetturaPasswordException {
         this.numeroSerialePaloIlluminazione=beanSegnalazionePaloIlluminazione.getNumeroSerialePalo();
         this.indirizzo=beanSegnalazionePaloIlluminazione.getIndirizzo();
         prendiContenitore();
@@ -42,7 +43,7 @@ public class ControllerApplicativoSegnalazionePaloIlluminazione {
         //questa la devo mandare al db
         inviaSegnalazione(paloDaSegnalare);
     }
-    public void inviaSegnalazione(PaloIlluminazione palo) throws SQLException, SegnalazioneGiaAvvenutaException {
+    public void inviaSegnalazione(PaloIlluminazione palo) throws SQLException, SegnalazioneGiaAvvenutaException, ErroreLetturaPasswordException {
         PaloIlluminazioneDaoImpl paloIlluminazioneDao=new PaloIlluminazioneDaoImpl();
         paloIlluminazioneDao.savePaloIlluminazione(palo);
     }

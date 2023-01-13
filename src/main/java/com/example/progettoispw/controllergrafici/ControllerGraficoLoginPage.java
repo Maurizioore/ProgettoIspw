@@ -2,6 +2,7 @@ package com.example.progettoispw.controllergrafici;
 import bean.BeanLogin;
 import com.jfoenix.controls.JFXButton;
 import controllerapplicativi.ControllerApplicativoLoginAlSistema;
+import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.NonEsisteUtenteNelSistemaException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -72,7 +73,7 @@ public class ControllerGraficoLoginPage extends ControllerGraficoGenerale {
                         registratiButton.setDisable(true);
                         labelComunicazione.setText("accesso effettuato con successo");
 
-                    }catch(SQLException | NonEsisteUtenteNelSistemaException e){
+                    }catch(SQLException | NonEsisteUtenteNelSistemaException | ErroreLetturaPasswordException e){
                          labelComunicazione.setText(e.getMessage());
                     }
                 }else{

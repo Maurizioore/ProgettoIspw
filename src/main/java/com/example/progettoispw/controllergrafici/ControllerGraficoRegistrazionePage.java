@@ -3,6 +3,7 @@ package com.example.progettoispw.controllergrafici;
 import bean.BeanRegistrazione;
 import com.jfoenix.controls.JFXButton;
 import controllerapplicativi.ControllerApplicativoRegistrazioneAlSistema;
+import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.NonEsisteUtenteNelSistemaException;
 import eccezioni.UtenteEsistenteException;
 import javafx.fxml.FXML;
@@ -56,7 +57,7 @@ public class ControllerGraficoRegistrazionePage extends ControllerGraficoGeneral
                         passwordFieldPassword.setDisable(true);
                         registratiAlSistemaButton.setDisable(true);
                         labelComunicazione.setText("registrazione avvenuta con successo");
-                    }catch (SQLException| UtenteEsistenteException e){
+                    }catch (SQLException | UtenteEsistenteException | ErroreLetturaPasswordException e){
                         labelComunicazione.setText(e.getMessage());
                     }
                 }else{
