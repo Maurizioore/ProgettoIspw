@@ -65,33 +65,25 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
                 menuBack.setVisible(false);
             });
         });
-        //if(UtilityAccesso.getNomeUtenteNelDatabase()!=null ){
-        //    //setto il nome nella parte account perche significa che l'utente si e' loggato
-        //    loginButton.setText(UtilityAccesso.getNomeUtenteNelDatabase());
-        //}
         risolteButtonName.setOnMouseClicked(event->{
-            if(UtilityAccesso.getNomeUtenteNelDatabase()!=null) {
                 //devo vedere se l'utente e' loggato prima di accedere alla pagina
                 try {
-                    //if(UtilityAccesso.getNomeUtenteNelDatabase()!=null){
+                    if(UtilityAccesso.getNomeUtenteNelDatabase()!=null){
                     controllerVisualizzatoreScene.visualizzaScena("Segnalazioni-risolte-page.fxml");
-                } catch (Exception e) {
+                } }catch (Exception e) {
                     System.exit(-1);
                 }
-            }
         });
         attiveButtonName.setOnMouseClicked(event-> {
-            if (UtilityAccesso.getNomeUtenteNelDatabase() != null) {
                 try {
-                    //if(UtilityAccesso.getNomeUtenteNelDatabase()!=null){
-                    //posso accedere
-                    controllerVisualizzatoreScene.visualizzaScena("Segnalazioni-attive-page.fxml");
+                    if(UtilityAccesso.getNomeUtenteNelDatabase()!=null) {
+                        //posso accedere
+                        controllerVisualizzatoreScene.visualizzaScena("Segnalazioni-attive-page.fxml");
+                    }
                 } catch(Exception e){
                 System.exit(-1);
             }
-        }
         });
-
         loginButton.setOnMouseClicked(event -> {
             try {
                 if (UtilityAccesso.getNomeUtenteNelDatabase() != null) {
