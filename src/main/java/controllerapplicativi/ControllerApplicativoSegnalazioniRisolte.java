@@ -20,8 +20,8 @@ public class ControllerApplicativoSegnalazioniRisolte {
     private int codiceUtente;
     //queste 2 liste contengono l'insieme dei pali che sono stati riparati e gli indirizzi in cui ogni palo si trova
 
-    public List<String> listaPaliRiparati= new ArrayList<>();
-    public List<String> indirizzoDiQueiPali= new ArrayList<>();
+    private List<String> listaPaliRiparati= new ArrayList<>();
+    private List<String> indirizzoDiQueiPali= new ArrayList<>();
     public ControllerApplicativoSegnalazioniRisolte() throws SQLException, NonEsistonoSegnalazioniException, ErroreLetturaPasswordException {
         //prendo il codice utente di colui che ha cliccato su risolte
         codiceUtente= Integer.parseInt(UtilityAccesso.getCodiceUtente());
