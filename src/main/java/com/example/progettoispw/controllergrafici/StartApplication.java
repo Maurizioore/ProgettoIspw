@@ -29,6 +29,8 @@ public class StartApplication extends Application {
     //metti il login button che appartiene ad uno state e a seconda se l'utente effettua l'accesso o no lui cambia stato e
     //setta il testo al nome utente che ha effettuato l'accesso
     //usa la table view invece della listview
+    //ho modificato controller grafico segnalaziomi attive facendolo passare al bean, il codice si interrompe scopri il pefche
+    //fai la stessa cosa alle segnalazioni risolte
     
     @Override
     public void start(Stage stage) throws Exception {

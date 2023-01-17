@@ -1,7 +1,8 @@
 package com.example.progettoispw.controllergrafici;
 
+import bean.BeanListeElementi;
 import com.jfoenix.controls.JFXButton;
-import controllerapplicativi.ControllerApplicativoSegnalazioniRisolte;
+import controllerapplicativi.ControllerApplicativoSegnalazioniRisolte1;
 import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.NonEsistonoSegnalazioniException;
 import javafx.fxml.FXML;
@@ -22,32 +23,24 @@ public class ControllerGraficoSegnalazioniRisolte implements Initializable{
     private Label labelErrore;
     ControllerVisualizzatoreScene controllerVisualizzatoreScene=ControllerVisualizzatoreScene.getInstance(null);
 
-    private List<List<String>> segnalazioniRisolte;
-    //prende tutto dal padre
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
         try{
-
             //se l'utente e' entrato nella schermata vuol dire che possiede un account, gli mostro le sue
             //segnalazioni che sono state risolte
             //chiamo il controller applicativo che si preoccupa di restituire tutto cio che l'utente ha segnalato e che e' stato risolto
-            ControllerApplicativoSegnalazioniRisolte controllerApplicativoSegnalazioniRisolte= new ControllerApplicativoSegnalazioniRisolte();
-            //ritorno tutte le segnalazioni risolte
-            segnalazioniRisolte=controllerApplicativoSegnalazioniRisolte.ritornaListaSegnalazioni();
-            //separo le 2 liste che sono state messe in segnalazioni risolte
-            List<String> paliRiparati=segnalazioniRisolte.get(0);
-            List<String> indirizzi=segnalazioniRisolte.get(1);
-            //verifico la grandezza di una di queste liste ( che sarà uguale all'altra) per capire quamte righe il controller grafico
-            //deve creare
-            int contatore=paliRiparati.size();
+            BeanListeElementi beanListeElementi=new BeanListeElementi();
+            ControllerApplicativoSegnalazioniRisolte1 controllerApplicativoSegnalazioniRisolte1=new ControllerApplicativoSegnalazioniRisolte1(beanListeElementi);
+            //in questo punto tutte le segnalazioni risolte sono state aggiunte nella lista dentro il bean, le riprendo allora e le mostro in output
+            int contatore=beanListeElementi.listaIndirizzi.size();
             listViewRisolteName.setFixedCellSize(90);
             //creo le righe che mostrano le segnalazioni
             for(int i=0;i<contatore;i++){
                 //aggiungo la label alla view
                 Label label=new Label();
-                label.setText("numero seriale: " +paliRiparati.get(i)+ " indirizzo:  " +indirizzi.get(i));
+                label.setText("numero seriale: " +beanListeElementi.restituisciNumeroSeriale(i)+ " indirizzo:  " +beanListeElementi.restituisciIndirizzo(i));
                 listViewRisolteName.getItems().add(label);
             }
         } catch (SQLException | NonEsistonoSegnalazioniException | ErroreLetturaPasswordException e) {

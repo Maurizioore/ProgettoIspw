@@ -1,6 +1,6 @@
 package controllerapplicativi;
 
-
+import bean.BeanListeElementi;
 import dao.SegnalazioniAttiveDao;
 import dao.SegnalazioniAttiveDaoImpl;
 import eccezioni.ErroreLetturaPasswordException;
@@ -18,32 +18,23 @@ public class ControllerApplicativoSegnalazioniAttive {
     private List<String> indirizzoSegnalazioneUtente=new ArrayList<>();
     private List<String> statoSegnalazioneUtente=new ArrayList<>();
 
-    public ControllerApplicativoSegnalazioniAttive() throws NonEsistonoSegnalazioniException, SQLException, ErroreLetturaPasswordException {
-        //prendo il codice utente di colui che ha cliccato su attive
+    public ControllerApplicativoSegnalazioniAttive(BeanListeElementi bean) throws NonEsistonoSegnalazioniException, SQLException, ErroreLetturaPasswordException {
         codiceUtente= Integer.parseInt(UtilityAccesso.getCodiceUtente());
         //devo aggiungere elementi alla lista
-        aggiungiElementi();
+        aggiungiElementi(bean);
     }
-    private void aggiungiElementi() throws SQLException, NonEsistonoSegnalazioniException, ErroreLetturaPasswordException {
+    private void aggiungiElementi(BeanListeElementi bean) throws SQLException, NonEsistonoSegnalazioniException, ErroreLetturaPasswordException {
         //questa dovra fare una richiesta al db e farsi restituire tutte le segnalazioni associate a quell'utente
         //chiamera' quindi un dao
         SegnalazioniAttiveDao segnalazioniAttiveDao=new SegnalazioniAttiveDaoImpl();
         segnalazioniAttiveDao.cercaSegnalazioniAttive(segnalazioniEffettuateDallUtente,indirizzoSegnalazioneUtente,statoSegnalazioneUtente);
+        int contatore= segnalazioniEffettuateDallUtente.size();
 
-
+        for(int i=0;i<contatore;i++){
+            bean.gestisciListaNumeriSeriali(segnalazioniEffettuateDallUtente.get(i));
+            bean.gestisciIndirizzi(indirizzoSegnalazioneUtente.get(i));
+            bean.gestisciStato(statoSegnalazioneUtente.get(i));
+        }
     }
-
-    public List<List<String>> ritornaListaSegnalazioni(){
-        //questo metodo deve tornare la lista delle segnalazioni attive al controller grafico
-        //devo tornare al controller grafico le 3 liste di sopra, le inserisco quindi in una lista a loro volta
-        List<List<String>> resocontoSegnalazione= new ArrayList<>();
-        resocontoSegnalazione.add(segnalazioniEffettuateDallUtente);
-        resocontoSegnalazione.add(indirizzoSegnalazioneUtente);
-        resocontoSegnalazione.add(statoSegnalazioneUtente);
-        //ritorno quindi una lista di liste, il controller grafico le dovra scansionare queste liste e prendere i rispettivi valori
-        //cree 3 label nella segnalazione
-        return  resocontoSegnalazione;
-    }
-
 
 }
