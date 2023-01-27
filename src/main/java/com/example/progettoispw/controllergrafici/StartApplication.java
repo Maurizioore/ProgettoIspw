@@ -1,6 +1,8 @@
 package com.example.progettoispw.controllergrafici;
+import entita.Account;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import utilityaccesso.UtilityAccesso;
 
 public class StartApplication extends Application {
 
@@ -31,7 +33,19 @@ public class StartApplication extends Application {
     //usa la table view invece della listview
     //ho modificato controller grafico segnalaziomi attive facendolo passare al bean, il codice si interrompe scopri il pefche
     //fai la stessa cosa alle segnalazioni risolte
-    
+    //sarebbe utile scrivere nel db in ogni tabella un tipo segnalazione impostato di default a palo nella tabella palo
+    //e a buca nella tabella buca, in modo che quando vado a vedere le segnalazioni attive e risolte vedo pure che tipo
+    //e' la segnalazione in questione
+    //fai un altro controller applicativo per le segnalazioni che sostituisce quello esistente
+    //finisci query delle buche, crea un model buca, le buche possono essere segnalate solo da un utente registrato
+    //quindi sapendo questo modifica pure il dao delle entità e togli l'else della registrazione delle buche senza accesso
+    //prova l equery dell ebuche prima su myql e poi usale qua
+    //gestisci eccezioni che si creano con il nuovo cotroller applicativo e il nuovo dao, se metti un palo gia esistente
+    //esce fuori un eccezione duplicate entry, per fare questo crea dei bean che traducono il linguaggio macchina in linguaggio umano
+    //fai in modo che i paragoni se gli indirizzi sono validi o no avviene nel db, questa cosa la dovra verificare il conroller applicativo
+    //segnalazione entita ( poiche il controller applicativo segnalazione palo lo faceva ma vedendo se c'era nei contentitori
+    //factory, i controller applicativi la usano per creare il tipo di entita stardale che l'utente vuole segnalare, e viene usata
+    //per creare l'account dalla classe utilityAccesso
     @Override
     public void start(Stage stage) throws Exception {
         final String schermataPrincipale="prova-home.fxml";
@@ -39,6 +53,8 @@ public class StartApplication extends Application {
         controllerVisualizzatoreScene.visualizzaScenaPrincipale(schermataPrincipale);
     }
     public static void main(String[] args) {
+        //l'app viene lanciata, creiamo quindi un utente di default che possiede come stato di defult offline
+        UtilityAccesso.setAccount(new Account());
         launch();
     }
 }

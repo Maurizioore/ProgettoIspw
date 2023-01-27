@@ -1,9 +1,12 @@
 package com.example.progettoispw.controllergrafici;
 
+import bean.BeanSegnalaEntita;
 import bean.BeanSegnalazionePaloIlluminazione;
 import com.jfoenix.controls.JFXButton;
+import controllerapplicativi.ControllerApplicativoSegnalazioneEntita;
 import controllerapplicativi.ControllerApplicativoSegnalazionePaloIlluminazione;
 import eccezioni.*;
+import factory.TypeEntita;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -18,7 +21,8 @@ public class ControllerGraficoSegnalazioneIlluminazione extends ControllerGrafic
     /*questo controller è associato alla PaginaSegnalaProblemaIlluminazione la quale possiede:
     * i DUE textField in cui l'utente inserisce i campi
     * il pulsante invia che consente d' inviare la segnalazione che l'utente ha richiesto  */
-    private BeanSegnalazionePaloIlluminazione beanVerificaDati;
+    //private BeanSegnalazionePaloIlluminazione beanVerificaDati;
+    private BeanSegnalaEntita beanVerificaDati;
     @FXML
     private TextField textFieldNumeroSeriale;
     @FXML
@@ -27,10 +31,9 @@ public class ControllerGraficoSegnalazioneIlluminazione extends ControllerGrafic
     private JFXButton inviaSegnalazioneButton;
     @FXML
     private Label labelErrore;
-
-    //stringhe che prenderanno input dagli utenti, queste stringhe verranno inviate alla bean che fara'
-    //i dovuti getter e setter e poi al controller applicativo che genererà un oggetto palo, la bean fara' i controlli
-    //sulla validità del palo e dell'indirizzo.
+    //se sono in questo controller grafico vuol dire che l'utente sta segnalando un palo dell'illuminazione, quindi la
+    //mia entita stradale sara' di tipo type_palo_illuminazione
+    private TypeEntita typeEntita=TypeEntita.type_palo_illuminazione;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -41,10 +44,11 @@ public class ControllerGraficoSegnalazioneIlluminazione extends ControllerGrafic
             }else{
                 //sara' proprio qui che avverrà l'invio al bean dei dati che ha inserito l'utente in input
                 try {
-                    beanVerificaDati = new BeanSegnalazionePaloIlluminazione(textFieldNumeroSeriale.getText(), textFieldIndirizzo.getText());
+                    beanVerificaDati= new BeanSegnalaEntita(textFieldNumeroSeriale.getText(),textFieldIndirizzo.getText(),typeEntita);
+                    //controllaInputPalo() verifica che la sintassi e' corretta cioe che la lunghezza sia di 12
                     beanVerificaDati.controllaInputPalo();
                     //la lunghezza seriale del palo inserita dall'utente è corretta, invio il bean al controller applicativo
-                    ControllerApplicativoSegnalazionePaloIlluminazione controllerApplicativoSegnalazionePaloIlluminazione=new ControllerApplicativoSegnalazionePaloIlluminazione(beanVerificaDati);
+                    ControllerApplicativoSegnalazioneEntita controllerApplicativoSegnalazioneEntita=new ControllerApplicativoSegnalazioneEntita(beanVerificaDati);
                     //se non c'e' stata nessuna eccezione vuol dire che la segnalazione e' avvenuta con successo
                     //lo comunico all'utente e blocco i pulsanti per non far inviare la stessa segnalazione
                     //in caso dovesse premere per sbaglio di nuovo il pulsante invia
@@ -52,17 +56,16 @@ public class ControllerGraficoSegnalazioneIlluminazione extends ControllerGrafic
                     textFieldIndirizzo.setDisable(true);
                     textFieldNumeroSeriale.setDisable(true);
                     inviaSegnalazioneButton.setDisable(true);
-                }catch (LunghezzaInputException | NonEsisteIndirizzoException | NonEsisteNumeroSerialeException |
-                        SQLException | SegnalazioneGiaAvvenutaException | ErroreLetturaPasswordException e){
+                }catch(LunghezzaInputException| SQLException| ErroreLetturaPasswordException | SegnalazioneGiaAvvenutaException |NessunAccessoEffettuatoException | TipoEntitaException e){
                     labelErrore.setText(e.getMessage());
                     if(e.getClass()==SegnalazioneGiaAvvenutaException.class){
-                        /*se l'eccezione è di tipo segnalazione già avvenuta l'utente ha portato a termine quello che
-                        * voleva fare quindi posso disabilitare i pulsanti */
-                        labelErrore.setText(e.getMessage());
-                        textFieldIndirizzo.setDisable(true);
-                        textFieldNumeroSeriale.setDisable(true);
-                        inviaSegnalazioneButton.setDisable(true);
-                    }
+                       /*se l'eccezione è di tipo segnalazione già avvenuta l'utente ha portato a termine quello che
+                       * voleva fare quindi posso disabilitare i pulsanti */
+                       labelErrore.setText(e.getMessage());
+                       textFieldIndirizzo.setDisable(true);
+                       textFieldNumeroSeriale.setDisable(true);
+                       inviaSegnalazioneButton.setDisable(true);
+                   }
                 }
             }
         });

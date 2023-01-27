@@ -1,5 +1,7 @@
 package utilityaccesso;
 
+import entita.Account;
+
 public class UtilityAccesso {
     /*questa classe contiene 2 attributi statici che sono settati inizialmente a null
     * se l'utente effettua l' accesso con successo gli attributi di questa classe vengono settati
@@ -27,5 +29,17 @@ public class UtilityAccesso {
 
     public static void setCodiceUtente(String codiceUtente) {
         UtilityAccesso.codiceUtente = codiceUtente;
+    }
+
+    //nuova aggiunta account
+
+    private static Account account;
+
+    public static Account getAccount() {
+        return account;
+    }
+
+    public static void setAccount(Account account) {
+        UtilityAccesso.account = account;
     }
 }

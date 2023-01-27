@@ -14,27 +14,45 @@ import java.util.List;
 public class ControllerApplicativoSegnalazioniAttive {
     private int codiceUtente;
     //creo una lista di stringhe che conterranno i numeri seriali dei pali segnalati
-    private List<String> segnalazioniEffettuateDallUtente=new ArrayList<>();
-    private List<String> indirizzoSegnalazioneUtente=new ArrayList<>();
-    private List<String> statoSegnalazioneUtente=new ArrayList<>();
+    private List<String> segnalazioniPaliEffettuateDallUtente=new ArrayList<>();
+    private List<String> indirizzoSegnalazionePaliUtente=new ArrayList<>();
+    private List<String> statoSegnalazionePaliUtente=new ArrayList<>();
+
+    private List<String> segnalazioniProfonfitaBucheEffettuateDallUtente=new ArrayList<>();
+
+    private List<String> indirizziBucheSegnalateDallUtente=new ArrayList<>();
+
+    private List<String> statoSegnalazioneBucheUtente=new ArrayList<>();
+
+
 
     public ControllerApplicativoSegnalazioniAttive(BeanListeElementi bean) throws NonEsistonoSegnalazioniException, SQLException, ErroreLetturaPasswordException {
         codiceUtente= Integer.parseInt(UtilityAccesso.getCodiceUtente());
-        //devo aggiungere elementi alla lista
+        //devo aggiungere elementi alla lista che si trova nel bean ce che verrà usata da controller grafico per prendere le info
         aggiungiElementi(bean);
     }
     private void aggiungiElementi(BeanListeElementi bean) throws SQLException, NonEsistonoSegnalazioniException, ErroreLetturaPasswordException {
         //questa dovra fare una richiesta al db e farsi restituire tutte le segnalazioni associate a quell'utente
         //chiamera' quindi un dao
         SegnalazioniAttiveDao segnalazioniAttiveDao=new SegnalazioniAttiveDaoImpl();
-        segnalazioniAttiveDao.cercaSegnalazioniAttive(segnalazioniEffettuateDallUtente,indirizzoSegnalazioneUtente,statoSegnalazioneUtente);
-        int contatore= segnalazioniEffettuateDallUtente.size();
-
+        segnalazioniAttiveDao.cercaSegnalazioniAttive(segnalazioniPaliEffettuateDallUtente,indirizzoSegnalazionePaliUtente,statoSegnalazionePaliUtente,segnalazioniProfonfitaBucheEffettuateDallUtente,indirizziBucheSegnalateDallUtente,statoSegnalazioneBucheUtente);
+        //conto i pali inseriti
+        int contatore= segnalazioniPaliEffettuateDallUtente.size();
+        //conto le buche inserite
+        int contatore2=segnalazioniProfonfitaBucheEffettuateDallUtente.size();
+        //riempio i pali del bean
         for(int i=0;i<contatore;i++){
-            bean.gestisciListaNumeriSeriali(segnalazioniEffettuateDallUtente.get(i));
-            bean.gestisciIndirizzi(indirizzoSegnalazioneUtente.get(i));
-            bean.gestisciStato(statoSegnalazioneUtente.get(i));
+            bean.gestisciListaNumeriSeriali(segnalazioniPaliEffettuateDallUtente.get(i));
+            bean.gestisciIndirizzi(indirizzoSegnalazionePaliUtente.get(i));
+            bean.gestisciStato(statoSegnalazionePaliUtente.get(i));
         }
+        //riempio le buche del bean
+        for(int i=0;i<contatore2;i++){
+            bean.gestisciListaProfonditaBucaStradale(segnalazioniProfonfitaBucheEffettuateDallUtente.get(i));
+            bean.gestisciIndirizziBuca(indirizziBucheSegnalateDallUtente.get(i));
+            bean.gestisciStatoBucaStradale(statoSegnalazioneBucheUtente.get(i));
+        }
+
     }
 
 }

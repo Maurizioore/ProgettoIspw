@@ -28,7 +28,7 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
     private Label menuBack;
     @FXML
     private AnchorPane slider;
-    //aggiunta ora con il singleton
+
     @FXML
     private JFXButton risolteButtonName;
     private final ControllerVisualizzatoreScene controllerVisualizzatoreScene = ControllerVisualizzatoreScene.getInstance(null);
@@ -66,21 +66,32 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
             });
         });
         try {
-
+            //risolteButtonName se l'utente e' loggato deve reindirizzarlo alla pagina che mostra le sue segnalazioni
+            //risolte
             risolteButtonName.setOnMouseClicked(event -> {
                 //devo vedere se l'utente e' loggato prima di accedere alla pagina
-                    if (UtilityAccesso.getNomeUtenteNelDatabase() != null) {
+                //getStatoAttuale ritorna ONLINE se l'utente ha effettuato l'accesso, OFFLINE altrimenti
+                //verifico quindi che l'utente abbbia effettuato l'accesso per fargli vedere le segnalazioni
+                //associate al suo account
+                if(UtilityAccesso.getAccount().getStatoAttuale()=="ONLINE"){
                         controllerVisualizzatoreScene.visualizzaScena("Segnalazioni-risolte-page.fxml");
                     }
             });
+            //attiveButtonName se l'utent e' registrato deve reindirizzare l'utente alla pagina che mostra le sue
+            //segnalazioni che ancora non sono state risolte
             attiveButtonName.setOnMouseClicked(event -> {
-                if (UtilityAccesso.getNomeUtenteNelDatabase() != null) {
+                //GetStatoAttuale ritorna ONLINE se l'utente ha effettuato l'accesso, OFFLINE altrimenti
+                //verifico quindi che l'utente abbbia effettuato l'accesso per fargli vedere le segnalazioni
+                //associate al suo account
+                if(UtilityAccesso.getAccount().getStatoAttuale()=="ONLINE"){
                     //posso accedere
                     controllerVisualizzatoreScene.visualizzaScena("Segnalazioni-attive-page.fxml");
                 }
             });
             loginButton.setOnMouseClicked(event -> {
-                    if (UtilityAccesso.getNomeUtenteNelDatabase() != null) {
+                //se l'utente e' online allora non posso fagli rivedere la pagina per riinserire le credenziali
+                //gli mostro la pagina per fare il logout
+                if(UtilityAccesso.getAccount().getStatoAttuale()=="ONLINE"){
                         //l'utente si e' loggato, voglio quindi caricare la schermata che mi permette di fare il logout
                         controllerVisualizzatoreScene.visualizzaScena("logout-page.fxml");
                     } else {

@@ -12,11 +12,19 @@ public class BeanListeElementi {
     public List<String> listaIndirizzi;
     public List<String> listaStato;
 
+    public List<String> listaIndirizziBucaStradale;
+    public List<String> listaProfonditaBucaStradale;
+    public List<String> listaStatoBucaStradale;
+
     public BeanListeElementi(){
         listaNumeriSeriali=new ArrayList<>();
         listaIndirizzi=new ArrayList<>();
         listaStato=new ArrayList<>();
+        listaIndirizziBucaStradale=new ArrayList<>();
+        listaProfonditaBucaStradale=new ArrayList<>();
+        listaStatoBucaStradale=new ArrayList<>();
     }
+    //per i pali
     public void gestisciListaNumeriSeriali(String nuovoElemento){
         //questo e' un setter
         listaNumeriSeriali.add(nuovoElemento);
@@ -35,6 +43,26 @@ public class BeanListeElementi {
     }
     public String restituisciStato(int i){
         return listaStato.get(i);
+    }
+
+    //per le buche
+    public void gestisciListaProfonditaBucaStradale(String nuovoElemento){
+        listaProfonditaBucaStradale.add(nuovoElemento);
+    }
+    public void gestisciIndirizziBuca(String nuovoIndirizzo){
+        listaIndirizziBucaStradale.add(nuovoIndirizzo);
+    }
+    public void gestisciStatoBucaStradale(String nuovoStato){
+        listaStatoBucaStradale.add(nuovoStato);
+    }
+    public String restituisciProfonditaBuca(int i){
+        return listaProfonditaBucaStradale.get(i);
+    }
+    public  String restituisciIndirizzoBucaStradale(int i){
+        return listaIndirizziBucaStradale.get(i);
+    }
+    public String restituisciStatoBucaStradale(int i){
+        return listaStatoBucaStradale.get(i);
     }
 
 }

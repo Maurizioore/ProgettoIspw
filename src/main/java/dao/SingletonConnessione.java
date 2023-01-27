@@ -20,7 +20,6 @@ public class SingletonConnessione {
         Properties properties=new Properties();
         InputStream is= new FileInputStream("application.properties");
         properties.load(is);
-        System.out.println("sono una sout in singleton connessione, la password e' :" +(String) properties.get("password"));
         connection=DriverManager.getConnection(URL,USERNAME,(String)properties.get("password"));
     }
     /*metodo che prende la password mantenuta in un segreto asw, il nome dell'utente che gestisce il segreto

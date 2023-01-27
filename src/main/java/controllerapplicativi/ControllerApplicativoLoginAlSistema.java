@@ -30,7 +30,7 @@ public class ControllerApplicativoLoginAlSistema {
             //controller che l'utente che sta interagendo con il sistema e' effettivamente un utente registrato
             //volendo posso mettere questa variabile codice in una variabile statica di una classe e setterla a null
             //poi quando l'utente fa l'accesso questa viene settata con il codice dell'utente
-
+            //e' qui che applico state e mi metto online
             return ;
         }
         //se l'account non esiste nel sistema( quindi l'if) non viene svolto, lancio una eccezione

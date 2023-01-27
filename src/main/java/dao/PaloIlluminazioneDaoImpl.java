@@ -3,6 +3,7 @@ package dao;
 import eccezioni.DuplicazioneInputException;
 import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.SegnalazioneGiaAvvenutaException;
+import entita.EntitaStradale;
 import entita.PaloIlluminazione;
 import queries.QueriesPaloIlluminazione;
 import utilityaccesso.UtilityAccesso;
@@ -75,7 +76,7 @@ public class PaloIlluminazioneDaoImpl implements PaloIlluminazioneDao{
                 preparedStatement.executeUpdate();
             }
         }else {
-            throw new SegnalazioneGiaAvvenutaException("il palo è stato già segnalato");
+            throw new SegnalazioneGiaAvvenutaException("il palo è stato già segnalato da un altro utente");
         }
     }
 

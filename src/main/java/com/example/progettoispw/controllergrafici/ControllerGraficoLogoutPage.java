@@ -22,6 +22,10 @@ public class ControllerGraficoLogoutPage extends ControllerGraficoGenerale{
         //porto a null i valori globali di utilityAccesso
         UtilityAccesso.setCodiceUtente(null);
         UtilityAccesso.setNomeUtenteNelDatabase(null);
+        UtilityAccesso.getAccount().passaOffline();
+        if(UtilityAccesso.getAccount().getStatoAttuale()=="OFFLINE"){
+            System.out.println("sono una sout presente in controller grafico logout page e posso dirti che sei offline");
+        }
         //poi carico la pagina del login
         try {
             controllerVisualizzatoreScene.visualizzaScena("login-registrazione-page.fxml");

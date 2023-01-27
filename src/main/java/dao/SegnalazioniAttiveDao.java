@@ -9,5 +9,5 @@ import java.util.List;
 public interface SegnalazioniAttiveDao {
     //questa interfaccia definisce tutte le operazioni che voglio fare con le segnalazioni attive
     //per ora voglio solo vederle
-    void cercaSegnalazioniAttive(List<String> listaPaliSegnalati, List<String> listaIndirizziDiQueiPali,List<String> listaStatoDelleSegnalazioni) throws SQLException, NonEsistonoSegnalazioniException, ErroreLetturaPasswordException;
+    void cercaSegnalazioniAttive(List<String> listaPaliSegnalati, List<String> listaIndirizziDiQueiPali,List<String> listaStatoDelleSegnalazioni,List<String> listaProfonditaBucheSegnalate,List<String> listaIndirizzoBuche,List<String> listaStatoBuche)throws SQLException, NonEsistonoSegnalazioniException, ErroreLetturaPasswordException;
 }

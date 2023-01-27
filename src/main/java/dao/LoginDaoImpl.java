@@ -1,6 +1,7 @@
 package dao;
 
 import eccezioni.ErroreLetturaPasswordException;
+import entita.Account;
 import queries.QueriesAccessoAlSistema;
 import utilityaccesso.UtilityAccesso;
 
@@ -44,6 +45,8 @@ public class LoginDaoImpl implements LoginDao{
             UtilityAccesso.setCodiceUtente(Integer.toString(resultSet.getInt("codiceUtente")));
             System.out.println("sono una sout presente in loginDaoImpl, codice utente settato a: "+UtilityAccesso.getCodiceUtente());
             System.out.println("sono una sout in loginDaoImpl nome utente settato a: "+UtilityAccesso.getNomeUtenteNelDatabase());
+            //l'utente esiste nel database, ha fatto l'accesso, e' quindi online
+            UtilityAccesso.getAccount().passaOnline();
             //l'utente è stato trovato nel database, torno true
             return true;
         }

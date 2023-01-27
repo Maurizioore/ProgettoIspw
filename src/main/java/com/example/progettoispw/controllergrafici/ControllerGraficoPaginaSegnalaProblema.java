@@ -24,4 +24,8 @@ public class ControllerGraficoPaginaSegnalaProblema extends ControllerGraficoGen
     public void segnalaPaloAccess() throws Exception{
         controllerVisualizzatoreScene.visualizzaScena("PaginaSegnalaProblemaIlluminazione.fxml");
     }
+    @FXML
+    public void segnalaBucaAccess() throws Exception{
+        controllerVisualizzatoreScene.visualizzaScena("PaginaSegnalaProblemaBucaStradale.fxml");
+    }
 }
