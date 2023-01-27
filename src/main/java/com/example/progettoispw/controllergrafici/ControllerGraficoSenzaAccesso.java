@@ -38,6 +38,9 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
      * quando start l'app*/
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        if(UtilityAccesso.getNomeUtenteNelDatabase()!=null){
+            loginButton.setText(UtilityAccesso.getNomeUtenteNelDatabase());
+        }
         slider.setTranslateX(0);
         menu.setOnMouseClicked(event -> {
             TranslateTransition slide = new TranslateTransition();
