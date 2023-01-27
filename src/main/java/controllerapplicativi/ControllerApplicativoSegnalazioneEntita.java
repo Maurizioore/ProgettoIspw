@@ -31,7 +31,7 @@ public class ControllerApplicativoSegnalazioneEntita {
         //inizio prendendo il tipo dell'entità segnalata
         this.tipoEntita=beanSegnalaEntita.getTipoEntitaSegnalata();
         //vedo se è una buca e se l'utente è online, cosi in caso contrario lo blocco subito
-        if(tipoEntita==TypeEntita.type_buca_stradale && UtilityAccesso.getAccount().getStatoAttuale()=="OFFLINE"){
+        if(tipoEntita==TypeEntita.type_buca_stradale && UtilityAccesso.getAccount().getStatoAttuale().equals("OFFLINE")){
             //l'utente cerca di segnalare una buca ma non e' registrato quindi viene lanciata un eccezione che gli
             //dice che la segnalazione della buca puo' essere fatta solo se registrato
             throw new NessunAccessoEffettuatoException("per segnalare una buca devi essere registrato");

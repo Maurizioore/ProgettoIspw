@@ -38,6 +38,7 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
      * quando start l'app*/
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //vedi se da problemi questa per settare il testo di login con sonarcloud, nel caso cancellalo e non lo implementare più
         if(UtilityAccesso.getNomeUtenteNelDatabase()!=null){
             loginButton.setText(UtilityAccesso.getNomeUtenteNelDatabase());
         }
