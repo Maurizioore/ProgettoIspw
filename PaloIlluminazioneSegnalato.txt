@@ -1,0 +1,3 @@
+Numero seriale palo segnalato: 123456789123
+indirizzo: via roma
+stato: ancora non segnalato al database

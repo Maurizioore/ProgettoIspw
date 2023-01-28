@@ -158,7 +158,7 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <JFXButton fx:id="inviaSegnalazioneButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="189.0" layoutY="228.0" prefHeight="38.0" prefWidth="136.0" scaleShape="false" styleClass="menuItem" text="invia" textFill="#1d3461">
+                  <JFXButton fx:id="inviaSegnalazioneButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="81.0" layoutY="228.0" prefHeight="38.0" prefWidth="156.0" scaleShape="false" styleClass="menuItem" text="invia al database " textFill="#1d3461">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -168,6 +168,11 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
+                  <JFXButton fx:id="inviaSegnalazioneInLocaleButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="288.0" layoutY="228.0" prefHeight="38.0" prefWidth="156.0" scaleShape="false" styleClass="menuItem" text="salva in locale" textFill="#1d3461">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXButton>
                     </children>
                 </AnchorPane>
             </center>

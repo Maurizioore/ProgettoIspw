@@ -156,7 +156,7 @@
                                 <Font size="18.0" />
                             </font>
                         </TextField>
-                        <JFXButton fx:id="inviaSegnalazioneButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="194.0" layoutY="266.0" prefHeight="38.0" prefWidth="136.0" scaleShape="false" styleClass="menuItem" text="invia" textFill="#1d3461">
+                        <JFXButton fx:id="inviaSegnalazioneButtonInLocale" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="294.0" layoutY="268.0" prefHeight="38.0" prefWidth="136.0" scaleShape="false" styleClass="menuItem" text="salva in locale " textFill="#1d3461">
                             <font>
                                 <Font size="18.0" />
                             </font>
@@ -176,6 +176,11 @@
                      </effect>
                   </JFXSlider>
                   <Label layoutX="81.0" layoutY="159.0" text="PROFONDITA (cm)" />
+                  <JFXButton fx:id="inviaSegnalazioneButton1" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="81.0" layoutY="268.0" prefHeight="38.0" prefWidth="155.0" scaleShape="false" styleClass="menuItem" text="invia al databse " textFill="#1d3461">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXButton>
                     </children>
                 </AnchorPane>
             </center>

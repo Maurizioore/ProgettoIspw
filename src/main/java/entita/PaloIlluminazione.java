@@ -1,5 +1,7 @@
 package entita;
 
+import factory.TypeEntita;
+
 public class PaloIlluminazione extends EntitaStradale{
 
     //questo è il model deve comunicare con il db, se tutto va a buon fine farà sapere al controller applicativo
@@ -10,6 +12,7 @@ public class PaloIlluminazione extends EntitaStradale{
     public PaloIlluminazione(String numeroSerialePalo,String indirizzo){
         this.numeroSerialePalo=numeroSerialePalo;
         this.indirizzo=indirizzo;
+        this.typeEntita= TypeEntita.type_palo_illuminazione;
     }
 
     @Override

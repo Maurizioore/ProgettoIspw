@@ -1,9 +1,8 @@
 package bean;
 
+import factory.TypeOfPersistence;
 import eccezioni.LunghezzaInputException;
 import factory.TypeEntita;
-
-import java.lang.reflect.Type;
 
 public class BeanSegnalaEntita {
     //questo e' il bean che passerà i dati inseriti dall'utente al controller applicativo che invia la registrazioni
@@ -13,10 +12,12 @@ public class BeanSegnalaEntita {
     //private String tipoEntitaSegnalata;
     private TypeEntita tipo;
     private static final int LUNGHEZZANUMEROSERIALE=12;
-    public BeanSegnalaEntita(String infoEntita, String indirizzo, TypeEntita tipoEntitaSegnalata){
+    private TypeOfPersistence typeOfPersistence;
+    public BeanSegnalaEntita(String infoEntita, String indirizzo, TypeEntita tipoEntitaSegnalata,TypeOfPersistence typeOfPersistence){
         this.indirizzo=indirizzo;
         this.infoEntita=infoEntita;
         this.tipo=tipoEntitaSegnalata;
+        this.typeOfPersistence=typeOfPersistence;
     }
     public void controllaInputPalo()throws LunghezzaInputException {
         if (infoEntita.length() != LUNGHEZZANUMEROSERIALE) {
@@ -52,4 +53,21 @@ public class BeanSegnalaEntita {
     }
     public void setTipoEntitaSegnalata(TypeEntita tipoEntitaSegnalata) {
         this.tipo = tipoEntitaSegnalata;
-}   }
+    }
+
+    public TypeEntita getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TypeEntita tipo) {
+        this.tipo = tipo;
+    }
+
+    public TypeOfPersistence getTypeOfPersistence() {
+        return typeOfPersistence;
+    }
+
+    public void setTypeOfPersistence(TypeOfPersistence typeOfPersistence) {
+        this.typeOfPersistence = typeOfPersistence;
+    }
+}

@@ -30,14 +30,14 @@ public class BucaStradaleDaoImpl implements BucaStradaleDao{
     public void saveBucaStradale(BucaStradale instance) throws SQLException, SegnalazioneGiaAvvenutaException, ErroreLetturaPasswordException {
         //deve inviare la buca stradale al db
         //verifico  se la connessione al db e' aperta oppure no
-        verificaConnessione();
-        //la connessione e' aperta posso inviare la segnalazione al bd,
-        //questa non controlla se la segnalazione sia già esiste la manda al db e basta
-        preparedStatement = connection.prepareStatement(QueriesSegnalazioneBucaStradale.queriesSalvaBuca());
-        preparedStatement.setString(1, instance.indirizzo);
-        preparedStatement.setString(2, instance.profondita);
-        preparedStatement.setString(3, UtilityAccesso.getCodiceUtente());
-        preparedStatement.executeUpdate();
-        System.out.println("sono una sout in buca stradale dao impl e la buca e' stata segnalata con successo");
+        //verificaConnessione();
+        ////la connessione e' aperta posso inviare la segnalazione al bd,
+        ////questa non controlla se la segnalazione sia già esiste la manda al db e basta
+        //preparedStatement = connection.prepareStatement(QueriesSegnalazioneBucaStradale.queriesSalvaBuca());
+        //preparedStatement.setString(1, instance.indirizzo);
+        //preparedStatement.setString(2, instance.profondita);
+        //preparedStatement.setString(3, UtilityAccesso.getCodiceUtente());
+        //preparedStatement.executeUpdate();
+        //System.out.println("sono una sout in buca stradale dao impl e la buca e' stata segnalata con successo");
     }
 }
