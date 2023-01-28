@@ -23,7 +23,10 @@ public class PaloIlluminazioneDaoImplFileSystem implements EntitaStradaleDao{
         try {
             this.fd = new File(CSV_FILE_NAME);
             if (!fd.exists()) {
-                fd.createNewFile();
+                boolean creazione=fd.createNewFile();
+                if(creazione==false){
+                    throw new IOException("creazione non riuscita");
+                }
             }
             this.localCache = new HashMap<String, PaloIlluminazione>();
         }catch (IOException e){
