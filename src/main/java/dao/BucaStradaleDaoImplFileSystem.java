@@ -24,7 +24,9 @@ public class BucaStradaleDaoImplFileSystem implements EntitaStradaleDao{
         try {
             this.fd = new File(CSV_FILE_NAME);
             if (!fd.exists()) {
-                fd.createNewFile();
+                if(!fd.createNewFile()){
+                    throw new IOException("errore nella creazione del file");
+                };
             }
             this.localCache = new HashMap<String, PaloIlluminazione>();
         }catch (IOException e){
