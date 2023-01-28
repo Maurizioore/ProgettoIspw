@@ -23,8 +23,7 @@ public class PaloIlluminazioneDaoImplFileSystem implements EntitaStradaleDao{
         try {
             this.fd = new File(CSV_FILE_NAME);
             if (!fd.exists()) {
-                boolean creazione=fd.createNewFile();
-                if(creazione==false){
+                if(!fd.createNewFile()){
                     throw new IOException("creazione non riuscita");
                 }
             }
@@ -40,10 +39,10 @@ public class PaloIlluminazioneDaoImplFileSystem implements EntitaStradaleDao{
         PaloIlluminazione paloIlluminazione = new PaloIlluminazione(instance.infoEntita(), instance.getIndirizzo());
         //adesso devo salvarlo in locale
         try {
-            BufferedWriter f_writer=new BufferedWriter(new FileWriter(CSV_FILE_NAME));
+            BufferedWriter fileWriter=new BufferedWriter(new FileWriter(CSV_FILE_NAME));
             String paloSegnalatoDaMandareNelFileTxt=convertiPaloInTxt(paloIlluminazione);
-            f_writer.write(paloSegnalatoDaMandareNelFileTxt);
-            f_writer.close();
+            fileWriter.write(paloSegnalatoDaMandareNelFileTxt);
+            fileWriter.close();
         } catch (IOException e) {
             throw new SQLException("problema con il file writer");
         }

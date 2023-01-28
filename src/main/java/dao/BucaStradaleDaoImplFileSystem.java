@@ -40,10 +40,10 @@ public class BucaStradaleDaoImplFileSystem implements EntitaStradaleDao{
         BucaStradale bucaStradale = new BucaStradale(instance.infoEntita(), instance.getIndirizzo());
         //adesso devo salvarlain locale
         try {
-            BufferedWriter f_writer=new BufferedWriter(new FileWriter(CSV_FILE_NAME));
+            BufferedWriter fileWriter=new BufferedWriter(new FileWriter(CSV_FILE_NAME));
             String bucaSegnalataDaSalvareInLocale=convertiBucaInTxt(bucaStradale);
-            f_writer.write(bucaSegnalataDaSalvareInLocale);
-            f_writer.close();
+            fileWriter.write(bucaSegnalataDaSalvareInLocale);
+            fileWriter.close();
         } catch (IOException e) {
             throw new SQLException("problema con il file writer");
         }
