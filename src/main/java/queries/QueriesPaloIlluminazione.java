@@ -16,7 +16,7 @@ public class QueriesPaloIlluminazione {
     //provala questa delle completate prima
     static final String QUERIES_MOSTRA_SEGNALAZIONI_COMPLETATE="SELECT DISTINCT numeroSeriale,indirizzo FROM palo,account WHERE (palo.codiceUtente=? AND problemaRisolto!=false);";
     private QueriesPaloIlluminazione(){
-        //NON FA NULLA PERCHE LA CLASSE DEVE FORNIRE SOLO METODI STATICI E PUBBLICI.}
+        //NON FA NULLA PERCHE LA CLASSE DEVE FORNIRE SOLO METODI STATICI E PUBBLICI
     }
     public static String queriesPrendiPalo(){
         return QUERIES_PRENDI_PALO;

@@ -29,7 +29,7 @@ public class ControllerGraficoSegnalazioneBucaStradale extends ControllerGrafico
     private JFXButton inviaSegnalazioneButtonInLocale;
     //se sono in questo controller grafico vuol dire che l'utente sta segnalando una buca , quindi la
     //mia entita stradale sara' di tipo type_buca_stradale
-    private TypeEntita typeEntita=TypeEntita.type_buca_stradale;
+    private TypeEntita typeEntita=TypeEntita.BUCASTRADALE;
     private TypeOfPersistence typeOfPersistence;
 
     @Override

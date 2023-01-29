@@ -35,15 +35,17 @@ public class ControllerGraficoSegnalazioniAttive implements Initializable {
             //questa variabile contatore riporta il numero di segnalazioni ancora attive ell'utente
             BeanListeElementi beanListeElementi=new BeanListeElementi();
             //passo il bean al controller applicativo che riempira le liste in base alle segnalazioni attive dell'utente
-            ControllerApplicativoSegnalazioniAttive controllerApplicativoSegnalazioniAttive =new ControllerApplicativoSegnalazioniAttive(beanListeElementi);
+            new ControllerApplicativoSegnalazioniAttive(beanListeElementi);
             //se non e' stata ricevuta nessuna eccezzione vuol dire che non ci sono stati errori e che qualcosa nelle liste
             //dei bean e' stato inserito, creo 2 contatori uno che tiene conto dei pali e uno delle buche cosi so' il numero di
             //segnalazioni che l'utente ha per quelle 2 entita
             //contatore che tiene il numero di indirizzi dei pali ( per come ho costrutito il tutto a n indirizzi corrispondono
             //n numeri di pali, quindi contare gli indirizzi equivale a contare il numero di pali segnalati dall'utente)
             int contatorePali=beanListeElementi.listaIndirizzi.size();
+            System.out.println("sono il contatore pali in controller grafico segnalazioni attive, ho trovato "+contatorePali+" pali");
             //discorso duale per il contatore che conta gli indirizzi delle buche
             int contatoreBuche=beanListeElementi.listaIndirizziBucaStradale.size();
+            System.out.println("sono il contatore buche in controller grafico segnalazioni attive, ho trovato "+contatoreBuche+" buche");
             //per ogni segnalazione devo creare una label, settare il testo dentro la label stessa
             listViewName.setFixedCellSize(90);
             //se ci sono dei pali li mostro
@@ -57,7 +59,8 @@ public class ControllerGraficoSegnalazioniAttive implements Initializable {
                     label1.setText(i + 1 + " palo segnalato\nnumero seriale: " + beanListeElementi.restituisciNumeroSeriale(i) + "\nindirizzo: " + beanListeElementi.restituisciIndirizzo(i) + "\nstato: " + beanListeElementi.restituisciStato(i));
                     listViewName.getItems().add(label1);
                 }
-            }if(contatoreBuche!=0) {
+            }
+            if(contatoreBuche!=0) {
                 label1 = new Label();
                 label1.setText("BUCHE SEGNALATE\n");
                 listViewName.getItems().add(label1);

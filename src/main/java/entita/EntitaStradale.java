@@ -6,19 +6,10 @@ public abstract class EntitaStradale {
     //tutte le entità stradali che vengono segnalate possiedono :
     //un indirizzo che indica dove si trovano
     //e una stato iniziale che indica che la segnalazione e' stata inviata
-    protected String indirizzo;
     protected String stato="in riparazione";
     protected TypeEntita typeEntita;
 
-    public String getIndirizzo() {
-        return indirizzo;
-    }
-
-    public void setIndirizzo(String indirizzo) {
-        this.indirizzo = indirizzo;
-    }
-
-
+    public abstract String getIndirizzo();
     public String getStato() {
         return stato;
     }

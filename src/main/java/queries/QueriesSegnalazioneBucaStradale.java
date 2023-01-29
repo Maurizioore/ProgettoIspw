@@ -3,6 +3,9 @@ package queries;
 public class QueriesSegnalazioneBucaStradale {
     //costruiamo le buche in modo che solo gli utenti registrati al sistema possono segnalarle
     //operazione che puo fare solo l'admin
+    private QueriesSegnalazioneBucaStradale(){
+        //non viene chiamato da nessuno, questa classe e' una utity alla fine
+    }
     static final String QUERIES_VEDI_BUCHE_SEGNALATE="SELECT * FROM buca";
     //operazione che possono fare gli utenti
     static final String QUERIES_SALVA_BUCA="INSERT INTO buca(indirizzo,profondità,codiceUtente) VALUES(?,?,?);";

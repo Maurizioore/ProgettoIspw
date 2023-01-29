@@ -6,8 +6,7 @@ public abstract class AbstractState {
     //la classeStateMachineImpl riesce a mantenere in quella variabile lo stato corrente in cui l'utente si trova
     public void entry(StateMachineImpl s){};
     public static AbstractState getInitialState(){
-        AbstractState abstractState=new OfflineState();
-        return abstractState;
+        return new OfflineState();
     }
     public abstract void exit();
     public abstract void login(StateMachineImpl s);

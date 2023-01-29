@@ -20,7 +20,6 @@ public class ControllerGraficoSegnalazioneIlluminazione extends ControllerGrafic
     /*questo controller è associato alla PaginaSegnalaProblemaIlluminazione la quale possiede:
      * i DUE textField in cui l'utente inserisce i campi
      * il pulsante invia che consente d' inviare la segnalazione che l'utente ha richiesto  */
-    //private BeanSegnalazionePaloIlluminazione beanVerificaDati;
     private BeanSegnalaEntita beanVerificaDati;
     @FXML
     private JFXButton inviaSegnalazioneInLocaleButton;
@@ -34,7 +33,7 @@ public class ControllerGraficoSegnalazioneIlluminazione extends ControllerGrafic
     private Label labelErrore;
     //se sono in questo controller grafico vuol dire che l'utente sta segnalando un palo dell'illuminazione, quindi la
     //mia entita stradale sara' di tipo type_palo_illuminazione
-    private TypeEntita typeEntita = TypeEntita.type_palo_illuminazione;
+    private TypeEntita typeEntita = TypeEntita.PALOILLUMINAZIONE;
     private TypeOfPersistence typeOfPersistence;
 
     @Override

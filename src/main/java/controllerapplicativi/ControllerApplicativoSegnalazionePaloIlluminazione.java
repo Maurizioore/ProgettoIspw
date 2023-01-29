@@ -3,7 +3,6 @@ package controllerapplicativi;
 import bean.BeanSegnalazionePaloIlluminazione;
 import contenitori.Contenitore;
 import dao.EntitaStradaleDao;
-import dao.EntitaStradaleDaoImpl;
 import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.NonEsisteIndirizzoException;
 import eccezioni.NonEsisteNumeroSerialeException;
@@ -44,8 +43,9 @@ public class ControllerApplicativoSegnalazionePaloIlluminazione {
         inviaSegnalazione((PaloIlluminazione) paloDaSegnalare);
     }
     public void inviaSegnalazione(PaloIlluminazione palo) throws SQLException, SegnalazioneGiaAvvenutaException, ErroreLetturaPasswordException {
-        EntitaStradaleDao entitaStradaleDao= new EntitaStradaleDaoImpl();
-        entitaStradaleDao.saveEntitaStradale(palo);
+        //EntitaStradaleDao entitaStradaleDao= new EntitaStradaleDaoImpl();
+        //entitaStradaleDao.saveEntitaStradale(palo);
+        //invia segnalazione lo fa un altro controller applicativo 
 
     }
     public void prendiContenitore(){

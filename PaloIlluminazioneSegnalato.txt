@@ -1,3 +1,12 @@
 Numero seriale palo segnalato: 123456789123
-indirizzo: via roma
+indirizzo: via aldo moro 
+stato: ancora non segnalato al database
+Numero seriale palo segnalato: 123456789123
+indirizzo: via lucca
+stato: ancora non segnalato al database
+Numero seriale palo segnalato: 123456789123
+indirizzo: via di mario
+stato: ancora non segnalato al database
+Numero seriale palo segnalato: 3456789123ss
+indirizzo: via 
 stato: ancora non segnalato al database

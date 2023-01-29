@@ -19,14 +19,14 @@ public class StateMachineImpl implements StateMachine{
 
         switch (e){
             //il metodo passaOnline porta con se l'evento login
-            case login_event:
+            case LOGIN:
                 //viene chiamato il metodo login associato al current state dell'account, se sono offline viene
                 //chiamato il login di OfflineState( che svolge il login), se sono ONLINE, viene chiamato il login
                 //di OnlineState che non fa nulla ( lo implemento senza fargli fare niente perche sono
                 // costretto dal contratto firmato con AbstractSate) dato che se sono online non ha senso fare login
                 this.currentState.login(this);
                 break;
-            case logout_event:
+            case LOGOUT:
                 //il metodo passaOffline porta con se l'evento logout
                 //discorso duale a quello del login per il logout, qui se sono offline chiamo il logout di offline
                 //che non fa nulla, se sono ONLINE, chiamo il logout di OnlineState che farà il logout

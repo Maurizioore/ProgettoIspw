@@ -9,14 +9,19 @@ public class PaloIlluminazione extends EntitaStradale{
     /*idea un numeroSegnalazionePalo volendo può essere una primary key nel mio database, in modo che identifico
     * la mia segnalazione */
     public final String numeroSerialePalo;
+    public final String indirizzo;
     public PaloIlluminazione(String numeroSerialePalo,String indirizzo){
         this.numeroSerialePalo=numeroSerialePalo;
         this.indirizzo=indirizzo;
-        this.typeEntita= TypeEntita.type_palo_illuminazione;
+        this.typeEntita= TypeEntita.PALOILLUMINAZIONE;
     }
 
     @Override
     public String infoEntita() {
         return numeroSerialePalo;
+    }
+    @Override
+    public String getIndirizzo() {
+        return this.indirizzo;
     }
 }

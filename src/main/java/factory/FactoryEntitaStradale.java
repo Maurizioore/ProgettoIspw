@@ -10,10 +10,10 @@ public class FactoryEntitaStradale {
     public EntitaStradale createEntita(TypeEntita tipoEntitaSegnalata,String indirizzo,String infoEntita) throws TipoEntitaException {
         //faccio uno switch case in base al tipo di entità che ricevo
         switch (tipoEntitaSegnalata){
-            case type_buca_stradale:
+            case BUCASTRADALE:
                 //ho ricevuto un Type_buca_Stradale, creo e ritorno una buca stradale
                 return new BucaStradale(infoEntita,indirizzo);
-            case type_palo_illuminazione:
+            case PALOILLUMINAZIONE:
                 //ho ricevuto un palo, creo e ritorno un palo
                 return new PaloIlluminazione(infoEntita,indirizzo);
             default:

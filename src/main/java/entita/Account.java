@@ -15,11 +15,11 @@ public class Account {
     //quando viene fatto l'accesso passo online, passo come evento il login_event che indica proprio che
     //ho svolto il login, questo metodo lo riceverà stateMachineImpl che e' un kind of StateMachine
     public void passaOnline(){
-        this.stateMachine.goNext(Events.login_event);
+        this.stateMachine.goNext(Events.LOGIN);
     }
     //quando viene fatto il logout passo offline
     public void passaOffline(){
-        this.stateMachine.goNext(Events.logout_event);
+        this.stateMachine.goNext(Events.LOGOUT);
     }
     //metodo che torna lo stato attuale dell'account
     public String getStatoAttuale(){return this.stateMachine.toString();}
