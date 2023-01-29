@@ -12,7 +12,6 @@ import factory.FactoryEntitaStradale;
 import factory.TypeEntita;
 import factory.TypeOfPersistence;
 import utilityaccesso.UtilityAccesso;
-import java.io.IOException;
 import java.sql.SQLException;
 
 public class ControllerApplicativoSegnalazioneEntita {
