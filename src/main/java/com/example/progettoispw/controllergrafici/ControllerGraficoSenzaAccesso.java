@@ -32,7 +32,7 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
     @FXML
     private JFXButton risolteButtonName;
     private final ControllerVisualizzatoreScene controllerVisualizzatoreScene = ControllerVisualizzatoreScene.getInstance(null);
-    private final static String stato="ONLINE";
+    private static final  String STATO="ONLINE";
 
     /*questa classe la uso per implementare la logica dei button comuni a tutte le schermate, in particolare questa
      * classe svolge il ruolo di controller grafico per la prova-home.fxml, la quale è la prima schermata che viene
@@ -78,7 +78,7 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
                 //getStatoAttuale ritorna ONLINE se l'utente ha effettuato l'accesso, OFFLINE altrimenti
                 //verifico quindi che l'utente abbbia effettuato l'accesso per fargli vedere le segnalazioni
                 //associate al suo account
-                if(UtilityAccesso.getAccount().getStatoAttuale()==stato){
+                if(UtilityAccesso.getAccount().getStatoAttuale()==STATO){
                         controllerVisualizzatoreScene.visualizzaScena("Segnalazioni-risolte-page.fxml");
                     }
             });
@@ -88,7 +88,7 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
                 //GetStatoAttuale ritorna ONLINE se l'utente ha effettuato l'accesso, OFFLINE altrimenti
                 //verifico quindi che l'utente abbbia effettuato l'accesso per fargli vedere le segnalazioni
                 //associate al suo account
-                if(UtilityAccesso.getAccount().getStatoAttuale()==stato){
+                if(UtilityAccesso.getAccount().getStatoAttuale()==STATO){
                     //posso accedere
                     controllerVisualizzatoreScene.visualizzaScena("Segnalazioni-attive-page.fxml");
                 }
@@ -96,7 +96,7 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
             loginButton.setOnMouseClicked(event -> {
                 //se l'utente e' online allora non posso fagli rivedere la pagina per riinserire le credenziali
                 //gli mostro la pagina per fare il logout
-                if(UtilityAccesso.getAccount().getStatoAttuale()==stato){
+                if(UtilityAccesso.getAccount().getStatoAttuale()==STATO){
                         //l'utente si e' loggato, voglio quindi caricare la schermata che mi permette di fare il logout
                         controllerVisualizzatoreScene.visualizzaScena("logout-page.fxml");
                     } else {

@@ -23,7 +23,7 @@ public class ControllerApplicativoSegnalazioneEntita {
     private  String infoEntita;
     private TypeEntita tipoEntita;
     private EntitaStradale entitaStradale;
-    public ControllerApplicativoSegnalazioneEntita(BeanSegnalaEntita beanSegnalaEntita) throws SQLException, ErroreLetturaPasswordException, SegnalazioneGiaAvvenutaException, NessunAccessoEffettuatoException, TipoEntitaException, IOException {
+    public ControllerApplicativoSegnalazioneEntita(BeanSegnalaEntita beanSegnalaEntita) throws SQLException, ErroreLetturaPasswordException, SegnalazioneGiaAvvenutaException, NessunAccessoEffettuatoException, TipoEntitaException {
         /*il controller applicativo riceve il bean che contiene le informazioni dell'entita segnalata, setta quindi tutti i
         * suoi parametri prendendoli dal bean*/
         //inizio prendendo il tipo dell'entità segnalata
