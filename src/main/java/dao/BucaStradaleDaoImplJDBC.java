@@ -6,16 +6,15 @@ import entita.BucaStradale;
 import entita.EntitaStradale;
 import queries.QueriesSegnalazioneBucaStradale;
 import utilityaccesso.UtilityAccesso;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class BucaStradaleDaoImplJDBC implements EntitaStradaleDao{
+    //dao che si preoccupa di salvare l'entita stradale, che in questo caso e' una  buca nel database
     private Connection connection;
     private PreparedStatement preparedStatement;
-    private ResultSet resultSet;
     public BucaStradaleDaoImplJDBC() throws SQLException, ErroreLetturaPasswordException {
         connection=SingletonConnessione.getInstance();
     }

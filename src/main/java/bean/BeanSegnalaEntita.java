@@ -9,7 +9,6 @@ public class BeanSegnalaEntita {
 
     private String indirizzo;
     private String infoEntita;
-    //private String tipoEntitaSegnalata;
     private TypeEntita tipo;
     private static final int LUNGHEZZANUMEROSERIALE=12;
     private TypeOfPersistence typeOfPersistence;
@@ -40,27 +39,11 @@ public class BeanSegnalaEntita {
     public void setInfoEntita(String infoEntita) {
         this.infoEntita = infoEntita;
     }
-
-    //public String getTipoEntitaSegnalata() {
-    //    return tipoEntitaSegnalata;
-    //}
-    //
-    //public void setTipoEntitaSegnalata(String tipoEntitaSegnalata) {
-    //    this.tipoEntitaSegnalata = tipoEntitaSegnalata;
-    //}
     public TypeEntita getTipoEntitaSegnalata(){
         return tipo;
     }
     public void setTipoEntitaSegnalata(TypeEntita tipoEntitaSegnalata) {
         this.tipo = tipoEntitaSegnalata;
-    }
-
-    public TypeEntita getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(TypeEntita tipo) {
-        this.tipo = tipo;
     }
 
     public TypeOfPersistence getTypeOfPersistence() {

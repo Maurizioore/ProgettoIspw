@@ -8,13 +8,13 @@ public class BeanListeElementi {
     //il controller applicativo riempi le 3 liste definite qui dentro e queste verranno poi usate dal
     //controller grafico per mostrare il giusto output all'utente
     //i setter vengono fatti dal controller applicativo, i getter dal controller grafico
-    public List<String> listaNumeriSeriali;
-    public List<String> listaIndirizzi;
-    public List<String> listaStato;
+    public final List<String> listaNumeriSeriali;
+    public final List<String> listaIndirizzi;
+    public final List<String> listaStato;
 
-    public List<String> listaIndirizziBucaStradale;
-    public List<String> listaProfonditaBucaStradale;
-    public List<String> listaStatoBucaStradale;
+    public final List<String> listaIndirizziBucaStradale;
+    public final List<String> listaProfonditaBucaStradale;
+    public final List<String> listaStatoBucaStradale;
 
     public BeanListeElementi(){
         listaNumeriSeriali=new ArrayList<>();

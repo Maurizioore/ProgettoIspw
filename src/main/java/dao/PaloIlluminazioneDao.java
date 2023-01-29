@@ -3,7 +3,6 @@ package dao;
 import eccezioni.DuplicazioneInputException;
 import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.SegnalazioneGiaAvvenutaException;
-import entita.EntitaStradale;
 import entita.PaloIlluminazione;
 import java.sql.SQLException;
 import java.util.List;

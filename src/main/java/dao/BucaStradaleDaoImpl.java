@@ -3,9 +3,6 @@ package dao;
 import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.SegnalazioneGiaAvvenutaException;
 import entita.BucaStradale;
-import queries.QueriesSegnalazioneBucaStradale;
-import utilityaccesso.UtilityAccesso;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

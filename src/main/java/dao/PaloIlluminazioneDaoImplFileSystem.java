@@ -12,9 +12,8 @@ import java.sql.SQLException;
 
 
 public class PaloIlluminazioneDaoImplFileSystem implements EntitaStradaleDao{
+    //dao che salva l'entità stradale, in questo caso un palo illuminazione nel file system
     private static final String CSV_FILE_NAME = "PaloIlluminazioneSegnalato.txt";
-
-    private File fd;
     @Override
     public void saveEntitaStradale(EntitaStradale instance) throws SQLException, SegnalazioneGiaAvvenutaException, ErroreLetturaPasswordException {
         //se sono qui voglio salvare su file system il palo

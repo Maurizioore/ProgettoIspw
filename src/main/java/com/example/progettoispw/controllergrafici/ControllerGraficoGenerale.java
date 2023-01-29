@@ -9,7 +9,6 @@ public class ControllerGraficoGenerale extends ControllerGraficoSenzaAccesso{
     @FXML
     private JFXButton ritornaHomeButton;
 
-    //aggiunta ora con il singleton
     private final ControllerVisualizzatoreScene controllerVisualizzatoreScene=ControllerVisualizzatoreScene.getInstance(null);
 
     /*questa classe gestisce la login page, avendo piu' button e non avendoli in comune con le altre page, ho creato

@@ -10,7 +10,6 @@ import factory.TypeEntita;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -35,10 +34,12 @@ public class ControllerGraficoSegnalazioneBucaStradale extends ControllerGrafico
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //se l'utente vuole inviare la segnalazione al db
         inviaSegnalazioneButton1.setOnMouseClicked(event-> {
-            if (textFieldIndirizzo.getText().equals("") || sliderProfonditaCmBuca.getValue()==0) {
-                labelErrore.setText("inserire entrambi i campi");
-            } else {
+           // if (textFieldIndirizzo.getText().equals("") || sliderProfonditaCmBuca.getValue()==0) {
+           //     labelErrore.setText("inserire entrambi i campi");
+           // } else {
+            if(controllaInput()){
                 try {
                     typeOfPersistence=TypeOfPersistence.JDBC;
                     beanVerificaDati=beanVerifica(Integer.toString((int)sliderProfonditaCmBuca.getValue()),textFieldIndirizzo.getText(), typeEntita,typeOfPersistence);
@@ -47,14 +48,17 @@ public class ControllerGraficoSegnalazioneBucaStradale extends ControllerGrafico
                     labelErrore.setText("segnalazione avvenuta con successo\ntorna alla home =)");
                     disattivaButton();
                 } catch(SQLException | IOException| ErroreLetturaPasswordException | SegnalazioneGiaAvvenutaException | NessunAccessoEffettuatoException | TipoEntitaException e){
-                    labelErrore.setText(e.getMessage());
+                    //labelErrore.setText(e.getMessage());
+                    settaTestoEccezione(e);
                 }
             }
         });
+        //se l'utente vuole salvare la segnalazione in locale
         inviaSegnalazioneButtonInLocale.setOnMouseClicked(event->{
-            if (textFieldIndirizzo.getText().equals("") || sliderProfonditaCmBuca.getValue()==0) {
-                labelErrore.setText("inserire entrambi i campi");
-            } else {
+            //if (textFieldIndirizzo.getText().equals("") || sliderProfonditaCmBuca.getValue()==0) {
+            //    labelErrore.setText("inserire entrambi i campi");
+            //} else {
+            if(controllaInput()){
                 try {
                     typeOfPersistence=TypeOfPersistence.FILESYSTEM;
                     beanVerificaDati=beanVerifica(Integer.toString((int)sliderProfonditaCmBuca.getValue()),textFieldIndirizzo.getText(), typeEntita,typeOfPersistence);
@@ -63,7 +67,8 @@ public class ControllerGraficoSegnalazioneBucaStradale extends ControllerGrafico
                     labelErrore.setText("segnalazione avvenuta con successo\ntorna alla home =)");
                     disattivaButton();
                 } catch(SQLException | IOException| ErroreLetturaPasswordException | SegnalazioneGiaAvvenutaException | NessunAccessoEffettuatoException | TipoEntitaException e){
-                    labelErrore.setText(e.getMessage());
+                    settaTestoEccezione(e);
+                    //abelErrore.setText(e.getMessage());
                 }
             }
         });
@@ -77,5 +82,15 @@ public class ControllerGraficoSegnalazioneBucaStradale extends ControllerGrafico
         sliderProfonditaCmBuca.setDisable(true);
         inviaSegnalazioneButton1.setDisable(true);
         inviaSegnalazioneButtonInLocale.setDisable(true);
+    }
+    public void settaTestoEccezione(Exception e){
+        labelErrore.setText(e.getMessage());
+    }
+    public boolean controllaInput() {
+        if (textFieldIndirizzo.getText().equals("") || sliderProfonditaCmBuca.getValue()==0) {
+            labelErrore.setText("inserire entrambi i campi");
+            return false;
+        }
+        return true;
     }
 }

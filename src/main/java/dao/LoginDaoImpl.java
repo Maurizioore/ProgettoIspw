@@ -1,10 +1,8 @@
 package dao;
 
 import eccezioni.ErroreLetturaPasswordException;
-import entita.Account;
 import queries.QueriesAccessoAlSistema;
 import utilityaccesso.UtilityAccesso;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

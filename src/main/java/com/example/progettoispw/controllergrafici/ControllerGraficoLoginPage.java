@@ -8,8 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import utilityaccesso.UtilityAccesso;
-
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;

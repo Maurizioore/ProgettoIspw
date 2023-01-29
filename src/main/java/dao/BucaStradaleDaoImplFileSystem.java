@@ -10,9 +10,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
 public class BucaStradaleDaoImplFileSystem implements EntitaStradaleDao{
+    //dao che si occuopa di salvare l'entita stradale nel file system
     private static final String CSV_FILE_NAME = "BucaStradaleSegnalata.txt";
-
-    private File fd;
 
     @Override
     public void saveEntitaStradale(EntitaStradale instance) throws SQLException, SegnalazioneGiaAvvenutaException, ErroreLetturaPasswordException {

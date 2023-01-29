@@ -3,11 +3,8 @@ package dao;
 import eccezioni.DuplicazioneInputException;
 import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.SegnalazioneGiaAvvenutaException;
-import entita.EntitaStradale;
 import entita.PaloIlluminazione;
 import queries.QueriesPaloIlluminazione;
-import utilityaccesso.UtilityAccesso;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -54,30 +51,6 @@ public class PaloIlluminazioneDaoImpl implements PaloIlluminazioneDao{
     }
     @Override
     public void savePaloIlluminazione(PaloIlluminazione instance) throws SQLException, SegnalazioneGiaAvvenutaException, ErroreLetturaPasswordException {
-    //    /*questo metodo viene chiamato quando un palo ha passato tutte le verifiche e puo' essere quindi aggiunto nel
-    //    * database, non deve restituire nulla, deve salvare il palo nel db, e nel caso in cui un palo sia già presente
-    //    * voglio che all'utente venga detto che la segnalazione è stata già presa in carico*/
-    //    //verifico che la connessione sia aperta
-    //    verificaConnessione();
-    //    //questa operazione può essere fatta da tutti, sia loggati che non
-    //    //vedo se il palo e' già presente o no nel db, se lo e' comunico che gi esiste nel db, altrimenti lo salvo nel db
-    //    if(!cercaPalo(instance)){
-    //        if(UtilityAccesso.getCodiceUtente()!=null){
-    //            //l'utente è loggato nel sistema, la sua segnalazione deve essere salvata nel db
-    //            preparedStatement=connection.prepareStatement(QueriesPaloIlluminazione.queriesSalvaPaloAdUnUtenteDelSistema());
-    //            preparedStatement.setString(1,instance.numeroSerialePalo);
-    //            preparedStatement.setString(2,instance.indirizzo);
-    //            preparedStatement.setString(3,UtilityAccesso.getCodiceUtente());
-    //            preparedStatement.executeUpdate();
-    //        }else {
-    //            preparedStatement = connection.prepareStatement(QueriesPaloIlluminazione.queriesSalvaPalo());
-    //            preparedStatement.setString(1, instance.numeroSerialePalo);
-    //            preparedStatement.setString(2, instance.indirizzo);
-    //            preparedStatement.executeUpdate();
-    //        }
-    //    }else {
-    //        throw new SegnalazioneGiaAvvenutaException("il palo è stato già segnalato da un altro utente");
-    //    }
     }
 
     @Override

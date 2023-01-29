@@ -1,8 +1,6 @@
 package com.example.progettoispw.controllergrafici;
 
 import javafx.fxml.FXML;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class ControllerGraficoPaginaSegnalaProblema extends ControllerGraficoGenerale {
 
