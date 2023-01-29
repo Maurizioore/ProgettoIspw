@@ -46,7 +46,7 @@ public class ControllerGraficoSegnalazioniAttive implements Initializable {
             //discorso duale per il contatore che conta gli indirizzi delle buche
             int contatoreBuche=beanListeElementi.listaIndirizziBucaStradale.size();
             System.out.println("sono il contatore buche in controller grafico segnalazioni attive, ho trovato "+contatoreBuche+" buche");
-            //per ogni segnalazione devo creare una label, settare il testo dentro la label stessa.
+            //per ogni segnalazione devo creare una label, settare il testo dentro la label stessa..
             listViewName.setFixedCellSize(90);
             //se ci sono dei pali li mostro
             if(contatorePali!=0) {
