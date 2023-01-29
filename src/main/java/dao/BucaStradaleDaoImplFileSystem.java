@@ -4,45 +4,29 @@ import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.SegnalazioneGiaAvvenutaException;
 import entita.BucaStradale;
 import entita.EntitaStradale;
-import entita.PaloIlluminazione;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.HashMap;
-
 public class BucaStradaleDaoImplFileSystem implements EntitaStradaleDao{
     private static final String CSV_FILE_NAME = "BucaStradaleSegnalata.txt";
 
     private File fd;
 
-    private HashMap<String, PaloIlluminazione> localCache;
-
-    public BucaStradaleDaoImplFileSystem() throws IOException {
-        try {
-            this.fd = new File(CSV_FILE_NAME);
-            if (!fd.exists()) {
-                if(!fd.createNewFile()){
-                    throw new IOException("errore nella creazione del file");
-                };
-            }
-            this.localCache = new HashMap<String, PaloIlluminazione>();
-        }catch (IOException e){
-            throw new IOException("salvataggio sul file non riuscito");
-        }
-
-    }
     @Override
     public void saveEntitaStradale(EntitaStradale instance) throws SQLException, SegnalazioneGiaAvvenutaException, ErroreLetturaPasswordException {
         //se sono qui voglio salvare su file system la buca
         BucaStradale bucaStradale = new BucaStradale(instance.infoEntita(), instance.getIndirizzo());
-        //adesso devo salvarlain locale
+        //adesso devo salvarla in locale
         try {
-            BufferedWriter fileWriter=new BufferedWriter(new FileWriter(CSV_FILE_NAME));
+            //imposto a true il secondo parametro del costruttore del file writer, in questo modo non c'e' sovrascrittura
+            BufferedWriter fileWriter=new BufferedWriter(new FileWriter(CSV_FILE_NAME,true));
             String bucaSegnalataDaSalvareInLocale=convertiBucaInTxt(bucaStradale);
             fileWriter.write(bucaSegnalataDaSalvareInLocale);
+            //vado a capo cosi la prossima volta che si scrive su quel file e' tutto piu ordinato e la segnalazione
+            //nuova non si attaccherà alla vecchia
+            fileWriter.newLine();
             fileWriter.close();
         } catch (IOException e) {
             throw new SQLException("problema con il file writer");

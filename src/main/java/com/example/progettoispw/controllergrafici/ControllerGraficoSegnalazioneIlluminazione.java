@@ -88,7 +88,12 @@ public class ControllerGraficoSegnalazioneIlluminazione extends ControllerGrafic
                     disattivaButton();
                 }catch(LunghezzaInputException |IOException|SQLException| ErroreLetturaPasswordException | SegnalazioneGiaAvvenutaException |NessunAccessoEffettuatoException | TipoEntitaException e){
                     labelErrore.setText(e.getMessage());
-                    disattivaButton();
+                    if(e.getClass()==SegnalazioneGiaAvvenutaException.class){
+                        /*se l'eccezione è di tipo segnalazione già avvenuta l'utente ha portato a termine quello che
+                         * voleva fare quindi posso disabilitare i pulsanti */
+                        labelErrore.setText(e.getMessage());
+                        disattivaButton();
+                    }
                 }
             }
 
