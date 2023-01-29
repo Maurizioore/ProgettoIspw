@@ -41,9 +41,6 @@ public class ControllerGraficoSegnalazioneIlluminazione extends ControllerGrafic
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //questo avrà i seton mouse click dei suoi pulsanti e alla fine chiama super.initialize() di quelli in comune
         inviaSegnalazioneButton.setOnMouseClicked(event -> {
-            //if (textFieldIndirizzo.getText().equals("") || textFieldNumeroSeriale.getText().equals("")) {
-            //    labelErrore.setText("inserire entrambi i campi");
-            //} else {
             if (controllaInput()) {
                 //sara' proprio qui che avverrà l'invio al bean dei dati che ha inserito l'utente in input
                 try {
@@ -60,21 +57,11 @@ public class ControllerGraficoSegnalazioneIlluminazione extends ControllerGrafic
                          SegnalazioneGiaAvvenutaException | NessunAccessoEffettuatoException |
                          IOException | TipoEntitaException e) {
                     verificaEccezione(e);
-                    //labelErrore.setText(e.getMessage());
-                    //if (e.getClass() == SegnalazioneGiaAvvenutaException.class) {
-                    //    /*se l'eccezione è di tipo segnalazione già avvenuta l'utente ha portato a termine quello che
-                    //     * voleva fare quindi posso disabilitare i pulsanti */
-                    //    labelErrore.setText(e.getMessage());
-                    //    disattivaButton();
-                    //}
                 }
             }
         });
         // codice che si attiva se l'utente clicca il button per salvare il problema segnalato in locale e non su un database
         inviaSegnalazioneInLocaleButton.setOnMouseClicked(event -> {
-            //if (textFieldIndirizzo.getText().equals("") || textFieldNumeroSeriale.getText().equals("")) {
-            //    labelErrore.setText("inserire entrambi i campi");
-            //} else {
             //controlla input torna false se i campi sono stati inseriti
             if (controllaInput()) {
                 try {
@@ -91,12 +78,6 @@ public class ControllerGraficoSegnalazioneIlluminazione extends ControllerGrafic
                          SegnalazioneGiaAvvenutaException | NessunAccessoEffettuatoException | TipoEntitaException e) {
                     verificaEccezione(e);
                     labelErrore.setText(e.getMessage());
-                    //if (e.getClass() == SegnalazioneGiaAvvenutaException.class) {
-                    //    /*se l'eccezione è di tipo segnalazione già avvenuta l'utente ha portato a termine quello che
-                    //     * voleva fare quindi posso disabilitare i pulsanti */
-                    //    labelErrore.setText(e.getMessage());
-                    //    disattivaButton();
-                    //}
                 }
             }
         });

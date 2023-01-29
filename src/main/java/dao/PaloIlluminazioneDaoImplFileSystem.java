@@ -5,7 +5,6 @@ import eccezioni.SegnalazioneGiaAvvenutaException;
 import entita.EntitaStradale;
 import entita.PaloIlluminazione;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;

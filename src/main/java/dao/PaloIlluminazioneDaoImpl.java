@@ -51,6 +51,7 @@ public class PaloIlluminazioneDaoImpl implements PaloIlluminazioneDao{
     }
     @Override
     public void savePaloIlluminazione(PaloIlluminazione instance) throws SQLException, SegnalazioneGiaAvvenutaException, ErroreLetturaPasswordException {
+        //per ora mi concetro ad implementarlo su altre soluzioni in cui posso usare binding dinamico
     }
 
     @Override

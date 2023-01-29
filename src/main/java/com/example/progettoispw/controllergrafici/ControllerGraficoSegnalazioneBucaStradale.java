@@ -36,9 +36,6 @@ public class ControllerGraficoSegnalazioneBucaStradale extends ControllerGrafico
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //se l'utente vuole inviare la segnalazione al db
         inviaSegnalazioneButton1.setOnMouseClicked(event-> {
-           // if (textFieldIndirizzo.getText().equals("") || sliderProfonditaCmBuca.getValue()==0) {
-           //     labelErrore.setText("inserire entrambi i campi");
-           // } else {
             if(controllaInput()){
                 try {
                     typeOfPersistence=TypeOfPersistence.JDBC;
@@ -48,16 +45,12 @@ public class ControllerGraficoSegnalazioneBucaStradale extends ControllerGrafico
                     labelErrore.setText("segnalazione avvenuta con successo\ntorna alla home =)");
                     disattivaButton();
                 } catch(SQLException | IOException| ErroreLetturaPasswordException | SegnalazioneGiaAvvenutaException | NessunAccessoEffettuatoException | TipoEntitaException e){
-                    //labelErrore.setText(e.getMessage());
                     settaTestoEccezione(e);
                 }
             }
         });
         //se l'utente vuole salvare la segnalazione in locale
         inviaSegnalazioneButtonInLocale.setOnMouseClicked(event->{
-            //if (textFieldIndirizzo.getText().equals("") || sliderProfonditaCmBuca.getValue()==0) {
-            //    labelErrore.setText("inserire entrambi i campi");
-            //} else {
             if(controllaInput()){
                 try {
                     typeOfPersistence=TypeOfPersistence.FILESYSTEM;
@@ -68,7 +61,6 @@ public class ControllerGraficoSegnalazioneBucaStradale extends ControllerGrafico
                     disattivaButton();
                 } catch(SQLException | IOException| ErroreLetturaPasswordException | SegnalazioneGiaAvvenutaException | NessunAccessoEffettuatoException | TipoEntitaException e){
                     settaTestoEccezione(e);
-                    //abelErrore.setText(e.getMessage());
                 }
             }
         });

@@ -35,15 +35,13 @@ public class EntitaStradaleDaoImpl implements EntitaStradaleDao {
             if (UtilityAccesso.getCodiceUtente() != null) {
                 //sono un utente registrato che la salva
                 //devo poi vedere che tipo di entità stradale sto salvando, se un palo o una buca
-                if (instance.getClass() == PaloIlluminazione.class) {
-                    //sono un utente loggato e sto segnalando un palo
+                if(instance.getClass() == PaloIlluminazione.class) {
                     preparedStatement = connection.prepareStatement(QueriesPaloIlluminazione.queriesSalvaPaloAdUnUtenteDelSistema());
                     preparedStatement.setString(1, instance.infoEntita());
                     preparedStatement.setString(2, instance.indirizzo);
                     preparedStatement.setString(3, UtilityAccesso.getCodiceUtente());
                     preparedStatement.executeUpdate();
                 } else {
-                    //sono un utente loggato e sto segnalando una buca
                     preparedStatement = connection.prepareStatement(QueriesSegnalazioneBucaStradale.queriesSalvaBuca());
                     preparedStatement.setString(1, instance.getIndirizzo());
                     preparedStatement.setString(2, instance.infoEntita());

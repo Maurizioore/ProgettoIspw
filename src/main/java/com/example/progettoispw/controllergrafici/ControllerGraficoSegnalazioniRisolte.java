@@ -32,7 +32,7 @@ public class ControllerGraficoSegnalazioniRisolte implements Initializable{
             //segnalazioni che sono state risolte
             //chiamo il controller applicativo che si preoccupa di restituire tutto cio che l'utente ha segnalato e che e' stato risolto
             BeanListeElementi beanListeElementi=new BeanListeElementi();
-            ControllerApplicativoSegnalazioniRisolte1 controllerApplicativoSegnalazioniRisolte1=new ControllerApplicativoSegnalazioniRisolte1(beanListeElementi);
+            new ControllerApplicativoSegnalazioniRisolte1(beanListeElementi);
             //in questo punto tutte le segnalazioni risolte sono state aggiunte nella lista dentro il bean, le riprendo allora e le mostro in output
             int contatore=beanListeElementi.listaIndirizzi.size();
             listViewRisolteName.setFixedCellSize(90);

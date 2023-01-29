@@ -4,7 +4,6 @@ import bean.BeanSegnalazionePaloIlluminazione;
 import contenitori.Contenitore;
 import dao.EntitaStradaleDao;
 import dao.EntitaStradaleDaoImpl;
-import dao.PaloIlluminazioneDaoImpl;
 import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.NonEsisteIndirizzoException;
 import eccezioni.NonEsisteNumeroSerialeException;
@@ -13,9 +12,6 @@ import contenitori.ContenitorePaliIlluminazione;
 import eccezioni.SegnalazioneGiaAvvenutaException;
 import entita.EntitaStradale;
 import entita.PaloIlluminazione;
-import state.OfflineState;
-import utilityaccesso.UtilityAccesso;
-
 import java.sql.SQLException;
 import java.util.List;
 
@@ -35,12 +31,10 @@ public class ControllerApplicativoSegnalazionePaloIlluminazione {
     private List<String> contenitore=null;
     private List<String> indirizzi=null;
 
-    public ControllerApplicativoSegnalazionePaloIlluminazione(BeanSegnalazionePaloIlluminazione beanSegnalazionePaloIlluminazione) throws NonEsisteIndirizzoException, NonEsisteNumeroSerialeException, SQLException, SegnalazioneGiaAvvenutaException, ErroreLetturaPasswordException {
+    public ControllerApplicativoSegnalazionePaloIlluminazione(BeanSegnalazionePaloIlluminazione beanSegnalazionePaloIlluminazione) throws SQLException, SegnalazioneGiaAvvenutaException, ErroreLetturaPasswordException {
 
         this.numeroSerialePaloIlluminazione=beanSegnalazionePaloIlluminazione.getNumeroSerialePalo();
         this.indirizzo=beanSegnalazionePaloIlluminazione.getIndirizzo();
-        //prendiContenitore();
-        //verificaEsistenzaInput();
         //se arrivo qui vuol dire che non c'e' stata alcuna eccezione, devo quindi creare un oggetto palo
         System.out.println("non c'e stata alcuna eccezione: sono una sout presente in ControllerApplicativoSegnalazionePaloIlluminazione");
         //questa variabile paloDaSegnalare sonar cloud dice di toglierla perché non viene mai acceduta, la lascio perche non so se mi
@@ -50,24 +44,21 @@ public class ControllerApplicativoSegnalazionePaloIlluminazione {
         inviaSegnalazione((PaloIlluminazione) paloDaSegnalare);
     }
     public void inviaSegnalazione(PaloIlluminazione palo) throws SQLException, SegnalazioneGiaAvvenutaException, ErroreLetturaPasswordException {
-        //PaloIlluminazioneDaoImpl paloIlluminazioneDao=new PaloIlluminazioneDaoImpl();
-        //paloIlluminazioneDao.savePaloIlluminazione(palo);
         EntitaStradaleDao entitaStradaleDao= new EntitaStradaleDaoImpl();
         entitaStradaleDao.saveEntitaStradale(palo);
-        System.out.println("salvataggio avvenuto");
 
     }
     public void prendiContenitore(){
         Contenitore contenitorePaliIlluminazione = ContenitorePaliIlluminazione.getInstance();
         contenitore= contenitorePaliIlluminazione.ottieniContenitore();
         if (contenitore==null){
-            System.out.println("il contenitore dei pali dell'illuminazione e' vuoto");
+            //il contenitore pali illuminazione e' vuoto
             System.exit(-1);
         }
         Contenitore contenitoreIndirizzi= ContenitoreIndirizzi.getInstance();
         indirizzi=contenitoreIndirizzi.ottieniContenitore();
         if (indirizzi==null){
-            System.out.println("il contenitore degli indirizzi  e' vuoto");
+            //il contenitore degli indirizzi e' vuoto 
             System.exit(-1);
         }
     }
