@@ -23,7 +23,7 @@ public class BeanObserverAccount implements Observer {
         this.subject.Registrazione(this);
     }
     @Override
-    public void update(String stato,String nomeUtente,String CodiceUtenteNelSistema) {
+    public void update(String stato,String nomeUtente) {
         this.statoAttuale=stato;
         this.nomeUtente=nomeUtente;
     }

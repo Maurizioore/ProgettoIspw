@@ -12,7 +12,7 @@ public class Account extends Subject {
     private String nomeUtente;
     private String codiceUtente;
     private static Account account;
-    private static StateMachine stateMachine;
+    private StateMachine stateMachine;
     //nel momento della creazione di un account il suo stato corrente viene messo offline, quindi la variabile
     //current state associata a stateMachineImpl sarà offline State kind of AbstractState
     public static Account getInitialAccount(){
@@ -58,7 +58,7 @@ public class Account extends Subject {
     @Override
     public void notifyObservers() {
         for(Observer o:this.observerList){
-            o.update(getStatoAttuale(),getNomeUtente(),getCodiceUtente());
+            o.update(getStatoAttuale(),getNomeUtente());
         }
     }
     public void setCredenziali(String nomeUtente,String codiceUtente){
