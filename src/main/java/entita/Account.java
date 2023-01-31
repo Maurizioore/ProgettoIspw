@@ -44,12 +44,12 @@ public class Account extends Subject {
     public String getStatoAttuale(){return this.stateMachine.toString();}
 
     @Override
-    public void Registrazione(Observer o) {
+    public void registrazione(Observer o) {
         this.observerList.add(o);
     }
 
     @Override
-    public void RimuoviObserver(Observer o) {
+    public void rimuoviObserver(Observer o) {
         int i=this.observerList.indexOf(o);
         if(i>0) {
             this.observerList.remove(i);

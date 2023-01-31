@@ -18,9 +18,8 @@ public class BeanObserverAccount implements Observer {
     }
 
     private BeanObserverAccount(Subject subject){
-
         this.subject=subject;
-        this.subject.Registrazione(this);
+        this.subject.registrazione(this);
     }
     @Override
     public void update(String stato,String nomeUtente) {

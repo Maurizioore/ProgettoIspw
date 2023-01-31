@@ -1,8 +1,11 @@
 package com.example.progettoispw.controllergrafici;
+import cli.PaginaHome;
 import entita.Account;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import utilityaccesso.UtilityAccesso;
+
+import java.io.*;
 
 public class StartApplication extends Application {
 
@@ -48,13 +51,40 @@ public class StartApplication extends Application {
     //per creare l'account dalla classe utilityAccesso
     @Override
     public void start(Stage stage) throws Exception {
-        final String schermataPrincipale="prova-home.fxml";
-        ControllerVisualizzatoreScene controllerVisualizzatoreScene=ControllerVisualizzatoreScene.getInstance(stage);
+        final String schermataPrincipale = "prova-home.fxml";
+        ControllerVisualizzatoreScene controllerVisualizzatoreScene = ControllerVisualizzatoreScene.getInstance(stage);
         controllerVisualizzatoreScene.visualizzaScenaPrincipale(schermataPrincipale);
     }
-    public static void main(String[] args) {
-        //l'app viene lanciata, creiamo quindi un utente di default che possiede come stato di defult offline
+    public static void main(String[] args) throws IOException {
+        //l'app viene lanciata, creiamo quindi un utente di default che possiede come stato di default offline
         UtilityAccesso.setAccount(Account.getInitialAccount());
-        launch();
+        BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("---------------------------------------------------------------------");
+        while(true){
+            System.out.println("digitare:\n1 per visualizzare l'app con l'interfaccia grafica\n2 per visualizzare l'app in linea di comando");
+            String scelta=bufferedReader.readLine();
+            try {
+                int numeroScelta = Integer.parseInt(scelta);
+            } catch (NumberFormatException e) {
+                //di default lancio l'interfaccia grafica
+                launch();
+                break;
+            }
+            //l'utente ha inserito effettivamente dei numeri
+            int numeroScelta = Integer.parseInt(scelta);
+            if(numeroScelta==1) {
+                //è stata scelta l'interfaccia grafica
+                launch();
+                break;
+            }else if(numeroScelta==2) {
+                //è stata scelta la linea di comando
+                PaginaHome paginaHome=new PaginaHome();
+                paginaHome.displayHomepage();
+                break;
+            }
+            System.out.println("mi spiace, prova a digitare 1 oppure 2");
+            System.out.println("---------------------------------------------------------------------");
+        }
+
     }
 }

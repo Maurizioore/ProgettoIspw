@@ -43,7 +43,7 @@ public class ControllerGraficoSegnalazioneIlluminazione extends ControllerGrafic
                 //sara' proprio qui che avverrà l'invio al bean dei dati che ha inserito l'utente in input
                 try {
                     typeOfPersistence = TypeOfPersistence.JDBC;
-                    beanVerificaDati = beanVerifica(textFieldNumeroSeriale.getText(), textFieldIndirizzo.getText(), typeEntita, typeOfPersistence);
+                    beanVerificaDati=beanVerifica(textFieldNumeroSeriale.getText(), textFieldIndirizzo.getText(), typeEntita, typeOfPersistence);
                     //la lunghezza seriale del palo inserita dall'utente è corretta, invio il bean al controller applicativo
                     ControllerApplicativoSegnalazioneEntita controllerApplicativoSegnalazioneEntita = new ControllerApplicativoSegnalazioneEntita(beanVerificaDati);
                     //se non c'e' stata nessuna eccezione vuol dire che la segnalazione e' avvenuta con successo

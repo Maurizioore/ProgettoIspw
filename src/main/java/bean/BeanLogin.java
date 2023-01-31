@@ -12,7 +12,7 @@ public class BeanLogin {
     private String email;
     private String password;
     public BeanLogin(String email,String password) {
-        this.email=email;
+        this.email=email.toLowerCase();
         this.password=password;
     }
     public String getEmail() {
