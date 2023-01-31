@@ -36,7 +36,7 @@ public class ControllerGraficoPaginaSegnalazionePaloIlluminazioneCli {
         beanVerificaDati =  new BeanSegnalaEntita(numeroSeriale,indirizzo, typeEntita, typeOfPersistence);
         try {
             beanVerificaDati.controllaInputPalo();
-            ControllerApplicativoSegnalazioneEntita controllerApplicativoSegnalazioneEntita = new ControllerApplicativoSegnalazioneEntita(beanVerificaDati);
+            new ControllerApplicativoSegnalazioneEntita(beanVerificaDati);
             //se non c'e' stata nessuna eccezione vuol dire che la segnalazione e' avvenuta con successo
             //lo comunico all'utente e blocco i pulsanti per non far inviare la stessa segnalazione
             //in caso dovesse premere per sbaglio di nuovo il pulsante invia

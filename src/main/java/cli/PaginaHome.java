@@ -27,7 +27,7 @@ public class PaginaHome {
         while(true){
             String scelta=bufferedReader.readLine();
             try {
-                int numeroScelta = Integer.parseInt(scelta);
+                Integer.parseInt(scelta);
             } catch (NumberFormatException e) {
                 System.out.println("la prossima volta accertati di digitare un numero ");
                 System.exit(-1);
@@ -55,7 +55,7 @@ public class PaginaHome {
                 System.exit(0);
             }
             System.out.println("riprova con uno tra i seguenti numeri : 1, 4 ,5 ");
-            continue;
+
         }
     }
 }

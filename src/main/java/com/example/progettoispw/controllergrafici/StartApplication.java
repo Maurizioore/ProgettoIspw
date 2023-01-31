@@ -64,7 +64,7 @@ public class StartApplication extends Application {
             System.out.println("digitare:\n1 per visualizzare l'app con l'interfaccia grafica\n2 per visualizzare l'app in linea di comando");
             String scelta=bufferedReader.readLine();
             try {
-                int numeroScelta = Integer.parseInt(scelta);
+                Integer.parseInt(scelta);
             } catch (NumberFormatException e) {
                 //di default lancio l'interfaccia grafica
                 launch();
@@ -75,12 +75,13 @@ public class StartApplication extends Application {
             if(numeroScelta==1) {
                 //è stata scelta l'interfaccia grafica
                 launch();
-                break;
+                System.exit(0);
+
             }else if(numeroScelta==2) {
                 //è stata scelta la linea di comando
                 PaginaHome paginaHome=new PaginaHome();
                 paginaHome.displayHomepage();
-                break;
+                System.exit(0);
             }
             System.out.println("mi spiace, prova a digitare 1 oppure 2");
             System.out.println("---------------------------------------------------------------------");

@@ -34,7 +34,7 @@ public class ControllerGraficoPagineSegnalazioneBucaStradaleCli {
         try {
             beanVerificaDati=new BeanSegnalaEntita(Integer.toString(profondita),indirizzo, typeEntita,typeOfPersistence);
             //questi dati devono essere mandati al controller applicativo
-            ControllerApplicativoSegnalazioneEntita controllerApplicativoSegnalazioneEntita=new ControllerApplicativoSegnalazioneEntita(beanVerificaDati);
+            new ControllerApplicativoSegnalazioneEntita(beanVerificaDati);
             System.out.println("segnalazione avvenuta con successo\ntorna alla home =)\npremere qualsiasi tasto per tornare alla home: ");
             BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
             if(bufferedReader.readLine().length()>=1){

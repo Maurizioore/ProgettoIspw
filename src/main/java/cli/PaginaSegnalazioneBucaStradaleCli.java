@@ -14,8 +14,8 @@ public class PaginaSegnalazioneBucaStradaleCli {
                 "inserisci indirizzo(digitare esc per uscire): ");
         this.indirizzo=bufferedReader.readLine();
         System.out.println("inserisci profondità buca in cm(digitare 0 per uscire): ");
-        String profondità=bufferedReader.readLine();
-        this.profondita=Integer.parseInt(profondità);
+        String profonditaInserita=bufferedReader.readLine();
+        this.profondita=Integer.parseInt(profonditaInserita);
         if(profondita>50){
             System.out.println("inserire numeri esatti(nota se supera i 50 cm inserire comunque 50 cm come valore massimo");
             //torna alla home
@@ -37,10 +37,8 @@ public class PaginaSegnalazioneBucaStradaleCli {
         controllerGraficoPagineSegnalazioneBucaStradaleCli.inviaDatiAlBean();
     }
     private boolean verificaInputUscita(String indirizzo, int profondita){
-        if(indirizzo.toLowerCase().equals("esc") || profondita==0){
-            return true;
-        }
-        return false;
+        return (indirizzo.equalsIgnoreCase("esc") || profondita==0);
+
     }
     private void tornaAllaHomePage() throws IOException {
         PaginaHome paginaHome=new PaginaHome();

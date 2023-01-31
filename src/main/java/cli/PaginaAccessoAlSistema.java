@@ -1,8 +1,6 @@
 package cli;
 
 import controllergraficicommandlineinterface.ControllerGraficoInviaDatiAccessoAlSistemaCli;
-import controllergraficicommandlineinterface.ControllerGraficoLoginCli;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -34,10 +32,8 @@ public class PaginaAccessoAlSistema {
 
     }
     private boolean verificaInputUscita(String email){
-        if(email.toLowerCase().equals("esc")){
-            return true;
-        }
-        return false;
+        return email.equalsIgnoreCase("esc");
+
     }
     private void tornaAllaHomePage() throws IOException {
         PaginaHome paginaHome=new PaginaHome();

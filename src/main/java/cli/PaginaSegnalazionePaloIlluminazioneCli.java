@@ -40,10 +40,8 @@ public class PaginaSegnalazionePaloIlluminazioneCli {
         }
     }
     private boolean verificaInputUscita(String numeroSerialePalo, String indirizzo){
-        if(numeroSerialePalo.toLowerCase().equals("esc") || indirizzo.toLowerCase().equals("esc")){
-            return true;
-        }
-        return false;
+        return(numeroSerialePalo.equalsIgnoreCase("esc") || indirizzo.toLowerCase().equals("esc"));
+
     }
     private void tornaAllaHomePage() throws IOException {
         PaginaHome paginaHome=new PaginaHome();

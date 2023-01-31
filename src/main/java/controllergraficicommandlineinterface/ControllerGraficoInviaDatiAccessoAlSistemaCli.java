@@ -28,7 +28,7 @@ public class ControllerGraficoInviaDatiAccessoAlSistemaCli {
         if (controlliSintatticiEmail == null) {
             //mando il bean al controller applicativo
             try {
-                ControllerApplicativoLoginAlSistema controllerApplicativoLoginAlSistema = new ControllerApplicativoLoginAlSistema(beanAccessoUtente);
+                new ControllerApplicativoLoginAlSistema(beanAccessoUtente);
                 // se non si e' verificata nessuna eccezione vuol dire che l'accesso e' stato effettuato con successo
                 System.out.println("accesso effettuato, premi qualsiasi tasto per tornare alla home");
                 BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
