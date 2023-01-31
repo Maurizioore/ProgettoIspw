@@ -1,6 +1,7 @@
 package dao;
 
 import eccezioni.ErroreLetturaPasswordException;
+import entita.Account;
 import queries.QueriesAccessoAlSistema;
 import utilityaccesso.UtilityAccesso;
 import java.sql.Connection;
@@ -17,8 +18,10 @@ public class LoginDaoImpl implements LoginDao{
     private Connection connection=null;
     private PreparedStatement preparedStatement=null;
     private ResultSet resultSet=null;
+    private Account account;
     public LoginDaoImpl() throws SQLException, ErroreLetturaPasswordException {
         connection=SingletonConnessione.getInstance();
+        account=Account.getInitialAccount();
     }
 
     public boolean verificaAccountNelSistema(String email,String password) throws SQLException {
@@ -37,14 +40,17 @@ public class LoginDaoImpl implements LoginDao{
         //isBeforeFirst ritorna true se il result set contiene qualcosa, false altrimenti
         if(resultSet.isBeforeFirst()){
             resultSet.next();
+            //in questo caso potrei dire che è li che ha un legame con account e modifica lo stato dei suoi attributi
+            account.setCredenziali(resultSet.getString("username"),Integer.toString(resultSet.getInt("codiceUtente")));
+            account.passaOnline();
             UtilityAccesso.setNomeUtenteNelDatabase(resultSet.getString("username"));
             //converto il tipo intero di codice del database in un tipo stringa poiche codiceUtente in UtilityAccesso
             //è di tipo stringa
             UtilityAccesso.setCodiceUtente(Integer.toString(resultSet.getInt("codiceUtente")));
-            System.out.println("sono una sout presente in loginDaoImpl, codice utente settato a: "+UtilityAccesso.getCodiceUtente());
-            System.out.println("sono una sout in loginDaoImpl nome utente settato a: "+UtilityAccesso.getNomeUtenteNelDatabase());
+            //System.out.println("sono una sout presente in loginDaoImpl, codice utente settato a: "+UtilityAccesso.getCodiceUtente());
+            //System.out.println("sono una sout in loginDaoImpl nome utente settato a: "+UtilityAccesso.getNomeUtenteNelDatabase());
             //l'utente esiste nel database, ha fatto l'accesso, e' quindi online
-            UtilityAccesso.getAccount().passaOnline();
+            //UtilityAccesso.getAccount().passaOnline();
             //l'utente è stato trovato nel database, torno true
             return true;
         }

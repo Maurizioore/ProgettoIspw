@@ -9,7 +9,6 @@ import factory.TypeEntita;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -54,7 +53,7 @@ public class ControllerGraficoSegnalazioneIlluminazione extends ControllerGrafic
                     disattivaButton();
                 } catch (LunghezzaInputException | SQLException | ErroreLetturaPasswordException |
                          SegnalazioneGiaAvvenutaException | NessunAccessoEffettuatoException |
-                         IOException | TipoEntitaException e) {
+                          TipoEntitaException e) {
                     verificaEccezione(e);
                 }
             }
@@ -73,7 +72,7 @@ public class ControllerGraficoSegnalazioneIlluminazione extends ControllerGrafic
                     //in caso dovesse premere per sbaglio di nuovo il pulsante invia
                     labelErrore.setText("segnalazione avvenuta con successo\ntorna alla home =)");
                     disattivaButton();
-                } catch (LunghezzaInputException | IOException | SQLException | ErroreLetturaPasswordException |
+                } catch (LunghezzaInputException | SQLException | ErroreLetturaPasswordException |
                          SegnalazioneGiaAvvenutaException | NessunAccessoEffettuatoException | TipoEntitaException e) {
                     verificaEccezione(e);
                     labelErrore.setText(e.getMessage());

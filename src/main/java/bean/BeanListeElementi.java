@@ -8,6 +8,9 @@ public class BeanListeElementi {
     //il controller applicativo riempi le 3 liste definite qui dentro e queste verranno poi usate dal
     //controller grafico per mostrare il giusto output all'utente
     //i setter vengono fatti dal controller applicativo, i getter dal controller grafico
+    //questa classe infrange la legge di demetra( principi di conoscenza minima) perche e' come se conoscesse il tipo di
+    //dato che deve prendere, e un cambiamento su un altra classe influenza per forza anche questa, purtroppo e' una decisione
+    //necessaria per gli scopi di questo bean
     public final List<String> listaNumeriSeriali;
     public final List<String> listaIndirizzi;
     public final List<String> listaStato;

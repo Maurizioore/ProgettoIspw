@@ -54,7 +54,7 @@ public class StartApplication extends Application {
     }
     public static void main(String[] args) {
         //l'app viene lanciata, creiamo quindi un utente di default che possiede come stato di defult offline
-        UtilityAccesso.setAccount(new Account());
+        UtilityAccesso.setAccount(Account.getInitialAccount());
         launch();
     }
 }
