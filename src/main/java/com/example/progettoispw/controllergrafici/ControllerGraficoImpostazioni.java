@@ -133,16 +133,22 @@ public class ControllerGraficoImpostazioni implements Initializable {
     private void salvaModifichePresenti(BeanImpostazioni beanImpostazioni){
         rendiInvisibiliTextField();
         //imposto nome cognome eta e sesso con quelli che ho preso dal file, li metto come testo delle label
-        labelNome.setText(this.nome=beanImpostazioni.getNome());
-        labelCognome.setText(this.cognome=beanImpostazioni.getCognome());
-        labelEta.setText(Integer.toString(this.eta=beanImpostazioni.getEta()));
+        labelNome.setText(beanImpostazioni.getNome());
+        labelCognome.setText(beanImpostazioni.getCognome());
+        labelEta.setText(Integer.toString(beanImpostazioni.getEta()));
         labelSesso.setText(this.sesso=beanImpostazioni.getSesso());
-        //li imposto anche ai textfield cosi che in caso di modifica su un solo attributo gli altri rimangono con lo stesso valore
+        //imposto le variabili della classe con il valore delle stesse variabili presenti nel bean
+        this.nome=beanImpostazioni.getNome();
+        this.cognome=beanImpostazioni.getCognome();
+        this.eta=beanImpostazioni.getEta();
+        this.sesso=beanImpostazioni.getSesso();
+        //imposto questi valori anche ai textField così che in caso di modifica su un solo attributo gli altri rimangono con lo stesso valore e non ho problemi in caso
+        //di aggiornamento di singoli attributi
         textFieldNome.setText(nome);
         textFieldCognome.setText(cognome);
         textFieldEta.setText(Integer.toString(eta));
         textFieldSesso.setText(sesso);
-        //rebdo vibili le label
+        //rendo visibili le label
         rendiVisibiliLabel();
 
 
