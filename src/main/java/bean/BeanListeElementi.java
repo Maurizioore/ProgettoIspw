@@ -23,14 +23,14 @@ public class BeanListeElementi {
 
     private TypeOfSegnalazione typeOfSegnalazione;
 
-    public BeanListeElementi(TypeOfSegnalazione type_of_segnalazione){
+    public BeanListeElementi(TypeOfSegnalazione typeOfSegnalazione){
         listaNumeriSeriali=new ArrayList<>();
         listaIndirizzi=new ArrayList<>();
         listaStato=new ArrayList<>();
         listaIndirizziBucaStradale=new ArrayList<>();
         listaProfonditaBucaStradale=new ArrayList<>();
         listaStatoBucaStradale=new ArrayList<>();
-        this.typeOfSegnalazione=type_of_segnalazione;
+        this.typeOfSegnalazione=typeOfSegnalazione;
     }
     //per i pali
     public void gestisciListaNumeriSeriali(String nuovoElemento){
