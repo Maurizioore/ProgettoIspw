@@ -100,7 +100,7 @@ public class ControllerGraficoImpostazioni implements Initializable {
             try {
                 controllerVisualizzatoreScene.visualizzaScena("prova-home.fxml");
             } catch (Exception e) {
-                System.out.println("error: " + e);
+                System.exit(-1);
             }
         });
     }
@@ -136,7 +136,7 @@ public class ControllerGraficoImpostazioni implements Initializable {
         labelNome.setText(beanImpostazioni.getNome());
         labelCognome.setText(beanImpostazioni.getCognome());
         labelEta.setText(Integer.toString(beanImpostazioni.getEta()));
-        labelSesso.setText(this.sesso=beanImpostazioni.getSesso());
+        labelSesso.setText(beanImpostazioni.getSesso());
         //imposto le variabili della classe con il valore delle stesse variabili presenti nel bean
         this.nome=beanImpostazioni.getNome();
         this.cognome=beanImpostazioni.getCognome();
