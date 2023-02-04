@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.sql.SQLException;
 
 public class ControllerGraficoPagineSegnalazioneBucaStradaleCli {
+
     private PaginaHome paginaHome=new PaginaHome();
     private String indirizzo;
     private int profondita;
