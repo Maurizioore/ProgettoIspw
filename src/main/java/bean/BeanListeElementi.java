@@ -56,6 +56,7 @@ public class BeanListeElementi {
     //per le buche
     public void gestisciListaProfonditaBucaStradale(String nuovoElemento){
         listaProfonditaBucaStradale.add(nuovoElemento);
+
     }
     public void gestisciIndirizziBuca(String nuovoIndirizzo){
         listaIndirizziBucaStradale.add(nuovoIndirizzo);

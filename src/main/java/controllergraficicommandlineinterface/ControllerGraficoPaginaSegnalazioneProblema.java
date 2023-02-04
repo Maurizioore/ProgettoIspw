@@ -1,7 +1,6 @@
 package controllergraficicommandlineinterface;
 
 import cli.PaginaSegnalazionePaloIlluminazioneCli;
-
 import java.io.IOException;
 
 

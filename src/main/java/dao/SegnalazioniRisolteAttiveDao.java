@@ -3,6 +3,7 @@ package dao;
 import com.example.progettoispw.controllergrafici.Type_of_segnalazione;
 import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.NonEsistonoSegnalazioniException;
+
 import java.sql.SQLException;
 import java.util.List;
 

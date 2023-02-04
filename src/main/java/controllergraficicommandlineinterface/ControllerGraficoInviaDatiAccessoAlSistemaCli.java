@@ -5,7 +5,6 @@ import cli.PaginaHome;
 import controllerapplicativi.ControllerApplicativoLoginAlSistema;
 import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.NonEsisteUtenteNelSistemaException;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

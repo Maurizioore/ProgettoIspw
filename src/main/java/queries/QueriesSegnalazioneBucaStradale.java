@@ -1,6 +1,7 @@
 package queries;
 
 public class QueriesSegnalazioneBucaStradale {
+
     //costruiamo le buche in modo che solo gli utenti registrati al sistema possono segnalarle
     //operazione che puo fare solo l'admin
     private QueriesSegnalazioneBucaStradale(){

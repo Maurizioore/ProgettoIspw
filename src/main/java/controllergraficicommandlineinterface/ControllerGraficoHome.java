@@ -1,7 +1,6 @@
 package controllergraficicommandlineinterface;
 
 import cli.PaginaSegnalazioneProblemaCli;
-
 import java.io.IOException;
 
 public class ControllerGraficoHome {

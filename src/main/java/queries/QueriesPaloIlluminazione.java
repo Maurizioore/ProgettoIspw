@@ -1,6 +1,7 @@
 package queries;
 
 public class QueriesPaloIlluminazione {
+
     //questa classe svolgerà il ruolo di utility class, avrà solo metodi statici che restituiscono stringhe
     //che altro non sono che le query che posso fare sul mio oggetto Palo Illuminazione
     //nota nelle query il termine 'palo' e' il nome della relazione presente nel database "database-app-ispw"
