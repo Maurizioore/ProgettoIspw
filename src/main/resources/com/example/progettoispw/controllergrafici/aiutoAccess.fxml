@@ -118,14 +118,14 @@
                                             </image></ImageView>
                                     </graphic>
                                 </JFXButton>
-                                <JFXButton alignment="BASELINE_LEFT" cacheShape="false" centerShape="false" focusTraversable="false" prefHeight="38.0" prefWidth="176.0" scaleShape="false" styleClass="sidebarItem" text="chat" textFill="#e0e1dd">
+                                <JFXButton fx:id="impostazioniButton" alignment="BASELINE_LEFT" cacheShape="false" centerShape="false" focusTraversable="false" prefHeight="38.0" prefWidth="176.0" scaleShape="false" styleClass="sidebarItem" text="impostazioni" textFill="#e0e1dd">
                                     <font>
                                         <Font name="System Bold" size="18.0" />
                                     </font>
                                     <graphic>
                                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../../../../ImmaginiHome/message.png" />
+                                                <Image url="@../../../../ImmaginiHome/setting.png" />
                                             </image></ImageView>
                                     </graphic>
                                 </JFXButton>

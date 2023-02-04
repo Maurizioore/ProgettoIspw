@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="696.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progettoispw.controllergrafici.ControllerGraficoImpostazioni">
+    <children>
+        <JFXButton fx:id="ritornaHomeButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="12.0" layoutY="52.0" prefHeight="26.0" prefWidth="46.0" scaleShape="false" styleClass="menuItem" text=" ">
+         <graphic>
+            <ImageView fitHeight="22.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../ImmaginiHome/back.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+        <Label fx:id="labelErrore" layoutX="70.0" layoutY="46.0" prefHeight="37.0" prefWidth="577.0" text=" ">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+      <Label layoutX="34.0" layoutY="121.0" prefHeight="26.0" prefWidth="52.0" text="Nome:">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="34.0" layoutY="200.0" prefHeight="26.0" prefWidth="77.0" text="Cognome:">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="437.0" layoutY="121.0" prefHeight="26.0" prefWidth="46.0" text="Sesso:">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="437.0" layoutY="200.0" prefHeight="26.0" prefWidth="52.0" text="Età:">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <JFXButton fx:id="salvaButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="233.0" layoutY="316.0" prefHeight="53.0" prefWidth="230.0" ripplerFill="WHITE" scaleShape="false" style="-fx-background-color: #1D3461;" styleClass="buttonItem" text="salva" textFill="#e0e1dd">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <Pane prefHeight="45.0" prefWidth="696.0" style="-fx-background-color: #1D3461;" />
+      <Label fx:id="labelCognome" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="111.0" layoutY="184.0" prefHeight="59.0" prefWidth="201.0" scaleShape="false" text=" ">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label fx:id="labelNome" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="111.0" layoutY="105.0" prefHeight="59.0" prefWidth="201.0" scaleShape="false" text=" ">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label fx:id="labelSesso" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="489.0" layoutY="105.0" prefHeight="59.0" prefWidth="111.0" scaleShape="false" text=" ">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label fx:id="labelEta" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="476.0" layoutY="184.0" prefHeight="59.0" prefWidth="111.0" scaleShape="false" text=" " visible="false">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <JFXButton fx:id="modificaNomeButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="312.0" layoutY="119.0" scaleShape="false" styleClass="menuItem" text=" ">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../ImmaginiHome/pen.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="modificaCognomeButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="312.0" layoutY="198.0" scaleShape="false" styleClass="menuItem" text=" ">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../ImmaginiHome/pen.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="modificaSessoButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="623.0" layoutY="117.0" scaleShape="false" styleClass="menuItem" text=" ">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../ImmaginiHome/pen.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="modificaEtaButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="623.0" layoutY="197.0" scaleShape="false" styleClass="menuItem" text=" ">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../ImmaginiHome/pen.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <TextField fx:id="textFieldNome" layoutX="111.0" layoutY="122.0" prefHeight="26.0" prefWidth="179.0" />
+      <TextField fx:id="textFieldCognome" layoutX="111.0" layoutY="202.0" prefHeight="26.0" prefWidth="179.0" />
+      <TextField fx:id="textFieldSesso" layoutX="489.0" layoutY="121.0" prefHeight="26.0" prefWidth="126.0" />
+      <TextField fx:id="textFieldEta" layoutX="489.0" layoutY="200.0" prefHeight="26.0" prefWidth="126.0" />
+    </children>
+</AnchorPane>

@@ -14,6 +14,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 public class ControllerGraficoSenzaAccesso implements Initializable {
     @FXML
+    private JFXButton impostazioniButton;
+    @FXML
     private JFXButton attiveButtonName;
     @FXML
     private JFXButton loginButton;
@@ -116,6 +118,9 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
             });
             aiutoButton.setOnMouseClicked(event -> {
                 controllerVisualizzatoreScene.visualizzaScena("aiutoAccess.fxml");
+            });
+            impostazioniButton.setOnMouseClicked(event->{
+                controllerVisualizzatoreScene.visualizzaScena("PaginaImpostazioni.fxml");
             });
         }catch (Exception e){
             System.exit(-1);
