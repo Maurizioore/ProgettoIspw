@@ -1,6 +1,6 @@
 package bean;
 
-import com.example.progettoispw.controllergrafici.Type_of_segnalazione;
+import com.example.progettoispw.controllergrafici.TypeOfSegnalazione;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,16 +21,16 @@ public class BeanListeElementi {
     public final List<String> listaProfonditaBucaStradale;
     public final List<String> listaStatoBucaStradale;
 
-    private Type_of_segnalazione type_of_segnalazione;
+    private TypeOfSegnalazione typeOfSegnalazione;
 
-    public BeanListeElementi(Type_of_segnalazione type_of_segnalazione){
+    public BeanListeElementi(TypeOfSegnalazione type_of_segnalazione){
         listaNumeriSeriali=new ArrayList<>();
         listaIndirizzi=new ArrayList<>();
         listaStato=new ArrayList<>();
         listaIndirizziBucaStradale=new ArrayList<>();
         listaProfonditaBucaStradale=new ArrayList<>();
         listaStatoBucaStradale=new ArrayList<>();
-        this.type_of_segnalazione=type_of_segnalazione;
+        this.typeOfSegnalazione=type_of_segnalazione;
     }
     //per i pali
     public void gestisciListaNumeriSeriali(String nuovoElemento){
@@ -73,6 +73,6 @@ public class BeanListeElementi {
     public String restituisciStatoBucaStradale(int i){
         return listaStatoBucaStradale.get(i);
     }
-    public Type_of_segnalazione restituisciTipoSegnalazione(){return  this.type_of_segnalazione;}
+    public TypeOfSegnalazione restituisciTipoSegnalazione(){return  this.typeOfSegnalazione;}
 
 }

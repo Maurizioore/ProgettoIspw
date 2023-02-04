@@ -23,7 +23,7 @@ public class ControllerGraficoSegnalazioniRisolte implements Initializable{
     ControllerVisualizzatoreScene controllerVisualizzatoreScene=ControllerVisualizzatoreScene.getInstance(null);
     //se sono in questo controller grafico vuol dire che sono interessato a ricevere le segnalazioni risolte
 
-    private final Type_of_segnalazione type_of_segnalazione=Type_of_segnalazione.RISOLTE;
+    private static final TypeOfSegnalazione type_of_segnalazione= TypeOfSegnalazione.RISOLTE;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -34,18 +34,9 @@ public class ControllerGraficoSegnalazioniRisolte implements Initializable{
             //segnalazioni che sono state risolte
             //chiamo il controller applicativo che si preoccupa di restituire tutto cio che l'utente ha segnalato e che e' stato risolto
             BeanListeElementi beanListeElementi=new BeanListeElementi(type_of_segnalazione);
-            //new ControllerApplicativoSegnalazioniRisolte1(beanListeElementi);
+
             new ControllerApplicativoTipoSegnalazione(beanListeElementi);
             //in questo punto tutte le segnalazioni risolte sono state aggiunte nella lista dentro il bean, le riprendo allora e le mostro in output
-            //int contatore=beanListeElementi.listaIndirizzi.size();
-            //listViewRisolteName.setFixedCellSize(90);
-            ////creo le righe che mostrano le segnalazioni
-            //for(int i=0;i<contatore;i++){
-            //    //aggiungo la label alla view
-            //    Label label=new Label();
-            //    label.setText("numero seriale: " +beanListeElementi.restituisciNumeroSeriale(i)+ " indirizzo:  " +beanListeElementi.restituisciIndirizzo(i));
-            //    listViewRisolteName.getItems().add(label);
-            //}
             int contatorePali=beanListeElementi.listaIndirizzi.size();
             int contatoreBuche=beanListeElementi.listaIndirizziBucaStradale.size();
             listViewRisolteName.setFixedCellSize(90);

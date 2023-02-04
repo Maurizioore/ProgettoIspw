@@ -1,6 +1,6 @@
 package dao;
 
-import com.example.progettoispw.controllergrafici.Type_of_segnalazione;
+import com.example.progettoispw.controllergrafici.TypeOfSegnalazione;
 import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.NonEsistonoSegnalazioniException;
 import queries.QueriesPaloIlluminazione;
@@ -29,11 +29,11 @@ public class SegnalazioniAttiveRisolteDaoImpl implements SegnalazioniRisolteAtti
     }
 
     @Override
-    public void cercaSegnalazioni(List<String> listaPaliSegnalati, List<String> listaIndirizziDiQueiPali, List<String> listaStatoDellaSegnalazione, List<String> listaProfonfitaBucheSegnalate, List<String> listaIndirizziBuche, List<String> listaStatoBuche, Type_of_segnalazione type_of_segnalazione) throws SQLException, NonEsistonoSegnalazioniException, ErroreLetturaPasswordException {
+    public void cercaSegnalazioni(List<String> listaPaliSegnalati, List<String> listaIndirizziDiQueiPali, List<String> listaStatoDellaSegnalazione, List<String> listaProfonfitaBucheSegnalate, List<String> listaIndirizziBuche, List<String> listaStatoBuche, TypeOfSegnalazione typeOfSegnalazione) throws SQLException, NonEsistonoSegnalazioniException, ErroreLetturaPasswordException {
         //verifico prima che la connessione sia ancora aperta( magari qualcun altro dao l'ha chiusa
         verificaConnessione();
         //ora in base al tipo faccio le dovute richieste
-        if(type_of_segnalazione==Type_of_segnalazione.ATTIVE){
+        if(typeOfSegnalazione== TypeOfSegnalazione.ATTIVE){
             preparedStatement=connection.prepareStatement(QueriesPaloIlluminazione.queriesMostraSegnalazioniEffettuate());
             preparedStatement.setString(1, UtilityAccesso.getCodiceUtente());
             rs=preparedStatement.executeQuery();

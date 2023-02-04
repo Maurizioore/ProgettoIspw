@@ -1,7 +1,7 @@
 package controllerapplicativi;
 
 import bean.BeanListeElementi;
-import com.example.progettoispw.controllergrafici.Type_of_segnalazione;
+import com.example.progettoispw.controllergrafici.TypeOfSegnalazione;
 import dao.*;
 
 import eccezioni.ErroreLetturaPasswordException;
@@ -23,14 +23,14 @@ public class ControllerApplicativoTipoSegnalazione {
     private List<String> indirizziBucheSegnalateDallUtente=new ArrayList<>();
 
     private List<String> statoSegnalazioneBucheUtente=new ArrayList<>();
-    private Type_of_segnalazione type_of_segnalazione;
+    private TypeOfSegnalazione typeOfSegnalazione;
     private SegnalazioniRisolteAttiveDao segnalazioniRisolteAttiveDao;
 
 
 
     public ControllerApplicativoTipoSegnalazione(BeanListeElementi bean) throws NonEsistonoSegnalazioniException, SQLException, ErroreLetturaPasswordException {
         codiceUtente= Integer.parseInt(UtilityAccesso.getCodiceUtente());
-        type_of_segnalazione=bean.restituisciTipoSegnalazione();
+        typeOfSegnalazione=bean.restituisciTipoSegnalazione();
         //devo aggiungere elementi alla lista che si trova nel bean ce che verrà usata da controller grafico per prendere le info
         aggiungiElementi(bean);
     }
@@ -39,7 +39,7 @@ public class ControllerApplicativoTipoSegnalazione {
         //chiamera' quindi un dao
         //in base al tipo di segnalazione crea un dao specifico
         segnalazioniRisolteAttiveDao = new SegnalazioniAttiveRisolteDaoImpl();
-        segnalazioniRisolteAttiveDao.cercaSegnalazioni(segnalazioniPaliEffettuateDallUtente,indirizzoSegnalazionePaliUtente,statoSegnalazionePaliUtente,segnalazioniProfonfitaBucheEffettuateDallUtente,indirizziBucheSegnalateDallUtente,statoSegnalazioneBucheUtente,type_of_segnalazione);
+        segnalazioniRisolteAttiveDao.cercaSegnalazioni(segnalazioniPaliEffettuateDallUtente,indirizzoSegnalazionePaliUtente,statoSegnalazionePaliUtente,segnalazioniProfonfitaBucheEffettuateDallUtente,indirizziBucheSegnalateDallUtente,statoSegnalazioneBucheUtente,typeOfSegnalazione);
         //conto i pali inseriti
         int contatore= segnalazioniPaliEffettuateDallUtente.size();
         //conto le buche inserite

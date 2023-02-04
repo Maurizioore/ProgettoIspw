@@ -25,7 +25,7 @@ public class ControllerGraficoSegnalazioniAttive implements Initializable {
     private Label labelErrore ;
     private Label label1;
     //se sono in questo controller grafico vuol dire che sono interessato a ricevere le segnalazioni attive
-    private final Type_of_segnalazione type_of_segnalazione=Type_of_segnalazione.ATTIVE;
+    private static final TypeOfSegnalazione typeOfSegnalazione= TypeOfSegnalazione.ATTIVE;
    ControllerVisualizzatoreScene controllerVisualizzatoreScene=ControllerVisualizzatoreScene.getInstance(null);
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -35,7 +35,7 @@ public class ControllerGraficoSegnalazioniAttive implements Initializable {
         //mostraSegnalazioni.setOnMouseClicked , almeno se sonar cloud da errore lo risolviamo
         try {
             //questa variabile contatore riporta il numero di segnalazioni ancora attive ell'utente
-            BeanListeElementi beanListeElementi=new BeanListeElementi(type_of_segnalazione);
+            BeanListeElementi beanListeElementi=new BeanListeElementi(typeOfSegnalazione);
             //passo il bean al controller applicativo che riempira le liste in base alle segnalazioni attive dell'utente
             new ControllerApplicativoTipoSegnalazione(beanListeElementi);
             //se non e' stata ricevuta nessuna eccezzione vuol dire che non ci sono stati errori e che qualcosa nelle liste
