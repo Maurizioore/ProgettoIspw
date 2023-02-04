@@ -12,8 +12,6 @@ import entita.EntitaStradale;
 import entita.PaloIlluminazione;
 import java.sql.SQLException;
 import java.util.List;
-
-
 public class ControllerApplicativoSegnalazionePaloIlluminazione {
 
     /*Questa classe rappresenta il controller applicativo della classe ControllerGraficoSegnalazioneIlluminazione

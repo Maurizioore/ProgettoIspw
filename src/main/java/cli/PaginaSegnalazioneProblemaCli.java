@@ -22,7 +22,7 @@ public class PaginaSegnalazioneProblemaCli {
         try {
             numeroScelta = Integer.parseInt(scelta);
         } catch (NumberFormatException e) {
-            System.out.println("Input non valido. Inserisci solo numeri.");
+            System.err.println("Input non valido. Inserisci solo numeri.");
         }
         if (numeroScelta == 1) {
             //sta segnalando un palo dell'illuminazione

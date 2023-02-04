@@ -1,17 +1,16 @@
 package controllerapplicativi;
 
 import bean.BeanListeElementi;
-import dao.SegnalazioniAttiveDao;
-import dao.SegnalazioniAttiveDaoImpl;
+import com.example.progettoispw.controllergrafici.Type_of_segnalazione;
+import dao.*;
 import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.NonEsistonoSegnalazioniException;
 import utilityaccesso.UtilityAccesso;
-
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ControllerApplicativoSegnalazioniAttive {
+public class ControllerApplicativoTipoSegnalazione {
     private int codiceUtente;
     //creo una lista di stringhe che conterranno i numeri seriali dei pali segnalati
     private List<String> segnalazioniPaliEffettuateDallUtente=new ArrayList<>();
@@ -23,19 +22,23 @@ public class ControllerApplicativoSegnalazioniAttive {
     private List<String> indirizziBucheSegnalateDallUtente=new ArrayList<>();
 
     private List<String> statoSegnalazioneBucheUtente=new ArrayList<>();
+    private Type_of_segnalazione type_of_segnalazione;
+    private SegnalazioniRisolteAttiveDao segnalazioniRisolteAttiveDao;
 
 
 
-    public ControllerApplicativoSegnalazioniAttive(BeanListeElementi bean) throws NonEsistonoSegnalazioniException, SQLException, ErroreLetturaPasswordException {
+    public ControllerApplicativoTipoSegnalazione(BeanListeElementi bean) throws NonEsistonoSegnalazioniException, SQLException, ErroreLetturaPasswordException {
         codiceUtente= Integer.parseInt(UtilityAccesso.getCodiceUtente());
+        type_of_segnalazione=bean.restituisciTipoSegnalazione();
         //devo aggiungere elementi alla lista che si trova nel bean ce che verrà usata da controller grafico per prendere le info
         aggiungiElementi(bean);
     }
     private void aggiungiElementi(BeanListeElementi bean) throws SQLException, NonEsistonoSegnalazioniException, ErroreLetturaPasswordException {
         //questa dovra fare una richiesta al db e farsi restituire tutte le segnalazioni associate a quell'utente
         //chiamera' quindi un dao
-        SegnalazioniAttiveDao segnalazioniAttiveDao=new SegnalazioniAttiveDaoImpl();
-        segnalazioniAttiveDao.cercaSegnalazioniAttive(segnalazioniPaliEffettuateDallUtente,indirizzoSegnalazionePaliUtente,statoSegnalazionePaliUtente,segnalazioniProfonfitaBucheEffettuateDallUtente,indirizziBucheSegnalateDallUtente,statoSegnalazioneBucheUtente);
+        //in base al tipo di segnalazione crea un dao specifico
+        segnalazioniRisolteAttiveDao = new SegnalazioniAttiveRisolteDaoImpl();
+        segnalazioniRisolteAttiveDao.cercaSegnalazioni(segnalazioniPaliEffettuateDallUtente,indirizzoSegnalazionePaliUtente,statoSegnalazionePaliUtente,segnalazioniProfonfitaBucheEffettuateDallUtente,indirizziBucheSegnalateDallUtente,statoSegnalazioneBucheUtente,type_of_segnalazione);
         //conto i pali inseriti
         int contatore= segnalazioniPaliEffettuateDallUtente.size();
         //conto le buche inserite

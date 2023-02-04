@@ -22,7 +22,7 @@ public class PaginaAccessoAlSistema {
             tornaAllaHomePage();
         }
         if (email.equals("") || password.equals("")) {
-            System.out.println("la prossima volta inserisci una email e una password");
+            System.err.println("la prossima volta inserisci una email e una password");
             tornaAllaHomePage();
         }
         //mando questi dati al controller grafico il quale li manda al bean

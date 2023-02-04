@@ -2,17 +2,15 @@ package com.example.progettoispw.controllergrafici;
 
 import bean.BeanListeElementi;
 import com.jfoenix.controls.JFXButton;
-import controllerapplicativi.ControllerApplicativoSegnalazioniRisolte1;
+import controllerapplicativi.ControllerApplicativoTipoSegnalazione;
 import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.NonEsistonoSegnalazioniException;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.ResourceBundle;
 public class ControllerGraficoSegnalazioniRisolte implements Initializable{
     @FXML
@@ -22,6 +20,9 @@ public class ControllerGraficoSegnalazioniRisolte implements Initializable{
     @FXML
     private Label labelErrore;
     ControllerVisualizzatoreScene controllerVisualizzatoreScene=ControllerVisualizzatoreScene.getInstance(null);
+    //se sono in questo controller grafico vuol dire che sono interessato a ricevere le segnalazioni risolte
+
+    private final Type_of_segnalazione type_of_segnalazione=Type_of_segnalazione.RISOLTE;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -31,17 +32,44 @@ public class ControllerGraficoSegnalazioniRisolte implements Initializable{
             //se l'utente e' entrato nella schermata vuol dire che possiede un account, gli mostro le sue
             //segnalazioni che sono state risolte
             //chiamo il controller applicativo che si preoccupa di restituire tutto cio che l'utente ha segnalato e che e' stato risolto
-            BeanListeElementi beanListeElementi=new BeanListeElementi();
-            new ControllerApplicativoSegnalazioniRisolte1(beanListeElementi);
+            BeanListeElementi beanListeElementi=new BeanListeElementi(type_of_segnalazione);
+            //new ControllerApplicativoSegnalazioniRisolte1(beanListeElementi);
+            new ControllerApplicativoTipoSegnalazione(beanListeElementi);
             //in questo punto tutte le segnalazioni risolte sono state aggiunte nella lista dentro il bean, le riprendo allora e le mostro in output
-            int contatore=beanListeElementi.listaIndirizzi.size();
+            //int contatore=beanListeElementi.listaIndirizzi.size();
+            //listViewRisolteName.setFixedCellSize(90);
+            ////creo le righe che mostrano le segnalazioni
+            //for(int i=0;i<contatore;i++){
+            //    //aggiungo la label alla view
+            //    Label label=new Label();
+            //    label.setText("numero seriale: " +beanListeElementi.restituisciNumeroSeriale(i)+ " indirizzo:  " +beanListeElementi.restituisciIndirizzo(i));
+            //    listViewRisolteName.getItems().add(label);
+            //}
+            int contatorePali=beanListeElementi.listaIndirizzi.size();
+            int contatoreBuche=beanListeElementi.listaIndirizziBucaStradale.size();
             listViewRisolteName.setFixedCellSize(90);
-            //creo le righe che mostrano le segnalazioni
-            for(int i=0;i<contatore;i++){
-                //aggiungo la label alla view
-                Label label=new Label();
-                label.setText("numero seriale: " +beanListeElementi.restituisciNumeroSeriale(i)+ " indirizzo:  " +beanListeElementi.restituisciIndirizzo(i));
-                listViewRisolteName.getItems().add(label);
+            //se ci sono dei pali li mostro
+            if(contatorePali!=0) {
+                Label label1 = new Label();
+                label1.setText("PALI SEGNALATI\n");
+                listViewRisolteName.getItems().add(label1);
+                for (int i = 0; i < contatorePali; i++) {
+                    //aggiungo la label alla view
+                    label1 = new Label();
+                    label1.setText(i + 1 + " palo segnalato\nnumero seriale: " + beanListeElementi.restituisciNumeroSeriale(i) + "\nindirizzo: " + beanListeElementi.restituisciIndirizzo(i) + "\nstato: " + beanListeElementi.restituisciStato(i));
+                    listViewRisolteName.getItems().add(label1);
+                }
+            }
+            if(contatoreBuche!=0) {
+                Label label1 = new Label();
+                label1.setText("BUCHE SEGNALATE\n");
+                listViewRisolteName.getItems().add(label1);
+                for (int i = 0; i < contatoreBuche; i++) {
+                    //aggiungo la label alla view
+                    label1 = new Label();
+                    label1.setText(i + 1 + " buca segnalata\n profondità: " + beanListeElementi.restituisciProfonditaBuca(i) + "\nindirizzo: " + beanListeElementi.restituisciIndirizzoBucaStradale(i) + "\nstato: " + beanListeElementi.restituisciStatoBucaStradale(i));
+                    listViewRisolteName.getItems().add(label1);
+                }
             }
         } catch (SQLException | NonEsistonoSegnalazioniException | ErroreLetturaPasswordException e) {
             labelErrore.setText(e.getMessage());

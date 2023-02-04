@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 public class BucaStradaleDaoImplFileSystem implements EntitaStradaleDao{
     //dao che si occuopa di salvare l'entita stradale nel file system
-    private static final String CSV_FILE_NAME = "BucaStradaleSegnalata.txt";
+    private static final String FILE_NAME = "BucaStradaleSegnalata.txt";
 
     @Override
     public void saveEntitaStradale(EntitaStradale instance) throws SQLException, SegnalazioneGiaAvvenutaException, ErroreLetturaPasswordException {
@@ -19,7 +19,7 @@ public class BucaStradaleDaoImplFileSystem implements EntitaStradaleDao{
         //adesso devo salvarla in locale
         try {
             //imposto a true il secondo parametro del costruttore del file writer, in questo modo non c'e' sovrascrittura
-            BufferedWriter fileWriter=new BufferedWriter(new FileWriter(CSV_FILE_NAME,true));
+            BufferedWriter fileWriter=new BufferedWriter(new FileWriter(FILE_NAME,true));
             String bucaSegnalataDaSalvareInLocale=convertiBucaInTxt(bucaStradale);
             fileWriter.write(bucaSegnalataDaSalvareInLocale);
             //vado a capo cosi la prossima volta che si scrive su quel file e' tutto piu ordinato e la segnalazione

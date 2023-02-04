@@ -40,7 +40,7 @@ public class PaginaSegnalazionePaloIlluminazioneCli {
         }
     }
     private boolean verificaInputUscita(String numeroSerialePalo, String indirizzo){
-        return(numeroSerialePalo.equalsIgnoreCase("esc") || indirizzo.toLowerCase().equals("esc"));
+        return(numeroSerialePalo.equalsIgnoreCase("esc") || indirizzo.equalsIgnoreCase("esc"));
 
     }
     private void tornaAllaHomePage() throws IOException {

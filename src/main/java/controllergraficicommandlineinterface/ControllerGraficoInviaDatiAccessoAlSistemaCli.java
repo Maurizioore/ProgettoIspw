@@ -36,10 +36,10 @@ public class ControllerGraficoInviaDatiAccessoAlSistemaCli {
                     tornaAllaHome();
                 }
             }catch(SQLException | NonEsisteUtenteNelSistemaException | ErroreLetturaPasswordException| IOException e){
-                System.out.println(e.getMessage());
+                System.err.println(e.getMessage());
             }
         }else{
-            System.out.println(controlliSintatticiEmail);
+            System.err.println(controlliSintatticiEmail);
         }
 
     }

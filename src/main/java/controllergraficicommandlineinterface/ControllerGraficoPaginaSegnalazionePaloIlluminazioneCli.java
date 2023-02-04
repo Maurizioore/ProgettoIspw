@@ -46,7 +46,7 @@ public class ControllerGraficoPaginaSegnalazionePaloIlluminazioneCli {
                 tornaAllaHome();
             }
         }catch(LunghezzaInputException | TipoEntitaException | SegnalazioneGiaAvvenutaException | NessunAccessoEffettuatoException | SQLException | ErroreLetturaPasswordException |IOException e){
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
             tornaAllaHome();
         }
     }

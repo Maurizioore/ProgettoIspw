@@ -2,14 +2,13 @@ package com.example.progettoispw.controllergrafici;
 
 import bean.BeanListeElementi;
 import com.jfoenix.controls.JFXButton;
-import controllerapplicativi.ControllerApplicativoSegnalazioniAttive;
+import controllerapplicativi.ControllerApplicativoTipoSegnalazione;
 import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.NonEsistonoSegnalazioniException;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -24,6 +23,8 @@ public class ControllerGraficoSegnalazioniAttive implements Initializable {
     @FXML
     private Label labelErrore ;
     private Label label1;
+    //se sono in questo controller grafico vuol dire che sono interessato a ricevere le segnalazioni attive
+    private final Type_of_segnalazione type_of_segnalazione=Type_of_segnalazione.ATTIVE;
    ControllerVisualizzatoreScene controllerVisualizzatoreScene=ControllerVisualizzatoreScene.getInstance(null);
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -33,9 +34,9 @@ public class ControllerGraficoSegnalazioniAttive implements Initializable {
         //mostraSegnalazioni.setOnMouseClicked , almeno se sonar cloud da errore lo risolviamo
         try {
             //questa variabile contatore riporta il numero di segnalazioni ancora attive ell'utente
-            BeanListeElementi beanListeElementi=new BeanListeElementi();
+            BeanListeElementi beanListeElementi=new BeanListeElementi(type_of_segnalazione);
             //passo il bean al controller applicativo che riempira le liste in base alle segnalazioni attive dell'utente
-            new ControllerApplicativoSegnalazioniAttive(beanListeElementi);
+            new ControllerApplicativoTipoSegnalazione(beanListeElementi);
             //se non e' stata ricevuta nessuna eccezzione vuol dire che non ci sono stati errori e che qualcosa nelle liste
             //dei bean e' stato inserito, creo 2 contatori uno che tiene conto dei pali e uno delle buche cosi so' il numero di
             //segnalazioni che l'utente ha per quelle 2 entita

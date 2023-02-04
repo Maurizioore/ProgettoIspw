@@ -15,7 +15,7 @@ public class QueriesSegnalazioneBucaStradale {
     //queste 2 che mostrano le segnalazioni falle girare prima su mysql rivedila
     static final String QUERIES_MOSTRA_SEGNALAZIONI_EFFETTUATE="SELECT DISTINCT indirizzo,stato,profondità FROM buca,account WHERE (buca.codiceUtente=? AND problemaRisolto=false);";
     //provala questa delle completate prima
-    static final String QUERIES_MOSTRA_SEGNALAZIONI_COMPLETATE="SELECT DISTINCT indirizzo FROM buca,account WHERE (buca.codiceUtente=? AND problemaRisolto!=false);";
+    static final String QUERIES_MOSTRA_SEGNALAZIONI_COMPLETATE="SELECT DISTINCT profondità,indirizzo,stato FROM buca,account WHERE (buca.codiceUtente=? AND problemaRisolto!=false);";
 
 
     public static String queriesVediBucheSegnalate(){

@@ -29,7 +29,7 @@ public class PaginaHome {
             try {
                 Integer.parseInt(scelta);
             } catch (NumberFormatException e) {
-                System.out.println("la prossima volta accertati di digitare un numero ");
+                System.err.println("la prossima volta accertati di digitare un numero ");
                 System.exit(-1);
             }
             //l'utente ha inserito effettivamente dei numeri
