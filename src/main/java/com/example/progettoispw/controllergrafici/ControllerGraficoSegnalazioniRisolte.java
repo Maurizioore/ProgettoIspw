@@ -27,8 +27,6 @@ public class ControllerGraficoSegnalazioniRisolte implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-
         try{
             //se l'utente e' entrato nella schermata vuol dire che possiede un account, gli mostro le sue
             //segnalazioni che sono state risolte
