@@ -9,11 +9,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
 public class BucaStradaleDaoImplFileSystem implements EntitaStradaleDao{
-    //dao che si occuopa di salvare l'entita stradale nel file system
+    //dao che si occupa di salvare l'entità stradale nel file system
     private static final String FILE_NAME = "BucaStradaleSegnalata.txt";
+    //variabile che viene cambiata in base all'esito del salvataggio della buca stradale nel file system
+    //molto utile nel momento di testare il metodo SaveEntitaStradale
+    private int esitoSalvataggio;
 
     @Override
-    public void saveEntitaStradale(EntitaStradale instance) throws SQLException, SegnalazioneGiaAvvenutaException, ErroreLetturaPasswordException {
+    public void saveEntitaStradale(EntitaStradale instance) throws SQLException, SegnalazioneGiaAvvenutaException, ErroreLetturaPasswordException, IOException {
         //se sono qui voglio salvare su file system la buca
         BucaStradale bucaStradale = new BucaStradale(instance.infoEntita(), instance.getIndirizzo());
         //adesso devo salvarla in locale
@@ -26,11 +29,17 @@ public class BucaStradaleDaoImplFileSystem implements EntitaStradaleDao{
             //nuova non si attaccherà alla vecchia
             fileWriter.newLine();
             fileWriter.close();
+            //tutto e' andato a buon fine, esito assumerà un valore che indica il successo
+            esitoSalvataggio=0;
         } catch (IOException e) {
-            throw new SQLException("problema con il file writer");
+            esitoSalvataggio=1;
+            throw new IOException("problema con il file writer");
         }
     }
     private String convertiBucaInTxt(BucaStradale bucaStradale){
         return "Profondità buca segnalata "+ bucaStradale.profondita+"\nindirizzo: "+bucaStradale.indirizzo+"\nstato: ancora non segnalato al database";
+    }
+    public int getEsito(){
+        return this.esitoSalvataggio;
     }
 }

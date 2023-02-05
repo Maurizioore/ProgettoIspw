@@ -15,6 +15,10 @@ public class PaloIlluminazioneDaoImplJDBC implements EntitaStradaleDao{
     private Connection connection;
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
+
+    //variabile che viene impostata a 0 o a 1 in base all'esito del salvataggio del palo illuminazione
+    //nel database, utile in fase di test
+    private int esito;
     public PaloIlluminazioneDaoImplJDBC() throws SQLException, ErroreLetturaPasswordException {
         connection=SingletonConnessione.getInstance();
     }
@@ -34,13 +38,16 @@ public class PaloIlluminazioneDaoImplJDBC implements EntitaStradaleDao{
                 preparedStatement.setString(2,paloIlluminazioneDaSegnalare.indirizzo);
                 preparedStatement.setString(3,UtilityAccesso.getCodiceUtente());
                 preparedStatement.executeUpdate();
+                this.esito=0;
             }else {
                 preparedStatement = connection.prepareStatement(QueriesPaloIlluminazione.queriesSalvaPalo());
                 preparedStatement.setString(1, paloIlluminazioneDaSegnalare.numeroSerialePalo);
                 preparedStatement.setString(2, paloIlluminazioneDaSegnalare.indirizzo);
                 preparedStatement.executeUpdate();
+                this.esito=0;
             }
         }else {
+            esito=-1;
             throw new SegnalazioneGiaAvvenutaException("il palo è stato già segnalato da un altro utente");
         }
     }
@@ -57,5 +64,8 @@ public class PaloIlluminazioneDaoImplJDBC implements EntitaStradaleDao{
         if(connection==null){
             new PaloIlluminazioneDaoImplJDBC();
         }
+    }
+    public int getEsito(){
+        return this.esito;
     }
 }

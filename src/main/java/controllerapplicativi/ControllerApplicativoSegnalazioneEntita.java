@@ -12,17 +12,19 @@ import factory.FactoryEntitaStradale;
 import factory.TypeEntita;
 import factory.TypeOfPersistence;
 import utilityaccesso.UtilityAccesso;
+
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class ControllerApplicativoSegnalazioneEntita {
     /*questo controller applicativo viene chiamato quanod sto inviando una nuova segnalazione di un entita al db,
     * crea quindi un entita dai dati che riceve, chiama il dao che gestisce la dovuta segnalazione e in caso di errori
     * lancia delle eccezioni, al controller grafico non ritorna nulla */
-    private   String indirizzo;
+    private  String indirizzo;
     private  String infoEntita;
     private TypeEntita tipoEntita;
     private EntitaStradale entitaStradale;
-    public ControllerApplicativoSegnalazioneEntita(BeanSegnalaEntita beanSegnalaEntita) throws SQLException, ErroreLetturaPasswordException, SegnalazioneGiaAvvenutaException, NessunAccessoEffettuatoException, TipoEntitaException {
+    public ControllerApplicativoSegnalazioneEntita(BeanSegnalaEntita beanSegnalaEntita) throws SQLException, ErroreLetturaPasswordException, SegnalazioneGiaAvvenutaException, NessunAccessoEffettuatoException, TipoEntitaException, IOException {
         /*il controller applicativo riceve il bean che contiene le informazioni dell'entita segnalata, setta quindi tutti i
         * suoi parametri prendendoli dal bean*/
         //inizio prendendo il tipo dell'entità segnalata
@@ -46,7 +48,7 @@ public class ControllerApplicativoSegnalazioneEntita {
         inviaSegnalazione(entitaStradale,beanSegnalaEntita.getTypeOfPersistence());
     }
 
-    private void inviaSegnalazione(EntitaStradale entitaStradale, TypeOfPersistence typeOfPersistence) throws SQLException, ErroreLetturaPasswordException, SegnalazioneGiaAvvenutaException{
+    private void inviaSegnalazione(EntitaStradale entitaStradale, TypeOfPersistence typeOfPersistence) throws SQLException, ErroreLetturaPasswordException, SegnalazioneGiaAvvenutaException, IOException {
         //creo una factoryDao la quale ha solo il metodo useDao e mi restituisce un dao in base al tipo di entita stradale e al
         //tipo di persistenza che ho ricevuto come parametri
         FactoryDao factoryDao=new FactoryDao();

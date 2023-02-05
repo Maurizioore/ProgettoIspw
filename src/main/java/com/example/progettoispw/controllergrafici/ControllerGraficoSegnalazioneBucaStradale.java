@@ -10,6 +10,7 @@ import factory.TypeEntita;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -43,7 +44,8 @@ public class ControllerGraficoSegnalazioneBucaStradale extends ControllerGrafico
                     ControllerApplicativoSegnalazioneEntita controllerApplicativoSegnalazioneEntita=new ControllerApplicativoSegnalazioneEntita(beanVerificaDati);
                     labelErrore.setText("segnalazione avvenuta con successo\ntorna alla home =)");
                     disattivaButton();
-                } catch(SQLException| ErroreLetturaPasswordException | SegnalazioneGiaAvvenutaException | NessunAccessoEffettuatoException | TipoEntitaException e){
+                } catch(SQLException | ErroreLetturaPasswordException | SegnalazioneGiaAvvenutaException | NessunAccessoEffettuatoException | TipoEntitaException |
+                        IOException e){
                     settaTestoEccezione(e);
                 }
             }
@@ -58,7 +60,7 @@ public class ControllerGraficoSegnalazioneBucaStradale extends ControllerGrafico
                     ControllerApplicativoSegnalazioneEntita controllerApplicativoSegnalazioneEntita=new ControllerApplicativoSegnalazioneEntita(beanVerificaDati);
                     labelErrore.setText("segnalazione avvenuta con successo\ntorna alla home =)");
                     disattivaButton();
-                } catch(SQLException | ErroreLetturaPasswordException | SegnalazioneGiaAvvenutaException | NessunAccessoEffettuatoException | TipoEntitaException e){
+                } catch(SQLException | ErroreLetturaPasswordException | SegnalazioneGiaAvvenutaException | NessunAccessoEffettuatoException | TipoEntitaException | IOException e){
                     settaTestoEccezione(e);
                 }
             }

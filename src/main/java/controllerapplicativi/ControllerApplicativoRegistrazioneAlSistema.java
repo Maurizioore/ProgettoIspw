@@ -21,6 +21,10 @@ public class ControllerApplicativoRegistrazioneAlSistema {
     private void registraUtente() throws SQLException, UtenteEsistenteException, ErroreLetturaPasswordException {
         //devo usare un dao per prendere la connessione e far registrare l'utente nel sistema
         RegistrazioneDaoImpl registrazioneDao=new RegistrazioneDaoImpl();
-        registrazioneDao.registraUtente(username,email,password);
+        if(!registrazioneDao.registraUtente(username, email, password)){
+            //la registrazione non è avvenuta, esiste un utente che usa già quelle credenziali, lancio un eccezioni che
+            //comunica all'utente che non puo' registrarsi con quelle credenziali
+            throw new UtenteEsistenteException("la username o l'email inserite sono associate\nad un altro account");
+        }
     }
 }

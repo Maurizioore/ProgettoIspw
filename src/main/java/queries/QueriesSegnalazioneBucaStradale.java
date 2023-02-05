@@ -18,7 +18,7 @@ public class QueriesSegnalazioneBucaStradale {
     //provala questa delle completate prima
     static final String QUERIES_MOSTRA_SEGNALAZIONI_COMPLETATE="SELECT DISTINCT profondità,indirizzo,stato FROM buca,account WHERE (buca.codiceUtente=? AND problemaRisolto!=false);";
 
-
+    static final String QUERIES_COTROLLA_SE_LA_BUCA_A_QUELL_INDIRIZZO_E_STATA_SEGNALATA="SELECT DISTINCT indirizzo FROM buca WHERE (buca.indirizzo=?);";
     public static String queriesVediBucheSegnalate(){
         return QUERIES_VEDI_BUCHE_SEGNALATE;
     }
@@ -31,4 +31,7 @@ public class QueriesSegnalazioneBucaStradale {
     }
     //queries per mostrare le buche che sono state riparate
     public static String queriesMostraSegnalazioniCompletate(){return QUERIES_MOSTRA_SEGNALAZIONI_COMPLETATE;}
+    public static String queriesVediSeLeBucheAQuellIndirizzoSonoStateGiaSegnalate(){
+        return QUERIES_COTROLLA_SE_LA_BUCA_A_QUELL_INDIRIZZO_E_STATA_SEGNALATA;
+    }
 }

@@ -3,7 +3,6 @@ package dao;
 import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.UtenteEsistenteException;
 import queries.QueriesAccessoAlSistema;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,6 +16,7 @@ public class RegistrazioneDaoImpl implements RegistrazioneDao{
             new RegistrazioneDaoImpl();
         }
     }
+    //variabile in cui viene impostato l'esito della regsitrazione
     private Connection connection=null;
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
@@ -26,10 +26,11 @@ public class RegistrazioneDaoImpl implements RegistrazioneDao{
     }
     //una volta aperta la connessione posso eseguire le operazioni
     @Override
-    public void registraUtente(String username, String email, String password) throws SQLException, UtenteEsistenteException, ErroreLetturaPasswordException {
+    public boolean registraUtente(String username, String email, String password) throws SQLException, UtenteEsistenteException{
         //prima di eseguire ogni operazione controllo che la connessione sia aperta
-        verificaConnessione();
+        //verificaConnessione();
         //ora devo registrare l'utente con i dati passati, devo prima vedere se esiste qualche utente con quelle credenziali
+        //verificaEsistenzaUtente ritorna false se esiste gia un utente con quelle credenziali, true se non esiste
         if(verificaEsistenzaUtente(username,email)){
             //non esiste un utente nel sistema posso quindi registrarlo
             preparedStatement=connection.prepareStatement(QueriesAccessoAlSistema.inserisciUtenteNelSistema());
@@ -38,8 +39,11 @@ public class RegistrazioneDaoImpl implements RegistrazioneDao{
             preparedStatement.setString(3,username);
             preparedStatement.executeUpdate();
         }else {
-            throw new UtenteEsistenteException("la username o l'email inserite sono associate\nad un altro account");
+            //verificaEsistenzaUtente ha tornato false, quindi esiste un utente che ha già usato quelle credenziali
+            //torno quindi false per far capire che c'e' stato un errore
+            return false;
         }
+        return true;
     }
     @Override
     public boolean verificaEsistenzaUtente(String username, String email) throws UtenteEsistenteException, SQLException {
@@ -55,10 +59,9 @@ public class RegistrazioneDaoImpl implements RegistrazioneDao{
             preparedStatement=connection.prepareStatement(QueriesAccessoAlSistema.verificaSeEmailEsiste());
             preparedStatement.setString(1,email);
             resultSet=preparedStatement.executeQuery();
-            //result set ritorna true se l'email e' gia presente nel sistema, usando il not dico che che questo
+            //is before first ritorna true se l'email è gia presente nel sistema, usando il not dico che che questo
             //metodo ritorna false e quindi tornando sopra viene lanciata l'eccezione
             return !resultSet.isBeforeFirst();
         }
-
     }
 }
