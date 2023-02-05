@@ -11,11 +11,6 @@ import java.sql.SQLException;
 public class RegistrazioneDaoImpl implements RegistrazioneDao{
     //questa come tutte le altri classi dao comunica con il db ed esegue l'operazione di registrazione
     //prima di fare la registrazione verifica se esiste già un utente con quelle credenziali e se no lo registra
-    private void verificaConnessione() throws SQLException, ErroreLetturaPasswordException {
-        if(connection==null){
-            new RegistrazioneDaoImpl();
-        }
-    }
     //variabile in cui viene impostato l'esito della regsitrazione
     private Connection connection=null;
     private PreparedStatement preparedStatement;
@@ -26,9 +21,8 @@ public class RegistrazioneDaoImpl implements RegistrazioneDao{
     }
     //una volta aperta la connessione posso eseguire le operazioni
     @Override
-    public boolean registraUtente(String username, String email, String password) throws SQLException, UtenteEsistenteException{
+    public boolean registraUtente(String username, String email, String password) throws SQLException, UtenteEsistenteException {
         //prima di eseguire ogni operazione controllo che la connessione sia aperta
-        //verificaConnessione();
         //ora devo registrare l'utente con i dati passati, devo prima vedere se esiste qualche utente con quelle credenziali
         //verificaEsistenzaUtente ritorna false se esiste gia un utente con quelle credenziali, true se non esiste
         if(verificaEsistenzaUtente(username,email)){
