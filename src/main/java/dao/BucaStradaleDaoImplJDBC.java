@@ -41,7 +41,6 @@ public class BucaStradaleDaoImplJDBC implements EntitaStradaleDao{
             preparedStatement.setString(2, bucaStradaleDaSegnalare.profondita);
             preparedStatement.setString(3, UtilityAccesso.getCodiceUtente());
             preparedStatement.executeUpdate();
-            System.out.println("sono una sout in buca stradale dao impl e la buca e' stata segnalata con successo");
             esito = 0;
         }else{
             //la buca è presente nel db devo quindi comunicarlo all'utente

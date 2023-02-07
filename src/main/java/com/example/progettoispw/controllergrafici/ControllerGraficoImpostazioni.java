@@ -85,7 +85,6 @@ public class ControllerGraficoImpostazioni implements Initializable {
         salvaButton.setOnMouseClicked(event -> {
             try {
                 //se l'utente ha commesso un errore prima ora rimuovo la stringa di errore
-                //labelErrore.setText(" ");
                 //immagino di aver inserito qualcosa
                 applicaModifiche();
                 //sono state apportate delle modifiche devo salvarle nell'oggetto serializable

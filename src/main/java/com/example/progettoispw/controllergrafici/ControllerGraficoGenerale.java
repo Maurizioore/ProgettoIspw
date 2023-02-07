@@ -25,7 +25,7 @@ public class ControllerGraficoGenerale extends ControllerGraficoSenzaAccesso{
             try {
                 controllerVisualizzatoreScene.visualizzaScena("prova-home.fxml");
             }catch(Exception e){
-                System.out.println("error: "+ e);
+                System.exit(-1);
             }
         });
         //questo avrà i suoi pulsanti e alla fine chiamerà il super di quelli in comune, per non darli al figlio

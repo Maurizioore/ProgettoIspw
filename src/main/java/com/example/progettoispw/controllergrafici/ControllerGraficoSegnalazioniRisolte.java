@@ -32,7 +32,6 @@ public class ControllerGraficoSegnalazioniRisolte implements Initializable{
             //segnalazioni che sono state risolte
             //chiamo il controller applicativo che si preoccupa di restituire tutto cio che l'utente ha segnalato e che e' stato risolto
             BeanListeElementi beanListeElementi=new BeanListeElementi(type_of_segnalazione);
-
             new ControllerApplicativoTipoSegnalazione(beanListeElementi);
             //in questo punto tutte le segnalazioni risolte sono state aggiunte nella lista dentro il bean, le riprendo allora e le mostro in output
             int contatorePali=beanListeElementi.listaIndirizzi.size();
@@ -69,7 +68,7 @@ public class ControllerGraficoSegnalazioniRisolte implements Initializable{
             try {
                 controllerVisualizzatoreScene.visualizzaScena("prova-home.fxml");
             }catch(Exception e){
-                System.out.println("error: "+ e);
+                System.exit(-1);
             }
         });
     }

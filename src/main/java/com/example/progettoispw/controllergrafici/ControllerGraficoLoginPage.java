@@ -45,7 +45,7 @@ public class ControllerGraficoLoginPage extends ControllerGraficoGenerale {
             try {
                 controllerVisualizzatoreScene.visualizzaScena("registrazione-page.fxml");
             }catch(Exception e){
-                System.out.println("error: "+ e);
+                System.exit(-1);
             }
         });
         //se l'utente possiede un account, compila e due textField con e mail e password e clicca su accedi, viene quindi

@@ -10,7 +10,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import java.net.URL;
-
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -44,10 +43,8 @@ public class ControllerGraficoSegnalazioniAttive implements Initializable {
             //contatore che tiene il numero di indirizzi dei pali ( per come ho costrutito il tutto a n indirizzi corrispondono
             //n numeri di pali, quindi contare gli indirizzi equivale a contare il numero di pali segnalati dall'utente)
             int contatorePali=beanListeElementi.listaIndirizzi.size();
-            System.out.println("sono il contatore pali in controller grafico segnalazioni attive, ho trovato "+contatorePali+" pali");
             //discorso duale per il contatore che conta gli indirizzi delle buche
             int contatoreBuche=beanListeElementi.listaIndirizziBucaStradale.size();
-            System.out.println("sono il contatore buche in controller grafico segnalazioni attive, ho trovato "+contatoreBuche+" buche");
             //per ogni segnalazione devo creare una label, settare il testo dentro la label stessa..
             listViewName.setFixedCellSize(90);
             //se ci sono dei pali li mostro
@@ -80,7 +77,7 @@ public class ControllerGraficoSegnalazioniAttive implements Initializable {
             try {
                 controllerVisualizzatoreScene.visualizzaScena("prova-home.fxml");
             }catch(Exception e){
-                System.out.println("error: "+ e);
+                System.exit(-1);
             }
         });
     }

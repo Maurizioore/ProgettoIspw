@@ -1,10 +1,6 @@
 package state;
 
 public class OnlineState extends AbstractState{
-    @Override
-    public void exit() {
-        System.out.println("stai uscendo dallo stato online");
-    }
 
     @Override
     public void login(StateMachineImpl s) {
@@ -20,10 +16,7 @@ public class OnlineState extends AbstractState{
         s.changeToState(newState);
 
     }
-    @Override
-    public void entry(StateMachineImpl s){
-        s.showState();
-    }
+
     @Override
     public String toString(){
         return "ONLINE";

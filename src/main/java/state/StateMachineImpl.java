@@ -9,9 +9,7 @@ public class StateMachineImpl implements StateMachine{
         //il costruttore viene chiamato una volta sola, cioe' quando viene creato l'account,
         //nel momento della creazione un account viene messo in stato offline
         this.currentState=AbstractState.getInitialState();
-        //una serie di passaggi che mostrano l'attuale stato dell'utente, all'inizio e' offline quindi viene mostrato
-        //l'output OFFLINE
-        this.currentState.entry(this);
+
     }
     @Override
     public void goNext(Events e) {
@@ -38,22 +36,18 @@ public class StateMachineImpl implements StateMachine{
     }
     public void changeToState(AbstractState s){
         //exit dallo stato corrente
-        currentState.exit();
         //entriamo nel nuovo stato
         currentState=s;
-        s.entry(this);
     }
-    public void showState(){
-        System.out.println(this.currentState.toString());
-    }
+    //public void showState(){
+    //    System.out.println(this.currentState.toString());
+    //}
     public AbstractState getState(){
         return this.currentState;
     }
 
     @Override
     public String toString(){
-        System.out.println("sono una sout presente in state machine imple, il to string del courrent state e' il seguente " +
-                String.valueOf(this.currentState));
         return String.valueOf(this.currentState);
     }
 

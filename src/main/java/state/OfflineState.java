@@ -1,10 +1,7 @@
 package state;
 
 public class OfflineState extends AbstractState{
-    @Override
-    public void entry(StateMachineImpl s){
-        s.showState();
-    }
+
     @Override
     public void login(StateMachineImpl s) {
         //devo cambiare stato e passare da offline a online
@@ -18,7 +15,6 @@ public class OfflineState extends AbstractState{
     @Override
     public void logout(StateMachineImpl s){
         //non fa nulla come metodo sono solo costretto a implementarlo da contratto con il padre
-        System.out.println("sei gia offline");
     }
 
 
@@ -26,8 +22,5 @@ public class OfflineState extends AbstractState{
     public String toString(){
         return "OFFLINE";
     }
-    @Override
-    public void exit(){
-        System.out.println("stai uscendo dallo stato offline");
-    }
+
 }
