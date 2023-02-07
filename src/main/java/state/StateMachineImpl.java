@@ -39,9 +39,6 @@ public class StateMachineImpl implements StateMachine{
         //entriamo nel nuovo stato
         currentState=s;
     }
-    //public void showState(){
-    //    System.out.println(this.currentState.toString());
-    //}
     public AbstractState getState(){
         return this.currentState;
     }
