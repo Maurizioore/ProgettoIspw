@@ -8,21 +8,22 @@ import java.io.InputStreamReader;
 
 public class PaginaSegnalazioneBucaStradaleCli {
     private String indirizzo;
-    private int profondita;
+    private int larghezza;
     public void inserisciInput() throws IOException {
+        try{
         BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
         System.out.println("-----------------Pagina Segnalazione Buca Stradale-----------------\n" +
                 "inserisci indirizzo(digitare esc per uscire): ");
         this.indirizzo=bufferedReader.readLine();
         System.out.println("inserisci profondità buca in cm(digitare 0 per uscire): ");
         String profonditaInserita=bufferedReader.readLine();
-        this.profondita=Integer.parseInt(profonditaInserita);
-        if(profondita>50){
+        this.larghezza=Integer.parseInt(profonditaInserita);
+        if(larghezza>50){
             System.out.println("inserire numeri esatti(nota se supera i 50 cm inserire comunque 50 cm come valore massimo");
             //torna alla home
             tornaAllaHomePage();
         }
-        if(verificaInputUscita(indirizzo, profondita)){
+        if(verificaInputUscita(indirizzo, larghezza)){
             //l'utente vuole tornare alla home
             tornaAllaHomePage();
         }
@@ -34,8 +35,12 @@ public class PaginaSegnalazioneBucaStradaleCli {
             //come default imposto di inviarlo al database
             tipoPersistenza=1;
         }
-        ControllerGraficoPagineSegnalazioneBucaStradaleCli controllerGraficoPagineSegnalazioneBucaStradaleCli=new ControllerGraficoPagineSegnalazioneBucaStradaleCli(indirizzo,profondita,tipoPersistenza);
+        ControllerGraficoPagineSegnalazioneBucaStradaleCli controllerGraficoPagineSegnalazioneBucaStradaleCli=new ControllerGraficoPagineSegnalazioneBucaStradaleCli(indirizzo,larghezza,tipoPersistenza);
         controllerGraficoPagineSegnalazioneBucaStradaleCli.inviaDatiAlBean();
+    }catch (NumberFormatException e){
+            System.err.println("inserire numeri dove e' richiesto");
+            inserisciInput();
+        }
     }
     private boolean verificaInputUscita(String indirizzo, int profondita){
         return (indirizzo.equalsIgnoreCase("esc") || profondita==0);

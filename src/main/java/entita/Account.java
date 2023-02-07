@@ -22,7 +22,12 @@ public class Account extends Subject {
         return account;
     }
     private Account (){
+        //inoltre questo account ha un riferimento a state machine
+        //nel nostro diagramma uml possiamo vederlo come colui che possiede la composizione verso l'intrfaccia state
+        //machine e conosce solo i metodi di quell'intrfaccia ( nell'esempio in classe era colui che conosceva il metodo
+        //goNext
         stateMachine=new StateMachineImpl();
+        //inizializzo l'observer list di Subject
         this.observerList=new ArrayList<>();
     }
     //quando viene fatto l'accesso passo online, passo come evento il login_event che indica proprio che

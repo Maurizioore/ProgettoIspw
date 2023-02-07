@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" stylesheets="" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.progettoispw.controllergrafici.ControllerGraficoAvvertenzaRegistrazione">
+    <children>
+        <BorderPane layoutX="7.0" layoutY="8.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+                <AnchorPane prefHeight="42.0" prefWidth="700.0" style="-fx-background-color: WHITE;" stylesheets="@Style.css" BorderPane.alignment="CENTER">
+                    <children>
+                        <Pane layoutX="204.0" layoutY="20.0" prefHeight="42.0" prefWidth="700.0" style="-fx-background-color: #1D3461;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                    </children>
+                </AnchorPane>
+            </top>
+         <center>
+                <AnchorPane prefHeight="340.0" prefWidth="700.0" stylesheets="@Style.css" BorderPane.alignment="CENTER">
+                    <children>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="167.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" />
+                        <JFXButton cacheShape="false" centerShape="false" focusTraversable="false" layoutX="14.0" layoutY="14.0" onAction="#ritornaHome" scaleShape="false" styleClass="menuItem" text=" ">
+                            <graphic>
+                                <ImageView fitHeight="22.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../../ImmaginiHome/back.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                  <Label layoutX="45.0" layoutY="104.0" prefHeight="75.0" prefWidth="610.0" text="SPIACENTE, DEVI ESSERE REGISTRATO PER ACCEDERE">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Label>
+                  <Label alignment="CENTER" layoutX="37.0" layoutY="167.0" prefHeight="88.0" prefWidth="610.0" text="A QUEST'AREA">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="368.0" layoutY="288.0" text="altrimenti" />
+                  <JFXButton cacheShape="false" centerShape="false" focusTraversable="false" layoutX="303.0" layoutY="283.0" onAction="#accediButtonClicked" prefHeight="26.0" prefWidth="65.0" scaleShape="false" styleClass="menuItem" text="accedi" />
+                  <Label layoutX="190.0" layoutY="287.0" text="Hai già un account?" />
+                  <JFXButton cacheShape="false" centerShape="false" focusTraversable="false" layoutX="425.0" layoutY="283.0" onAction="#registratiButtonClicked" scaleShape="false" styleClass="menuItem" text="registrati" />
+                    </children>
+                </AnchorPane>
+         </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

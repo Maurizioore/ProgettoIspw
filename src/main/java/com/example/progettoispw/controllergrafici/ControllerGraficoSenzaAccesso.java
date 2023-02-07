@@ -8,7 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
-import utilityaccesso.UtilityAccesso;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -43,7 +42,9 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
      * quando start l'app*/
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //vedi se da problemi questa per settare il testo di login con sonarcloud, nel caso cancellalo e non lo implementare più
+        //vedo ogni volta se lo stato del mio concrete observer( rappresentato da beanObserver) è cambiato, perche e' vero che devo
+        //notificare il concrete observer, ma in realtà a me interessa che in cambiamenti nel concrete observer vengano riportati al
+        //controller grafico
         if(beanObserver.getNomeUtente()!=null){
             loginButton.setText(beanObserver.getNomeUtente());
         }
@@ -82,9 +83,11 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
                 //getStatoAttuale ritorna ONLINE se l'utente ha effettuato l'accesso, OFFLINE altrimenti
                 //verifico quindi che l'utente abbbia effettuato l'accesso per fargli vedere le segnalazioni
                 //associate al suo account
-                if(beanObserver.getStatoAttuale()==STATO){
-                        controllerVisualizzatoreScene.visualizzaScena("Segnalazioni-risolte-page.fxml");
-                    }
+                if(beanObserver.getStatoAttuale()==STATO) {
+                    controllerVisualizzatoreScene.visualizzaScena("Segnalazioni-risolte-page.fxml");
+                }else {
+                    controllerVisualizzatoreScene.visualizzaScena("AvvertenzaRegistrazione.fxml");
+                }
             });
             //attiveButtonName se l'utent e' registrato deve reindirizzare l'utente alla pagina che mostra le sue
             //segnalazioni che ancora non sono state risolte
@@ -95,6 +98,8 @@ public class ControllerGraficoSenzaAccesso implements Initializable {
                 if(beanObserver.getStatoAttuale()==STATO){
                     //posso accedere
                     controllerVisualizzatoreScene.visualizzaScena("Segnalazioni-attive-page.fxml");
+                }else{
+                    controllerVisualizzatoreScene.visualizzaScena("AvvertenzaRegistrazione.fxml");
                 }
             });
             loginButton.setOnMouseClicked(event -> {

@@ -29,15 +29,20 @@ public class PaginaSegnalazionePaloIlluminazioneCli {
             //l'utente non vuole uscire, invio i dati al bean
             //invio i dati al controller grafico della pagina segnalazione problema il quale li invia al bean
             System.out.println("digita:\n1 se vuoi inviare la segnalazione al database\n2 se vuoi salvarla in locale");
-            String scelta=bufferedReader.readLine();
-            int tipoPersistenza=Integer.parseInt(scelta);
-            if(tipoPersistenza!=2){
-                //come default imposto di inviarlo al database
-                tipoPersistenza=1;
+            try {
+                String scelta = bufferedReader.readLine();
+                int tipoPersistenza = Integer.parseInt(scelta);
+                if (tipoPersistenza != 2) {
+                    //come default imposto di inviarlo al database
+                    tipoPersistenza = 1;
+                }
+                controllerGraficoPaginaSegnalazionePaloIlluminazioneCli = new ControllerGraficoPaginaSegnalazionePaloIlluminazioneCli(numeroSerialePalo, indirizzo, tipoPersistenza);
+                controllerGraficoPaginaSegnalazionePaloIlluminazioneCli.inviaDatiAlBean();
+            }catch(NumberFormatException e){
+                //si verifica se l'utente non digita un numer
+                System.err.println("digitare solo un numero tra 1 e 2");
+                inserisciInput();
             }
-            controllerGraficoPaginaSegnalazionePaloIlluminazioneCli=new ControllerGraficoPaginaSegnalazionePaloIlluminazioneCli(numeroSerialePalo,indirizzo,tipoPersistenza);
-            controllerGraficoPaginaSegnalazionePaloIlluminazioneCli.inviaDatiAlBean();
-
         }
     }
     private boolean verificaInputUscita(String numeroSerialePalo, String indirizzo){

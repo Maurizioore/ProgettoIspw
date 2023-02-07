@@ -19,7 +19,7 @@ public class ControllerGraficoInviaDatiAccessoAlSistemaCli {
         this.email=email;
         this.password=password;
     }
-    public void inviaDatiAlBean(){
+    public void inviaDatiAlBean() throws IOException {
         beanAccessoUtente = new BeanLogin(email, password);
         //svolgo prima i controlli sulla email inserita dall'utente, verifico cioè se è sintatticamente corretta
         String controlliSintatticiEmail = beanAccessoUtente.svolgiControlli();
@@ -36,9 +36,11 @@ public class ControllerGraficoInviaDatiAccessoAlSistemaCli {
                 }
             }catch(SQLException | NonEsisteUtenteNelSistemaException | ErroreLetturaPasswordException| IOException e){
                 System.err.println(e.getMessage());
+                tornaAllaHome();
             }
         }else{
             System.err.println(controlliSintatticiEmail);
+            tornaAllaHome();
         }
 
     }

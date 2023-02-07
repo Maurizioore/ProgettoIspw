@@ -48,6 +48,7 @@ public class ControllerGraficoImpostazioni implements Initializable {
     private String cognome;
     private String sesso;
     private int eta;
+
     private BeanImpostazioni beanImpostazioni=new BeanImpostazioni();
 
     @Override
@@ -84,7 +85,7 @@ public class ControllerGraficoImpostazioni implements Initializable {
         salvaButton.setOnMouseClicked(event -> {
             try {
                 //se l'utente ha commesso un errore prima ora rimuovo la stringa di errore
-                labelErrore.setText(" ");
+                //labelErrore.setText(" ");
                 //immagino di aver inserito qualcosa
                 applicaModifiche();
                 //sono state apportate delle modifiche devo salvarle nell'oggetto serializable
@@ -93,6 +94,8 @@ public class ControllerGraficoImpostazioni implements Initializable {
                 ControllerApplicativoSerializzazione controllerApplicativoSerializzazione = new ControllerApplicativoSerializzazione(beanImpostazioni);
                 controllerApplicativoSerializzazione.salvaInformazioni();
             } catch (IOException e) {
+                labelErrore.setText(e.getMessage());
+            } catch(EtaException e){
                 labelErrore.setText(e.getMessage());
             }
         });
@@ -105,12 +108,12 @@ public class ControllerGraficoImpostazioni implements Initializable {
         });
     }
 
-    public void applicaModifiche() {
+    public void applicaModifiche() throws EtaException{
         try {
             nome = textFieldNome.getText();
             cognome = textFieldCognome.getText();
             eta = Integer.parseInt(textFieldEta.getText());
-            if(eta<=0 || eta >=100){
+            if( eta<=0 || eta >=100){
                 throw new EtaException("inserire un età compresa tra 0 e 100");
             }
             sesso = textFieldSesso.getText();
@@ -125,8 +128,8 @@ public class ControllerGraficoImpostazioni implements Initializable {
             labelSesso.setText(sesso);
             rendiVisibiliLabel();
         } catch (NumberFormatException e) {
-            labelErrore.setText("inserire un numero nella sezione età");
-        } catch (EtaException | IOException e){
+            throw new EtaException("inserire un numero tra 0 e 100 nella sezione età");
+        } catch (IOException e){
             labelErrore.setText(e.getMessage());
         }
     }
