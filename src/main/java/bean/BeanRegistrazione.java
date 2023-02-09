@@ -5,6 +5,7 @@ import eccezioni.DoppiaVirgolaException;
 import eccezioni.TerminatoreEmailException;
 
 public class BeanRegistrazione{
+    //bean utilizzato per la registrazione dell'utente nel sistema
     private String email;
     private String password;
     private String username;
@@ -25,7 +26,6 @@ public class BeanRegistrazione{
     public String getUsername() {
         return username;
     }
-    //questo secondo me lo conta come duplicazione
     public String svolgiControlli(){
         try {
             BeanVerifica.verificaSintassiEmail(email);

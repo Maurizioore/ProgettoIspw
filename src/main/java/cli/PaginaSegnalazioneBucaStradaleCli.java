@@ -3,7 +3,6 @@ package cli;
 import controllergraficicommandlineinterface.ControllerGraficoPagineSegnalazioneBucaStradaleCli;
 import java.io.BufferedReader;
 import java.io.IOException;
-
 import java.io.InputStreamReader;
 
 public class PaginaSegnalazioneBucaStradaleCli {
@@ -15,7 +14,7 @@ public class PaginaSegnalazioneBucaStradaleCli {
         System.out.println("-----------------Pagina Segnalazione Buca Stradale-----------------\n" +
                 "inserisci indirizzo(digitare esc per uscire): ");
         this.indirizzo=bufferedReader.readLine();
-        System.out.println("inserisci profondità buca in cm(digitare 0 per uscire): ");
+        System.out.println("inserisci la larghezza della buca in cm(digitare 0 per uscire): ");
         String profonditaInserita=bufferedReader.readLine();
         this.larghezza=Integer.parseInt(profonditaInserita);
         if(larghezza>50){

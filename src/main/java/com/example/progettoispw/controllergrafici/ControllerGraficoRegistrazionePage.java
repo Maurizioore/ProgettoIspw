@@ -28,15 +28,9 @@ public class ControllerGraficoRegistrazionePage extends ControllerGraficoGeneral
     private JFXButton registratiAlSistemaButton;
     @FXML
     private Label labelComunicazione;
-
-    /*questa classe gestisce la login page, avendo piu' button e non avendoli in comune con le altre page, ho creato
-     * questo controller grafico apposta per essa, questa classe è il controller grafico della page login-registrazione-page.fxml,
-     * usa anche la classe ControllerGraficoSenzaAccesso nel caso in cui si dovessero premere altri pulsanti, lo faccio
-     * per non dover duplicare codice inutilmente*/
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //questo avrà i suoi pulsanti e alla fine chiamerà il super di quelli in comune, per non darli al figlio
-        //quelli che non sono in comune dovrei farli private
+
         registratiAlSistemaButton.setOnMouseClicked(event->{
             //prima controllo che i campi siano stati tutti compilati
             if(textFieldUsername.getText().equals("")||textFieldEmail.getText().equals("")||passwordFieldPassword.getText().equals("")){

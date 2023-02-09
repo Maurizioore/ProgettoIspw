@@ -22,9 +22,6 @@ public class SingletonConnessione {
         properties.load(is);
         connection=DriverManager.getConnection(URL,USERNAME,(String)properties.get("password"));
     }
-    /*metodo che prende la password mantenuta in un segreto asw, il nome dell'utente che gestisce il segreto
-    * è mycredentials e la regione ce gestisce e' "us-east-1", si collega al aws prende il segreto
-    *  il segreto altro non è che la password del db e la usa per collegarsi al db */
 
     public static Connection getInstance() throws SQLException, ErroreLetturaPasswordException {
         try {

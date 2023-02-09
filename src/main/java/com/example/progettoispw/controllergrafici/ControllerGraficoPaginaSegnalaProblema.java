@@ -10,9 +10,6 @@ public class ControllerGraficoPaginaSegnalaProblema extends ControllerGraficoGen
     //inizio implementando la logica dei buttonComuni
     private final ControllerVisualizzatoreScene controllerVisualizzatoreScene=ControllerVisualizzatoreScene.getInstance(null);
 
-    //inizialmente questo metodo lo avevo messo nell' initialize, purtroppo pero' con questo con i setOnMouseClick nn mi
-    //faceva aprire gli altri pulsanti che sono in comune con le schermate uscendo con il codice 255, e quindi ho deciso
-    //d'implementarlo come metodo a parte fuori dall' initialize
 
     //a questa classe non serve il l'override di initialize, perche' effetivamente quello che dovrebbe fare in quel caso
     //in cui fosse presente e' chiamare super.intialize e basta poiche non ha sui bottoni a parte che condivide con altre

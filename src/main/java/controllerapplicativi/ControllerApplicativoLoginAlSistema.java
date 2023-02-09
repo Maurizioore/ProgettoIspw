@@ -24,13 +24,7 @@ public class ControllerApplicativoLoginAlSistema {
         //questo metodo ritorna true se l'utente e' registrato nel sistema, false altrimenti
         if (loginDao.verificaAccountNelSistema(email, password)) {
             //l'utente è registrato nel sistema, questo viene comunicato al controller applicativo, il quale indirizza
-            //l'utente alla home, altrimenti viene detto che quell'account non esiste
-            //qui l'idea sarebbe di prendere il nome dell'utente e metterlo su schermo e inoltre settare una variabile
-            //globale nel controller applicativo che mostra il codice dell'utente e questa farà capire agli altri
-            //controller che l'utente che sta interagendo con il sistema e' effettivamente un utente registrato
-            //volendo posso mettere questa variabile codice in una variabile statica di una classe e setterla a null
-            //poi quando l'utente fa l'accesso questa viene settata con il codice dell'utente
-            //e' qui che applico state e mi metto online
+            //l'utente alla home
             return ;
         }
         //se l'account non esiste nel sistema( quindi l'if) non viene svolto, lancio una eccezione

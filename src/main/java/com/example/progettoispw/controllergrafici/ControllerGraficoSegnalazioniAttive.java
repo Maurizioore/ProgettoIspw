@@ -14,8 +14,6 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ControllerGraficoSegnalazioniAttive implements Initializable {
-    /*fai check prima di entrare qua se l'utente e' loggato poi per ongni segnalazione aperta prendi
-    * e aggiungi un bottone nella list view */
    @FXML
    private ListView<Label> listViewName;
    @FXML
@@ -30,8 +28,6 @@ public class ControllerGraficoSegnalazioniAttive implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //devo chiedere al database tutte le segnalazioni che quell'utente ha effettuato, quindi le chiedo ad un
         //controller applicativo
-        //volendo potrei mettere un button chiamato mostraSeganalazioni e mettere questo codice nel
-        //mostraSegnalazioni.setOnMouseClicked , almeno se sonar cloud da errore lo risolviamo
         try {
             //questa variabile contatore riporta il numero di segnalazioni ancora attive ell'utente
             BeanListeElementi beanListeElementi=new BeanListeElementi(typeOfSegnalazione);

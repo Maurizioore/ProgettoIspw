@@ -39,7 +39,7 @@ public class PaginaSegnalazionePaloIlluminazioneCli {
                 controllerGraficoPaginaSegnalazionePaloIlluminazioneCli = new ControllerGraficoPaginaSegnalazionePaloIlluminazioneCli(numeroSerialePalo, indirizzo, tipoPersistenza);
                 controllerGraficoPaginaSegnalazionePaloIlluminazioneCli.inviaDatiAlBean();
             }catch(NumberFormatException e){
-                //si verifica se l'utente non digita un numer
+                //si verifica se l'utente non digita un numero
                 System.err.println("digitare solo un numero tra 1 e 2");
                 inserisciInput();
             }

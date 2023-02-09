@@ -35,10 +35,6 @@ public class ControllerGraficoLoginPage extends ControllerGraficoGenerale {
     * per non dover duplicare codice inutilmente*/
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        /*questo ritornaHomeButton è una duplicazione di un codice che si torva anche in ControllerGraficoAllSenzaLogin
-         * in questo caso ho preferito duplicare codice gia esistente poiché è un button in comune alle schermate
-         * secondarie ma non alla principale, ovviamente se si dovesse apportare qualche modifica qui bisognerà fare
-         * il duale nel controller GraficoGraficoAllSenzaLogin */
 
         //se l'utente vuole registrarsi ( e clicca quindi su registrati) verrà caricata questa schermata
         registratiButton.setOnMouseClicked(event->{
@@ -82,9 +78,5 @@ public class ControllerGraficoLoginPage extends ControllerGraficoGenerale {
         //questo avrà i suoi pulsanti e alla fine chiamerà il super di quelli in comune, per non darli al figlio
         //quelli che non sono in comune dovrei farli private
         super.initialize(url,resourceBundle);
-        /*ora devo settare i nomi agli altri pulsanti, devo dare l'accesso i controllerGraficoSenzaAccesso e collegarlo
-        * qui come quelli di sopra, ovviamente accedi e registrati non devo metterli in ControllerGraficoSenzaAccessi
-        * ma devo metterli dentro questa classe come ho fatto per indietroButton, dovrò creare quindi un AccediButton e un
-        * registratiButton e fare come ho fatto per indietroButton dando cosa deve accadere quando clicco con mouse */
     }
 }

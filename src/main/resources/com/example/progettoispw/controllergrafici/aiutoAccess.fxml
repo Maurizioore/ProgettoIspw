@@ -138,12 +138,12 @@
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@Style.css" BorderPane.alignment="CENTER">
                     <children>
                         <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="167.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label fx:id="label1" layoutX="138.0" layoutY="45.0" text="hai bisogno di una mano " textFill="#1d3461">
+                        <Label fx:id="label1" layoutX="138.0" layoutY="45.0" text="hai bisogno di una mano?" textFill="#1d3461">
                             <font>
                                 <Font size="24.0" />
                             </font>
                         </Label>
-                        <Label fx:id="label2" layoutX="20.0" layoutY="124.0" text="consulta il  nostro sito ufficiale www.bo.com" textFill="#1d3461">
+                        <Label fx:id="label2" layoutX="20.0" layoutY="124.0" text="link al sito non disponibile" textFill="#1d3461">
                             <font>
                                 <Font size="24.0" />
                             </font>

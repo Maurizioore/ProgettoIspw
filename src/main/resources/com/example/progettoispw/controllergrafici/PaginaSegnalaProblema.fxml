@@ -137,7 +137,7 @@
             <center>
                 <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@Style.css" BorderPane.alignment="CENTER">
                     <children>
-                        <JFXButton cacheShape="false" centerShape="false" focusTraversable="false" layoutX="84.0" layoutY="59.0" onAction="#segnalaPaloAccess" prefHeight="50.0" prefWidth="292.0" ripplerFill="WHITE" scaleShape="false" style="-fx-background-color: #1D3461;" styleClass="buttonItem" text="segnala problema di un  palo " textFill="#e0e1dd">
+                        <JFXButton cacheShape="false" centerShape="false" focusTraversable="false" layoutX="84.0" layoutY="59.0" onAction="#segnalaPaloAccess" prefHeight="50.0" prefWidth="292.0" ripplerFill="WHITE" scaleShape="false" style="-fx-background-color: #1D3461;" styleClass="buttonItem" text="segnala palo illuminazione" textFill="#e0e1dd">
                             <graphic>
                                 <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
                             </graphic>
@@ -145,7 +145,7 @@
                                 <Font size="18.0" />
                             </font>
                         </JFXButton>
-                        <JFXButton cacheShape="false" centerShape="false" focusTraversable="false" layoutX="84.0" layoutY="143.0" onAction="#segnalaBucaAccess" prefHeight="50.0" prefWidth="292.0" ripplerFill="WHITE" scaleShape="false" style="-fx-background-color: #1D3461;" styleClass="buttonItem" text="segnala problema di una buca" textFill="#e0e1dd">
+                        <JFXButton cacheShape="false" centerShape="false" focusTraversable="false" layoutX="84.0" layoutY="143.0" onAction="#segnalaBucaAccess" prefHeight="50.0" prefWidth="292.0" ripplerFill="WHITE" scaleShape="false" style="-fx-background-color: #1D3461;" styleClass="buttonItem" text="segnala buca stradale" textFill="#e0e1dd">
                             <graphic>
                                 <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
                             </graphic>

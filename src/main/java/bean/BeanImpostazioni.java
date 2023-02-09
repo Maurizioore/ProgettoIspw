@@ -1,6 +1,7 @@
 package bean;
 
 public class BeanImpostazioni {
+    /*bean utilizzato dal controller grafico impostazioni per comunicare con il controller applicativo serializzazione*/
     private String nome;
     private String cognome;
     private int eta;
