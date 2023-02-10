@@ -1,12 +1,3 @@
-Numero seriale palo segnalato: 123456789123
-indirizzo: viarommaaa
-stato: ancora non segnalato al database
-Numero seriale palo segnalato: 123456789123
-indirizzo: via gina
-stato: ancora non segnalato al database
-Numero seriale palo segnalato: 123456789123
-indirizzo: via 1989
-stato: ancora non segnalato al database
-Numero seriale palo segnalato: 123456789123
-indirizzo: via da roma
+Numero seriale palo segnalato: 123456789125
+indirizzo: via roma
 stato: ancora non segnalato al database
