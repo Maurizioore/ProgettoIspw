@@ -3,7 +3,8 @@ import cli.PaginaHome;
 import entita.Account;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import utilityaccesso.UtilityAccesso;
+import utility.Printer;
+import utility.UtilityAccesso;
 
 import java.io.*;
 
@@ -18,9 +19,9 @@ public class StartApplication extends Application {
         //l'app viene lanciata, creiamo quindi un utente di default che possiede come stato di default offline
         UtilityAccesso.setAccount(Account.getInitialAccount());
         BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("---------------------------------------------------------------------");
+        Printer.print("---------------------------------------------------------------------");
         while(true){
-            System.out.println("digitare:\n1 per visualizzare l'app con l'interfaccia grafica\n2 per visualizzare l'app in linea di comando");
+            Printer.print("digitare:\n1 per visualizzare l'app con l'interfaccia grafica\n2 per visualizzare l'app in linea di comando");
             String scelta=bufferedReader.readLine();
             try {
                 Integer.parseInt(scelta);
@@ -42,8 +43,8 @@ public class StartApplication extends Application {
                 paginaHome.displayHomepage();
                 System.exit(0);
             }
-            System.out.println("mi spiace, prova a digitare 1 oppure 2");
-            System.out.println("---------------------------------------------------------------------");
+            Printer.print("mi spiace, prova a digitare 1 oppure 2");
+            Printer.print("---------------------------------------------------------------------");
         }
 
     }

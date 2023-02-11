@@ -1,6 +1,8 @@
 package cli;
 
 import controllergraficicommandlineinterface.ControllerGraficoPagineSegnalazioneBucaStradaleCli;
+import utility.Printer;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,14 +13,14 @@ public class PaginaSegnalazioneBucaStradaleCli {
     public void inserisciInput() throws IOException {
         try{
         BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("-----------------Pagina Segnalazione Buca Stradale-----------------\n" +
+        Printer.print("-----------------Pagina Segnalazione Buca Stradale-----------------\n" +
                 "inserisci indirizzo(digitare esc per uscire): ");
         this.indirizzo=bufferedReader.readLine();
-        System.out.println("inserisci la larghezza della buca in cm(digitare 0 per uscire): ");
+        Printer.print("inserisci la larghezza della buca in cm(digitare 0 per uscire): ");
         String profonditaInserita=bufferedReader.readLine();
         this.larghezza=Integer.parseInt(profonditaInserita);
         if(larghezza>50){
-            System.out.println("inserire numeri esatti(nota se supera i 50 cm inserire comunque 50 cm come valore massimo");
+            Printer.print("inserire numeri esatti(nota se supera i 50 cm inserire comunque 50 cm come valore massimo");
             //torna alla home
             tornaAllaHomePage();
         }
@@ -27,7 +29,7 @@ public class PaginaSegnalazioneBucaStradaleCli {
             tornaAllaHomePage();
         }
         //l'utente ha inserito dati corretti, ora questi li passiamo al controller grafico che li passerà a sua volta al bean
-        System.out.println("digita:\n1 per salvare la buca segnalata nel database\n2 per salvare la buca segnalata in locale");
+        Printer.print("digita:\n1 per salvare la buca segnalata nel database\n2 per salvare la buca segnalata in locale");
         String scelta=bufferedReader.readLine();
         int tipoPersistenza=Integer.parseInt(scelta);
         if(tipoPersistenza!=2){
@@ -37,7 +39,7 @@ public class PaginaSegnalazioneBucaStradaleCli {
         ControllerGraficoPagineSegnalazioneBucaStradaleCli controllerGraficoPagineSegnalazioneBucaStradaleCli=new ControllerGraficoPagineSegnalazioneBucaStradaleCli(indirizzo,larghezza,tipoPersistenza);
         controllerGraficoPagineSegnalazioneBucaStradaleCli.inviaDatiAlBean();
     }catch (NumberFormatException e){
-            System.err.println("inserire numeri dove e' richiesto");
+            Printer.error("inserire numeri dove e' richiesto");
             inserisciInput();
         }
     }

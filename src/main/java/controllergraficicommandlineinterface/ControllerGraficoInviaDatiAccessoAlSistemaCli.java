@@ -5,6 +5,7 @@ import cli.PaginaHome;
 import controllerapplicativi.ControllerApplicativoLoginAlSistema;
 import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.NonEsisteUtenteNelSistemaException;
+import utility.Printer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -29,17 +30,17 @@ public class ControllerGraficoInviaDatiAccessoAlSistemaCli {
             try {
                 new ControllerApplicativoLoginAlSistema(beanAccessoUtente);
                 // se non si e' verificata nessuna eccezione vuol dire che l'accesso e' stato effettuato con successo
-                System.out.println("accesso effettuato, premi qualsiasi tasto per tornare alla home");
+                Printer.print("accesso effettuato, premi qualsiasi tasto per tornare alla home");
                 BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
                 if(bufferedReader.readLine().length()>=1){
                     tornaAllaHome();
                 }
             }catch(SQLException | NonEsisteUtenteNelSistemaException | ErroreLetturaPasswordException| IOException e){
-                System.err.println(e.getMessage());
+                Printer.error(e.getMessage());
                 tornaAllaHome();
             }
         }else{
-            System.err.println(controlliSintatticiEmail);
+            Printer.error(controlliSintatticiEmail);
             tornaAllaHome();
         }
 

@@ -5,7 +5,7 @@ import eccezioni.SegnalazioneGiaAvvenutaException;
 import entita.BucaStradale;
 import entita.EntitaStradale;
 import queries.QueriesSegnalazioneBucaStradale;
-import utilityaccesso.UtilityAccesso;
+import utility.UtilityAccesso;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

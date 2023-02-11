@@ -1,4 +1,4 @@
-package utilityaccesso;
+package utility;
 
 import entita.Account;
 

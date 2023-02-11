@@ -7,6 +7,8 @@ import eccezioni.*;
 
 import factory.TypeEntita;
 import factory.TypeOfPersistence;
+import utility.Printer;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -41,13 +43,13 @@ public class ControllerGraficoPaginaSegnalazionePaloIlluminazioneCli {
             //se non c'e' stata nessuna eccezione vuol dire che la segnalazione e' avvenuta con successo
             //lo comunico all'utente e blocco i pulsanti per non far inviare la stessa segnalazione
             //in caso dovesse premere per sbaglio di nuovo il pulsante invia
-            System.out.println("segnalazione avvenuta con successo\ntorna alla home =)\npremere qualsiasi tasto per tornare alla home: ");
+            Printer.print("segnalazione avvenuta con successo\ntorna alla home =)\npremere qualsiasi tasto per tornare alla home: ");
             BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
             if(bufferedReader.readLine().length()>=1){
                 tornaAllaHome();
             }
         }catch(LunghezzaInputException | TipoEntitaException | SegnalazioneGiaAvvenutaException | NessunAccessoEffettuatoException | SQLException | ErroreLetturaPasswordException |IOException e){
-            System.err.println(e.getMessage());
+            Printer.error(e.getMessage());
             tornaAllaHome();
         }
     }

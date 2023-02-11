@@ -3,7 +3,7 @@ package com.example.progettoispw.controllergrafici;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import utilityaccesso.UtilityAccesso;
+import utility.UtilityAccesso;
 
 import java.net.URL;
 import java.util.ResourceBundle;

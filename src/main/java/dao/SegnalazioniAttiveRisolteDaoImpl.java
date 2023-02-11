@@ -5,7 +5,7 @@ import eccezioni.ErroreLetturaPasswordException;
 import eccezioni.NonEsistonoSegnalazioniException;
 import queries.QueriesPaloIlluminazione;
 import queries.QueriesSegnalazioneBucaStradale;
-import utilityaccesso.UtilityAccesso;
+import utility.UtilityAccesso;
 import java.sql.Connection;
 
 import java.sql.PreparedStatement;

@@ -1,5 +1,7 @@
 package cli;
 
+import utility.Printer;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 
@@ -14,7 +16,7 @@ public class PaginaSegnalazioneProblemaCli {
     public void mostraProblemiChePossonoEssereSegnalati() throws IOException {
         Clear.clear();
         BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("------------------------------------------Pagina Segnalazione Problema------------------------------------------\n" +
+        Printer.print("------------------------------------------Pagina Segnalazione Problema------------------------------------------\n" +
                 "digita:\n" +
                 "1 per segnalare un palo dell'illuminazione\n" +
                 "2 per segnalare una buca stradale\n" +
@@ -23,7 +25,7 @@ public class PaginaSegnalazioneProblemaCli {
         try {
             numeroScelta = Integer.parseInt(scelta);
         } catch (NumberFormatException e) {
-            System.err.println("Input non valido. Inserisci solo numeri.");
+            Printer.error("Input non valido. Inserisci solo numeri.");
         }
         if (numeroScelta == 1) {
             //sta segnalando un palo dell'illuminazione

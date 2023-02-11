@@ -5,7 +5,7 @@ import eccezioni.SegnalazioneGiaAvvenutaException;
 import entita.EntitaStradale;
 import entita.PaloIlluminazione;
 import queries.QueriesPaloIlluminazione;
-import utilityaccesso.UtilityAccesso;
+import utility.UtilityAccesso;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

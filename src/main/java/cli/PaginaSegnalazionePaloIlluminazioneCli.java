@@ -1,9 +1,9 @@
 package cli;
 
 import controllergraficicommandlineinterface.ControllerGraficoPaginaSegnalazionePaloIlluminazioneCli;
+import utility.Printer;
 import java.io.BufferedReader;
 import java.io.IOException;
-
 import java.io.InputStreamReader;
 
 public class PaginaSegnalazionePaloIlluminazioneCli {
@@ -12,23 +12,23 @@ public class PaginaSegnalazionePaloIlluminazioneCli {
     private ControllerGraficoPaginaSegnalazionePaloIlluminazioneCli controllerGraficoPaginaSegnalazionePaloIlluminazioneCli;
     public void inserisciInput() throws IOException{
         Clear.clear();
-        System.out.println("------------------Pagina Segnalazione Palo Illuminazione----------------\n" +
+        Printer.print("------------------Pagina Segnalazione Palo Illuminazione----------------\n" +
                 "inserisci numero seriale palo da segnalare( digitare esc per uscire): ");
         BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
         numeroSerialePalo=bufferedReader.readLine();
-        System.out.println("inserisci indirizzo (digitare esc per uscire): ");
+        Printer.print("inserisci indirizzo (digitare esc per uscire): ");
         indirizzo=bufferedReader.readLine();
         //prima verifichiamo se l'utente vuole uscire dalla schermata
         if(verificaInputUscita(numeroSerialePalo, indirizzo)){
             tornaAllaHomePage();
         }else if(numeroSerialePalo.equals("")|| indirizzo.equals("")){
-            System.out.println("la prossima volta inserisci qualcosa");
+            Printer.print("la prossima volta inserisci qualcosa");
             tornaAllaHomePage();
         }
         else {
             //l'utente non vuole uscire, invio i dati al bean
             //invio i dati al controller grafico della pagina segnalazione problema il quale li invia al bean
-            System.out.println("digita:\n1 se vuoi inviare la segnalazione al database\n2 se vuoi salvarla in locale");
+            Printer.print("digita:\n1 se vuoi inviare la segnalazione al database\n2 se vuoi salvarla in locale");
             try {
                 String scelta = bufferedReader.readLine();
                 int tipoPersistenza = Integer.parseInt(scelta);
@@ -40,7 +40,7 @@ public class PaginaSegnalazionePaloIlluminazioneCli {
                 controllerGraficoPaginaSegnalazionePaloIlluminazioneCli.inviaDatiAlBean();
             }catch(NumberFormatException e){
                 //si verifica se l'utente non digita un numero
-                System.err.println("digitare solo un numero tra 1 e 2");
+                Printer.error("digitare solo un numero tra 1 e 2");
                 inserisciInput();
             }
         }

@@ -11,7 +11,7 @@ import factory.FactoryDao;
 import factory.FactoryEntitaStradale;
 import factory.TypeEntita;
 import factory.TypeOfPersistence;
-import utilityaccesso.UtilityAccesso;
+import utility.UtilityAccesso;
 
 import java.io.IOException;
 import java.sql.SQLException;
