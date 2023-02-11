@@ -56,7 +56,7 @@ public class ControllerGraficoSegnalazioniRisolte implements Initializable{
                 for (int i = 0; i < contatoreBuche; i++) {
                     //aggiungo la label alla view
                     label1 = new Label();
-                    label1.setText(i + 1 + " buca segnalata\n profondità: " + beanListeElementi.restituisciProfonditaBuca(i) + "\nindirizzo: " + beanListeElementi.restituisciIndirizzoBucaStradale(i) + "\nstato: " + beanListeElementi.restituisciStatoBucaStradale(i));
+                    label1.setText(i + 1 + " buca segnalata\n larghezza: " + beanListeElementi.restituisciProfonditaBuca(i) + "\nindirizzo: " + beanListeElementi.restituisciIndirizzoBucaStradale(i) + "\nstato: " + beanListeElementi.restituisciStatoBucaStradale(i));
                     listViewRisolteName.getItems().add(label1);
                 }
             }

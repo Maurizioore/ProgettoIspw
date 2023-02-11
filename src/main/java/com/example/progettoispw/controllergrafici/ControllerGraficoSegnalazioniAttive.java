@@ -33,7 +33,7 @@ public class ControllerGraficoSegnalazioniAttive implements Initializable {
             BeanListeElementi beanListeElementi=new BeanListeElementi(typeOfSegnalazione);
             //passo il bean al controller applicativo che riempira le liste in base alle segnalazioni attive dell'utente
             new ControllerApplicativoTipoSegnalazione(beanListeElementi);
-            //se non e' stata ricevuta nessuna eccezzione vuol dire che non ci sono stati errori e che qualcosa nelle liste
+            //se non e' stata ricevuta nessuna eccezione vuol dire che non ci sono stati errori e che qualcosa nelle liste
             //dei bean e' stato inserito, creo 2 contatori uno che tiene conto dei pali e uno delle buche cosi so' il numero di
             //segnalazioni che l'utente ha per quelle 2 entita
             //contatore che tiene il numero di indirizzi dei pali ( per come ho costrutito il tutto a n indirizzi corrispondono
@@ -62,7 +62,7 @@ public class ControllerGraficoSegnalazioniAttive implements Initializable {
                 for (int i = 0; i < contatoreBuche; i++) {
                     //aggiungo la label alla view
                     label1 = new Label();
-                    label1.setText(i + 1 + " buca segnalata\n profondità: " + beanListeElementi.restituisciProfonditaBuca(i) + "\nindirizzo: " + beanListeElementi.restituisciIndirizzoBucaStradale(i) + "\nstato: " + beanListeElementi.restituisciStatoBucaStradale(i));
+                    label1.setText(i + 1 + " buca segnalata\n larghezza: " + beanListeElementi.restituisciProfonditaBuca(i) + "\nindirizzo: " + beanListeElementi.restituisciIndirizzoBucaStradale(i) + "\nstato: " + beanListeElementi.restituisciStatoBucaStradale(i));
                     listViewName.getItems().add(label1);
                 }
             }
