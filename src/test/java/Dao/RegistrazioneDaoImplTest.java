@@ -1,4 +1,4 @@
-package org.example;
+package Dao;
 
 import dao.RegistrazioneDaoImpl;
 import eccezioni.ErroreLetturaPasswordException;

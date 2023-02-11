@@ -1,7 +1,6 @@
 package com.example.progettoispw.controllergrafici;
 import cli.PaginaHome;
 import entita.Account;
-
 import javafx.application.Application;
 import javafx.stage.Stage;
 import utilityaccesso.UtilityAccesso;

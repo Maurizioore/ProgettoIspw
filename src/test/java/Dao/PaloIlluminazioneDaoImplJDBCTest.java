@@ -1,4 +1,4 @@
-package org.example;
+package Dao;
 
 import dao.PaloIlluminazioneDaoImplJDBC;
 import eccezioni.ErroreLetturaPasswordException;
