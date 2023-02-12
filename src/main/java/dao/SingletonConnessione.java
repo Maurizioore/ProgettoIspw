@@ -35,9 +35,15 @@ public class SingletonConnessione {
         }
         return connection;
     }
-    public static void closeConnection() throws SQLException {
+    public static void closeConnection()  {
         if (connection != null) {
-            connection.close();
+            try {
+                connection.close();
+            }catch (SQLException e){
+                //ho provato tutti i casi possibili e non viene mai lanciata un eccezione del tipo sql exception
+                //da questo metodo
+                System.exit(-2);
+            }
         }
     }
 }

@@ -4,12 +4,9 @@ import controllergraficicommandlineinterface.ControllerGraficoHome;
 import controllergraficicommandlineinterface.ControllerGraficoLoginCli;
 import dao.SingletonConnessione;
 import utility.Printer;
-
 import java.io.BufferedReader;
 import java.io.IOException;
-
 import java.io.InputStreamReader;
-import java.sql.SQLException;
 
 public class PaginaHome {
     private ControllerGraficoLoginCli controllerGraficoLoginCli=new ControllerGraficoLoginCli();
@@ -53,14 +50,9 @@ public class PaginaHome {
                 this.controllerGraficoLoginCli.accediAlSistema();
             }
             if(numeroScelta==5){
-                try {
-                    SingletonConnessione.closeConnection();
-                }catch (SQLException e){
-                    //per come è strutturata l'applicazione non si entra mai in questa eccezione, ho provato in tutti i
-                    //modi ma non viene mai generata un eccezione sql exception
-                    Printer.error("chiusura connessione database fallita");
-                    System.exit(-2);
-                }
+                SingletonConnessione.closeConnection();
+                //per come è strutturata l'applicazione non si entra mai in questa eccezione, ho provato in tutti i
+                //modi ma non viene mai generata un eccezione sql exception
                 Printer.print("grazie per aver usato l'applicazione, arrivederci =)");
                 System.exit(0);
             }

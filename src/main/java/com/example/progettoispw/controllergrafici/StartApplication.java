@@ -9,7 +9,6 @@ import javafx.stage.Stage;
 import utility.Printer;
 import utility.UtilityAccesso;
 import java.io.*;
-import java.sql.SQLException;
 
 public class StartApplication extends Application {
     @Override
@@ -19,12 +18,7 @@ public class StartApplication extends Application {
         controllerVisualizzatoreScene.visualizzaScenaPrincipale(schermataPrincipale);
         stage.setOnCloseRequest(windowEvent->{
             windowEvent.consume();
-            try{
-                logout(stage);
-            }catch(SQLException e){
-                //qui non viene mai generata un eccezione, non si entra mai in questo catch, nel caso forzo l'uscita
-                System.exit(-2);
-            }
+            logout(stage);
         });
     }
     public static void main(String[] args) throws IOException {
@@ -60,7 +54,7 @@ public class StartApplication extends Application {
         }
 
     }
-    public void logout(Stage stage) throws SQLException {
+    public void logout(Stage stage){
         //metodo che si attiva se con l'interfaccia grafica clicco sulla "x" di uscita, avverte l'utente (grazie ad
         //una finestra) che sta uscendo dal sistema e gli fa decidere se uscire oppure no
         Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
