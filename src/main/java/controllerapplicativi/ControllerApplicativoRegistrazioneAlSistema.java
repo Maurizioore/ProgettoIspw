@@ -17,6 +17,7 @@ public class ControllerApplicativoRegistrazioneAlSistema {
         username=bean.getUsername();
         password= bean.getPassword();
         registraUtente();
+        int a;
     }
     private void registraUtente() throws SQLException, UtenteEsistenteException, ErroreLetturaPasswordException {
         //devo usare un dao per prendere la connessione e far registrare l'utente nel sistema
